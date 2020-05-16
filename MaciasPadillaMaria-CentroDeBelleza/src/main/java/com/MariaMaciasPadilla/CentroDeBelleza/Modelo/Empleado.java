@@ -2,10 +2,15 @@ package com.MariaMaciasPadilla.CentroDeBelleza.Modelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,8 +31,8 @@ public class Empleado extends Usuario{
 	
 	
 	public Empleado(String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String email,
-			String dni, double sueldo, boolean esAdmin) {
-		super(nombre, apellidos, fechaNacimiento, telefono, email);
+			String password, String dni, double sueldo, boolean esAdmin) {
+		super(nombre, apellidos, fechaNacimiento, telefono, email, password);
 		this.dni = dni;
 		this.sueldo = sueldo;
 		this.esAdmin = esAdmin;
@@ -47,6 +52,13 @@ public class Empleado extends Usuario{
 	public void removeReservaE(Reserva r) {
 		this.reservasE.remove(r);
 		r.setEmpleado(null);
+	}
+	
+	// implementación de la seguridad por usuario
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
 	}
 	
 	

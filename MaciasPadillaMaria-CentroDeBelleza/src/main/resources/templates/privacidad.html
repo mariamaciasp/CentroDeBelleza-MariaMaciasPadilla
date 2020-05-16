@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Política de Privacidad</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="/css/CSS.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<header class="carrusel">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" th:href="@{index}">Mima-T</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Peluquería</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Corte de pelo</a>
+			          	<a class="dropdown-item" href="#">Tinte y mechas</a>
+          				<a class="dropdown-item" href="#">Lavado y peinado</a>
+          				<a class="dropdown-item" href="#">Tratamientos capilares</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Maquillaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Maquillaje de novias</a>
+			          	<a class="dropdown-item" href="#">Maquillaje exprés en 30 minutos</a>
+          				<a class="dropdown-item" href="#">Maquillaje en 60 minutos</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uñas</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Manicura</a>
+			          	<a class="dropdown-item" href="#">Pedicura</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Depilación</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Depilación con cera</a>
+			          	<a class="dropdown-item" href="#">Depilación láser</a>
+          				<a class="dropdown-item" href="#">Depilación con hilo</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Masaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Masaje relajante</a>
+			          	<a class="dropdown-item" href="#">Masaje en pareja</a>
+          				<a class="dropdown-item" href="#">Masaje Tailandés</a>
+          				<a class="dropdown-item" href="#">Fisioterapia</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Tratamientos</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Limpieza facial</a>
+			          	<a class="dropdown-item" href="#">Peeling químico</a>
+          				<a class="dropdown-item" href="#">Diseño y tinte de cejas</a>
+        				</div>
+      				</li>
+
+				</ul>
+
+				<form class="form-inline my-2 my-lg-0">
+					
+					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" id="buscar" class="btn">
+						<span class="fas fa-search fa-lg"></span>
+					</button>
+
+					<a href="./InicioSesion.html" class="btn">
+						<span class="far fa-user fa-lg"></span>
+					</a>
+
+					<a href="#" class="btn">
+						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
+					</a>
+
+    			</form>
+				
+
+
+			</div>
+		</nav>
+
+	</header>
+
+
+	<main class="container">
+		<div class="row bg-light mt-4 mb-4 rounded">
+			<div class="m-4">
+				<h1>Política de privacidad</h1>
+				
+				<p> La presente Política de Privacidad aplica tanto para los servicios prestados a través de la web de Mima-T 2000 S.L., puesta a disposición del público en la URL <a class="text-body" href="Inicio.html">https://mima-t.com/</a> (también referida como “Mima-T” o, el “Portal”), así como para aquellos servicios y tratamientos que se presten a través de las clínicas y centros de Mima-T puestos a disposición de pacientes y clientes para tratamientos de salud y belleza.</p>
+
+				<p> Esta Política de Privacidad podrá ser actualizada cuando resulte necesario. En caso de introducirse modificaciones, se lo comunicaremos a través de la página web o bien por otros medios, con la finalidad de que pueda conocer las nuevas condiciones de Privacidad. El hecho de continuar haciendo uso de las funcionalidades puestas a disposición por nuestra compañía después de haberle notificado las referidas modificaciones supondrá que está de acuerdo con las mismas, salvo para aquellas finalidades que requieran de su consentimiento expreso.</p>
+
+				<p> En cumplimiento de lo dispuesto en el Reglamento General de Protección de datos 2016/679, la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales y demás normativa aplicable en materia de protección de datos, se informa al Usuario del Portal de los siguientes aspectos relativos al tratamiento de sus datos personales:</p>
+
+				<br>
+				<ol>
+					<li>¿Quién es el Responsable del tratamiento de sus datos personales?</li>
+					<br>
+					<p> Los datos de carácter personal que el interesado facilite mediante la cumplimentación de cualquier formulario del sitio web o cualquier tratamiento o servicio que se le pueda prestar, serán recogidos y tratados de forma automatizada por Mima-T 2010 S.L., con domicilio en Calle Condes de Bustillo, 17, 41010 Sevilla.</p>
+					<p> Para la adecuada gestión del tratamiento de sus datos personales, Mima-T tiene designado un delegado de protección de datos (DPD), al que podrá dirigirse para dirimir cualquier cuestión relativa a sus datos personales, dirigiendo su solicitud a la siguiente dirección electrónica con el asunto “Protección de datos”: privacidad@mima-t.com</p>
+					<br>
+					<li>¿Con qué finalidad tratamos sus datos personales?</li>
+					<p>El tratamiento de los datos personales que lleve a cabo Mima-T se llevará a cabo para el desarrollo de las siguientes finalidades:</p>
+
+					<ul>
+						<li>Para usuarios del Portal.</li>
+						<p>Los datos personales que sean facilitados por los usuarios de la presente página web y/o por los usuarios de cualesquiera páginas web de TBC, serán tratados para las siguientes finalidades:</p> 
+						<ul>
+							<li><strong> Tratamiento y gestión de las consultas recibidas.</strong> Los datos personales de los usuarios que contactan con Mima-T a través de cualquiera de los canales o formularios de contacto puestos a disposición en el Portal serán tratados con la finalidad de gestionar dicha solicitud, atender los requerimientos de información recibidos o prestar los servicios requeridos, como puede ser, en su caso, prestar servicios de atención al consumidor, tramitar una cita previa o cualquier otra relación de carácter precontractual.</li>
+							<li><strong>Marketing postventa,</strong> como puede ser la remisión de tratamientos o información sobre productos similares a los que haya podido contratar a través de la web.</li>
+							<li><strong>Llevar a cabo el cumplimiento de obligaciones legales</strong> que, en su caso, puedan ser de aplicación a Mima-T.</li>
+							<li><strong>Para clientes y pacientes </strong>de Mima-T.</li>
+							<br>
+						</ul>
+						
+						<li>Los datos personales que sean facilitados a Mima-T a través de los formularios y demás documentos que se pone a disposición de sus clientes y pacientes serán tratados para el desarrollo de las siguientes finalidades:</li>
+						<br>
+						<ul>
+							<li>Desarrollo de los tratamientos y servicios contratados. Mima-T tratará sus datos personales para finalidades tales como la realización del tratamiento interesado, el mantenimiento y seguimiento del mismo, gestionar los servicios contratados a través de los distintos canales habilitados al efecto o gestionar la puesta a disposición de productos facilitados a través de sus centros.</li>
+							<li>Gestionar y conservar el historial de los pacientes para garantizar la adecuada atención de los mismos.</li>
+							<li>Cumplir con la normativa vigente, especialmente en lo relativo a los tratamientos de salud y atención sanitaria que pueda ser de aplicación.</li>
+							<li>En su caso, tomar imágenes de los pacientes para determinar el grado de eficacia del tratamiento recibido.</li>
+							<li>En su caso, llevar a cabo comunicaciones de carácter comercial postventa sobre otros productos o tratamientos similares a los contratados que puedan ser del interés del cliente o paciente.</li>						
+						</ul>
+					</ul>
+
+					<br>
+					<br>
+					<li>¿Qué datos son tratados por Mima-T y de qué fuentes proceden?</li>
+					<br>
+					<p>Mima-T recaba los datos personales que trata a través de alguna de las siguientes fuentes:</p>
+					<ul>
+						<li>Datos aportados por el usuario mediante la cumplimentación de los formularios puestos a disposición para el Usuario o por cualquier otra vía mediante la que el usuario entable comunicación con el responsable.</li>
+						<li>Datos generados como consecuencia de la navegación y uso por parte del usuario de las webs de Mima-T.</li>
+						<li>Datos obtenidos de fuentes externas (p.ej., redes sociales, etc.).</li>
+						Igualmente, TBC podrá tratar datos personales de las siguientes tipologías, en función de la relación entablada con el usuario:
+
+
+						<ul>
+							<br>
+							<li>Para usuarios del Portal:</li>
+							<br>
+							<ul>
+								<li>Datos identificativos, tales como nombre o apellidos.</li>
+								<li>Datos de contacto, como correo electrónico, dirección postal, teléfono o dirección.</li>
+								<li>Datos de características personales.</li>
+							</ul>
+							<br>
+
+							<li>Para clientes y pacientes de Mima-T.</li>
+							<br>
+							<ul>
+								<li>Datos identificativos, tales como nombre o apellidos.</li>
+								<li>Datos de contacto, como correo electrónico, dirección postal, teléfono o dirección.</li>
+								<li>Datos de características personales.</li>
+								<li>Datos de salud.</li>
+								<li>Imagen o fotografías.</li>
+
+							</ul>
+						</ul>
+					</ul>
+					
+					<br>
+					<br>
+					<li>¿Cuál es la legitimación legal para el tratamiento de sus datos por parte de Beauty Concept?</li>
+					<p>A través de las distintas interacciones que el interesado realice a través de los servicios, navegación en el Portal o tratamientos contratados con Mima-T derivarán en alguna de las siguientes bases legitimadoras:</p>
+					<ul>
+						<li>En base al mantenimiento y desarrollo de relaciones contractuales o precontractuales, tales como la gestión del formulario de contacto para consultas o requerimientos de información, la ejecución de servicios contratados por pacientes y clientes, el mantenimiento y control de los tratamientos proporcionados, la atención de servicio postventa o cualquier otra relación jurídica que pueda derivarse de las mismas.</li>
+						<li>El consentimiento del interesado, para toda aquella actividad de tratamiento que, así lo requiera, y que será recabado conforme a los criterios exigidos por la normativa aplicable.</li>
+						<li>El cumplimiento de obligaciones legales, para aquellos supuestos en los que Mima-T deba llevar a cabo alguna comunicación o tratamiento específico derivado de la normativa que le sea de aplicación o por requerimiento de una autoridad competente.</li>
+					</ul>
+
+					<br>
+					<br>
+					<li>¿A quién se comunican sus datos?</li>
+					<br>
+					<p>Los datos tratados por Mima-T podrán ser comunicados a los siguientes destinatarios en función de la base legitimadora de la comunicación.</p>
+					<ul>
+						<li>Proveedores que sean necesarios, con el fin único y exclusivo de cumplir con la relación de negocio formalizada. En ningún caso podrán dichos terceros proveedores realizar acciones comerciales o promocionales directas a los Usuarios ni comunicar dichos datos a terceras personas o entidades de su mismo grupo, cualquiera que fuera la finalidad de la comunicación, recayendo exclusivamente sobre dichos terceros proveedores la responsabilidad que corresponda en caso de incumplimiento de lo anterior.</li>
+						<li>Otras sociedades pertenecientes al grupo Mima-T para el correcto desarrollo y gestiones administrativas que puedan ser necesarios.</li>
+					</ul>
+
+
+					<br>
+					<br>
+					<li>¿Por cuánto tiempo conservamos sus datos?</li>
+					<br>
+					<p>Mima-T 2000 S.L. conservará sus datos personales por el periodo de tiempo necesario para el alcance de las finalidades determinadas, y que en ningún caso excederá de los plazos legalmente establecidos.</p>
+					<p>Posteriormente, siempre que el usuario no haya ejercido su derecho de supresión, sus datos serán conservados durante los plazos legales que en cada caso resulten de aplicación, teniendo en cuenta la tipología de los datos, así como la finalidad del tratamiento y los plazos que legalmente puedan ser de aplicación.</p>
+					<br>
+
+					<li>¿Qué datos personales debe facilitarnos en cada caso?</li>
+					<br>
+					<p>Mima-T informa a los usuarios que, cuando los datos personales sean recabados a través de un formulario puesto a disposición a través de nuestra página web, será necesario que el usuario aporte, al menos, aquellos datos marcados con un asterisco (*). En caso de no suministrar al menos tales datos, considerados como necesarios, Mima-T no se podrá dar de alta al usuario en el servicio.</p>
+					<p>La no cumplimentación por parte del Usuario de todos los campos que aparecen como obligatorios en el formulario de alta puede impedir que algún representante de Mima-T se pueda poner en contacto con él.</p>
+
+					<br>
+					<li>¿Qué debe garantizarnos al aportar sus datos de carácter personal?</li>
+					<p>El usuario garantiza que los datos que aporte son verdaderos, exactos, completos y se encuentran actualizados, siendo responsable de cualquier daño o perjuicio, directo o indirecto, que pudiera ocasionarse como consecuencia del incumplimiento de tal obligación.</p>
+					<p>El Usuario se compromete y obliga a comunicar de forma inmediata al Responsable del tratamiento cualquier modificación de sus datos de carácter personal a fin de que la información contenida en sus ficheros esté en todo momento actualizada y no contenga errores.</p>
+					<br>
+
+					<li>¿Qué medidas adoptamos para proteger sus datos personales?</li>
+					<br>
+					<p>Con el fin de garantizar la seguridad y confidencialidad de sus datos, Mima-T se compromete a tratar de forma absolutamente confidencial los datos de carácter personal del Usuario, haciendo uso de los mismos exclusivamente para las finalidades indicadas en esta política de privacidad. Mima-T ha adoptado niveles de seguridad requeridos en materia de protección de datos y tienen implantadas las medidas de seguridad de índole técnica y organizativas necesarias que garanticen la seguridad de sus datos de carácter personal y eviten su alteración, pérdida, tratamiento y/o acceso no autorizado, habida cuenta del estado de la tecnología, la naturaleza de los datos almacenados y los riesgos a que están expuestos, ya provengan de la acción humana o del medio físico o natural. En todo caso, debe tener en consideración que las medidas de seguridad en Internet no son inexpugnables.</p>
+					<br>
+
+					<li>¿Cuáles son sus derechos sobre sus datos personales?</li>
+					<br>
+					<p>Mima-T le informa que tiene derecho a obtener confirmación sobre si estamos tratando datos personales que le conciernen o no. Del mismo modo, Mima-T le informa que usted cuenta con los siguientes derechos sobre sus datos de carácter personal:</p>
+					<ul>
+						<li>Acceder a sus datos. Tiene derecho a acceder a sus datos para conocer qué datos personales estamos tratando que le conciernen.</li>
+						<li>Solicitar la rectificación o supresión de sus datos. En determinadas circunstancias, Ud. tiene derecho a rectificar aquellos datos personales inexactos que le conciernen que sean objeto de tratamiento por nuestra parte o, incluso, a solicitarnos su supresión cuando, entre otros motivos, los datos ya no fueran necesarios para los fines que fueron recogidos.</li>
+						<li>Solicitar la limitación del tratamiento de sus datos. En determinadas circunstancias, Ud. tendrá derecho a solicitarnos la limitación del tratamiento de sus datos, en cuyo caso le informamos que únicamente los conservaremos para el ejercicio o defensa de reclamaciones tal y como prevé el Reglamento General de Protección de Datos.</li>
+						<li>A la portabilidad de sus datos. En determinadas circunstancias, Ud. tendrá derecho a recibir los datos personales que le incumban, y que nos haya facilitado, en un formato estructurado, de uso común y lectura mecánica, y a transmitirlos a otro responsable del tratamiento.</li>
+						<li>Oponerse al tratamiento de sus datos. En determinadas circunstancias y por motivos relacionados con su situación particular, Ud. tendrá derecho a oponerse al tratamiento de sus datos en cuyo caso, dejaríamos de tratarlos salvo que por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</li>
+						<li>Derecho a no ser objeto de decisiones automatizadas. Tiene Ud. Derecho a no ser objeto de una decisión basada únicamente en el tratamiento automatizado, incluida la elaboración de perfiles, que produzca efectos jurídicos en él o le afecte significativamente de modo similar.</li>
+					</ul>
+				</ol>
+				<br>
+				<p>Para el ejercicio de los derechos reconocidos, el interesado podrá ponerse en contacto dirigiendo un escrito a Mima-T a la dirección indicada anteriormente: privacidad@mima-t.com</p>
+				<p>Responderemos a sus peticiones a la mayor brevedad posible y, en todo caso, en el plazo de un mes desde la recepción de su solicitud. Dicho plazo podrá prorrogarse otros dos meses en caso necesario, teniendo en cuenta la complejidad y el número de solicitudes. El responsable informará al interesado de la prórroga dentro del primer mes desde la solicitud.</p>
+				<p>Mima-T le informa que podrá presentar reclamación ante la Autoridad de Control competente en materia de protección de datos, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, a estos efectos debe dirigirse ante la Agencia Española de Protección de Datos.</p>
+			
+			</div>
+
+		</div>
+		
+	
+	</main>
+
+	<footer class="bg-secondary">
+		<div class="container mb-2 mt-2"> 
+			<div class="row">
+				<div class="letraFooter col-sm-12 text-center mt-1">
+					<span class="fab fa-cc-visa fa-lg ml-2"></span>
+					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
+					<span class="fab fa-cc-amex fa-lg ml-2"></span>
+					<span class="fab fa-paypal fa-lg ml-2"></span>
+					<span class="fab fa-cc-paypal fa-lg"></span>
+				</div>
+			
+				<div class="col-sm-12 text-center mt-1">
+					© 2020 MIMA-T Todos los derechos reservados
+				</div>
+
+				<div class="col-sm-6 text-right ml-3">
+					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
+					
+				</div>
+			
+				<div class="col-sm-5 text-left">
+					
+					<a class="text-white" th:href="@{/cookies}">Política de Cookies</a>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+
+		</div>
+
+	</footer>
+
+
+</body>
+</html>

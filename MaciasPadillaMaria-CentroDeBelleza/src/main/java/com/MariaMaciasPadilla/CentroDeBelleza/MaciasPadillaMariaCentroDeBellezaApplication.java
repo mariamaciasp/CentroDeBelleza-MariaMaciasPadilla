@@ -7,11 +7,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Cliente;
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Empleado;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Tratamiento;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.ReservaServicio;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.TratamientoServicio;
+import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.UsuarioServicio;
 
 @SpringBootApplication
 public class MaciasPadillaMariaCentroDeBellezaApplication {
@@ -19,6 +23,51 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MaciasPadillaMariaCentroDeBellezaApplication.class, args);
 	}
+	
+	
+	/*
+	@Bean
+	public CommandLineRunner init(UsuarioServicio servicio, PasswordEncoder passwordEncoder) {
+		return args -> {
+			
+			Empleado emple = new Empleado();
+			emple.setEmail("luismi.lopez@email.com");
+			emple.setPassword(passwordEncoder.encode("1234"));
+			emple.setFechaNacimiento(LocalDate.of(2010, 1, 1));
+			
+			servicio.save(emple);
+			
+			Cliente cliente = new Cliente();
+			cliente.setEmail("angel.naranjo@email.com");
+			cliente.setPassword(passwordEncoder.encode("1234"));
+			cliente.setFechaNacimiento(LocalDate.of(1990, 1, 1));
+			
+			servicio.save(cliente);
+			
+			
+		};
+	}*/
+	
+	@Bean
+	public CommandLineRunner init(UsuarioServicio servicio, PasswordEncoder passwordEncoder) {
+		return args -> {
+			
+			Empleado emple = new Empleado();
+			emple.setEmail("mariamaciaspadilla@gmail.com");
+			emple.setPassword(passwordEncoder.encode("1234"));
+			
+			servicio.save(emple);
+			
+			Cliente cliente = new Cliente();
+			cliente.setEmail("angel.naranjo@gmail.com");
+			cliente.setPassword(passwordEncoder.encode("1234"));
+			cliente.setFechaNacimiento(LocalDate.of(1990, 1, 1));
+			
+			servicio.save(cliente);
+			
+			
+		};/*
+	
 	
 	@Bean
 	public CommandLineRunner init(TratamientoServicio tratamientoServicio, ReservaServicio reservaServicio) {
@@ -50,7 +99,7 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 				r.setTratamientos(tratamientos);;
 				reservaServicio.edit(r);
 			}*/
-			
+			/*
 			System.out.println("\n---reservaServicio.findAll()---\n");
 			listaReservas = reservaServicio.findAll();
 			
@@ -70,7 +119,7 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 				System.out.println(t);
 			}
 			
-		};
+		};*/
 		
 	}
 

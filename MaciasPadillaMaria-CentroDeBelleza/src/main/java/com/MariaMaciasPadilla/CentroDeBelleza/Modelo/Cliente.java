@@ -1,10 +1,15 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Modelo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,6 +22,11 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @Entity
 public class Cliente extends Usuario{
+	
+	/**
+	 *  ESTO PARA QUE ES??? ME HACE IMPLEMENTARLO!
+	 */
+	//private static final long serialVersionUID = 1L;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
@@ -31,6 +41,12 @@ public class Cliente extends Usuario{
 	public void removeReservaC(Reserva r) {
 		this.reservasC.remove(r);
 		r.setCliente(null);
+	}
+	
+	// implementar método para la seguridad
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
 	}
 
 	

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Registro</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/CSS.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/JSCentroBelleza.js"></script>
+
+	<script type="text/javascript" src="js/libreriaFechas.js"></script>
+
+	
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" th:href="@{/index}">Mima-T</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Peluquería</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Corte de pelo</a>
+			          	<a class="dropdown-item" href="#">Tinte y mechas</a>
+          				<a class="dropdown-item" href="#">Lavado y peinado</a>
+          				<a class="dropdown-item" href="#">Tratamientos capilares</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Maquillaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Maquillaje de novias</a>
+			          	<a class="dropdown-item" href="#">Maquillaje exprés en 30 minutos</a>
+          				<a class="dropdown-item" href="#">Maquillaje en 60 minutos</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uñas</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Manicura</a>
+			          	<a class="dropdown-item" href="#">Pedicura</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Depilación</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Depilación con cera</a>
+			          	<a class="dropdown-item" href="#">Depilación láser</a>
+          				<a class="dropdown-item" href="#">Depilación con hilo</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Masaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Masaje relajante</a>
+			          	<a class="dropdown-item" href="#">Masaje en pareja</a>
+          				<a class="dropdown-item" href="#">Masaje Tailandés</a>
+          				<a class="dropdown-item" href="#">Fisioterapia</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Tratamientos</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Limpieza facial</a>
+			          	<a class="dropdown-item" href="#">Peeling químico</a>
+          				<a class="dropdown-item" href="#">Diseño y tinte de cejas</a>
+        				</div>
+      				</li>
+
+				</ul>
+
+
+				<form class="form-inline my-2 my-lg-0">
+					
+					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" id="buscar" class="btn">
+						<span class="fas fa-search fa-lg"></span>
+					</button>
+
+					<a href="./InicioSesion.html" class="btn">
+						<span class="far fa-user fa-lg"></span>
+					</a>
+
+					<a href="#" class="btn">
+						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
+					</a>
+
+    			</form>
+			</div>
+		</nav>
+
+	</header>
+
+
+	<main class="container-fluid">
+		<div class="row mt-5">
+			<div class="col-3"></div>
+			<form id="formulario" class="col-6 bg-light mb-5 rounded" onsubmit="return revisarFormulario();">
+				<fieldset class="mt-2 ml-1">
+					<legend class="mb-3">Regístrate</legend>
+					<div class="input-group mb-3 w-75 ">
+					    <div class="input-group-prepend ml-2">
+					      <label for="nombre" class="input-group-text">Nombre*</label>
+					    </div>
+					    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>				    
+					</div>				
+					<div class="mensajeError" id="errorNombre" >Nombre Incorrecto</div>
+					<div class="input-group mb-3 w-75">
+					    <div class="input-group-prepend ml-2">
+					      <label for="apellidos" class="input-group-text">Apellidos*</label>
+					    </div>
+					    <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos" required>
+					</div>
+					<div class="mensajeError" id="errorApellidos" >Apellido Incorrecto</div>
+
+					<div class="input-group mb-3 w-75">
+					    <div class="input-group-prepend ml-2">
+					      <label for="fnac" class="input-group-text">Fecha Nacimiento</label>
+					    </div>
+					    <input type="date" id="fnac" name="fnac" class="form-control">
+					</div>
+					<div class="mensajeError" id="errorFecha" >Debe ser mayor de edad</div>
+
+					<div class="input-group mb-3 w-75">
+					    <div class="input-group-prepend ml-2 mb-4">
+					      <label for="telefono" class="input-group-text">Número de teléfono</label>
+					    </div>
+					    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Teléfono" required>
+					</div>
+					
+					<div class="input-group w-75">
+					    <div class="input-group-prepend ml-2">
+					      <label for="email" class="input-group-text">Correo electrónico*</label>
+					    </div>
+					    <input type="mail" id="email" name="email" class="form-control" placeholder="email@mail.com" required>
+					</div>
+					<div class="mensajeError mb-3" id="errorEmail" >Correo Electrónico Incorrecto</div>
+					<div class="input-group mb-3 w-75">
+					    <div class="input-group-prepend ml-2 mb-4">
+					      <label for="pwd1" class="input-group-text">Contraseña*</label>
+					    </div>
+					    <input type="password" id="pwd1" name="pwd1" class="form-control" required>
+					</div>
+					<div class="input-group mb-3 w-75">
+					    <div class="input-group-prepend ml-2 mb-1">
+					      <label for="pwd2" class="input-group-text">Repetir Contraseña*</label>
+					    </div>
+					    <input type="password" id="pwd2" name="pwd2" class="form-control" required>
+					</div>
+					<div class="mensajeError mb-4" id="errorPwd" ></div>
+					
+					<button type="reset" class="btn btn-secondary mb-4 ">Limpiar</button>
+					<button type="submit" id="enviar" class="btn btn-danger mb-4 float-right">Enviar</button>
+				</fieldset>
+			</form>
+			<div class="col-3"></div>
+		</div>
+	</main>
+
+
+
+
+	<footer class="bg-secondary">
+		<div class="container mb-2 mt-2"> 
+			<div class="row">
+				<div class="letraFooter col-sm-12 text-center mt-1">
+					<span class="fab fa-cc-visa fa-lg ml-2"></span>
+					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
+					<span class="fab fa-cc-amex fa-lg ml-2"></span>
+					<span class="fab fa-paypal fa-lg ml-2"></span>
+					<span class="fab fa-cc-paypal fa-lg"></span>
+				</div>
+			
+				<div class="col-sm-12 text-center mt-1">
+					© 2020 MIMA-T Todos los derechos reservados
+				</div>
+
+				<div class="col-sm-6 text-right ml-3">
+					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
+					
+				</div>
+			
+				<div class="col-sm-5 text-left">
+					
+					<a class="text-white"  th:href="@{/cookies}">Política de Cookies</a>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+
+			
+		</div>
+
+	</footer>
+
+
+
+</body>
+</html>

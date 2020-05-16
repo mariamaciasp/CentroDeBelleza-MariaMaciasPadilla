@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Política de Cookies</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="/css/CSS.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<header class="carrusel">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" th:href="@{index}">Mima-T</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Peluquería</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Corte de pelo</a>
+			          	<a class="dropdown-item" href="#">Tinte y mechas</a>
+          				<a class="dropdown-item" href="#">Lavado y peinado</a>
+          				<a class="dropdown-item" href="#">Tratamientos capilares</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Maquillaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Maquillaje de novias</a>
+			          	<a class="dropdown-item" href="#">Maquillaje exprés en 30 minutos</a>
+          				<a class="dropdown-item" href="#">Maquillaje en 60 minutos</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uñas</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Manicura</a>
+			          	<a class="dropdown-item" href="#">Pedicura</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Depilación</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Depilación con cera</a>
+			          	<a class="dropdown-item" href="#">Depilación láser</a>
+          				<a class="dropdown-item" href="#">Depilación con hilo</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Masaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Masaje relajante</a>
+			          	<a class="dropdown-item" href="#">Masaje en pareja</a>
+          				<a class="dropdown-item" href="#">Masaje Tailandés</a>
+          				<a class="dropdown-item" href="#">Fisioterapia</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Tratamientos</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Limpieza facial</a>
+			          	<a class="dropdown-item" href="#">Peeling químico</a>
+          				<a class="dropdown-item" href="#">Diseño y tinte de cejas</a>
+        				</div>
+      				</li>
+
+				</ul>
+
+
+
+
+				<form class="form-inline my-2 my-lg-0">
+					
+					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" id="buscar" class="btn">
+						<span class="fas fa-search fa-lg"></span>
+					</button>
+
+					<a href="./InicioSesion.html" class="btn">
+						<span class="far fa-user fa-lg"></span>
+					</a>
+
+					<a href="#" class="btn">
+						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
+					</a>
+
+    			</form>
+				
+
+
+			</div>
+		</nav>
+
+	</header>
+
+
+	<main class="container">
+		<div class="row bg-light mt-4 mb-4 rounded">
+			<div class="m-4">
+				<h1>Política de cookies</h1>
+				<p>El presente sitio es titularidad de Mima-T 2000 S.L. (en adelante, “Mima-T”).</p>
+				<p>Nuestra Política de Cookies está sujeta a actualizaciones periódicas. Su propósito es ayudarle a comprender el uso que hacemos de las cookies, la finalidad de las cookies utilizadas, así como las opciones que tiene el usuario para gestionarlas.</p>
+				<p>Los usuarios pueden acceder a esta información en todo momento a través del link habilitado en la web (información legal). Asimismo, podrán modificar sus preferencias sobre la aceptación de cookies a través de las opciones de su navegador, pudiendo rechazar en cualquier momento el uso de las cookies, salvo aquellas que sean necesarias para el correcto funcionamiento del sitio web.</p>
+				
+				<ul>
+					<li>¿Qué es una Cookie?</li>
+					<p>Una cookie es un fichero que se descarga en el terminal desde el que el usuario accede al sitio web (ya sea PC, smartphone, tablet u otro tipo de dispositivo con capacidad de conexión a Internet) y que permite al titular del sitio web almacenar o recuperar determinada información sobre múltiples variables como, por ejemplo, el número de veces que la página ha sido visitada, identificar el usuario registrado, garantizar la sesión del usuario mientras navega por la página, recodar formularios, contraseñas, idioma u otras configuraciones particulares, realizar perfilados y detectar hábitos de navegación o permitir que se realicen operaciones de forma segura y estable.</p>
+					<p>Las cookies son utilizadas para distintas finalidades, como se ha indicado anteriormente. Según el propósito, estas pueden diferenciarse en tres grandes grupos (si bien se puede realizar una clasificación más exhaustiva):</p>
+
+					<ul>
+						<li>Cookies técnicas:</li>
+						<p>Son aquellas que permiten al usuario la navegación a través de la página web y la utilización de las diferentes opciones o servicios que en ella existen como, por ejemplo, permitir reproducción de multimedia de terceros, ajustes de interfaz, fluidez de navegación, utilizar elementos de seguridad durante la navegación, reconocer inicios de sesión, controlar acceso a áreas privadas, etc.</p>
+						<li>Cookies analíticas:</li>
+						<p>Son un tipo de cookies diseñadas y utilizadas para el seguimiento y análisis del comportamiento de los usuarios. Este tipo de cookies ofrecen al titular de la página la medición de la actividad en el sitio web a través de información agregada o de carácter estadístico. En el Sitio Web se utilizan cookies analíticas persistentes para esta finalidad. Concretamente cookies de Google Analytics que tienen distintos plazos de caducidad en función de la información que ofrecen.</p>
+						<li>Cookies de preferencia o comportamentales: </li>
+						<p>Son un tipo de cookies destinadas a facilitar la usabilidad de la web cara al usuario y/o recoger información y pautas de éste según sus hábitos de navegación. De esta forma, estas cookies pueden conservar y recordar formularios y contraseñas para inicios de sesión, personalización de interfaz, selección de idioma o, en su caso, recordar preferencias de contenido, recopilar los directorios consultados por el cliente o cualquier otra información relativa a sus hábitos de navegación.</p>
+					</ul>
+					<li>Cookies utilizadas</li>
+					<p>En todo momento, y al menos, durante la instalación o puesta al día del navegador, el usuario tiene la posibilidad de aceptar o rechazar la instalación de cookies, o bien rechazar la instalación de un determinado tipo de cookies, como las cookies de publicidad y de terceros. Además, después de cada sesión puede eliminar todas o algunas de las cookies almacenadas. Asimismo, el usuario puede activar:</p>
+					<ul>
+						<li>La navegación privada, mediante la cual su navegador deja de guardar el historial de navegación, contraseñas de sitios web, cookies y otra información de las páginas que visita, o</li>
+						<li>La función de no rastrear, por la que el navegador pide a los sitios web que visita que no rastreen sus hábitos de navegación, para, por ejemplo, servirle publicidad de su interés en los sitios que visita.</li>
+						<p>Le recomendamos que consulte la ayuda de su navegador para informarse de las diferentes opciones sobre cómo gestionar las cookies.</p>
+					</ul>
+
+					<li>Vínculos para para gestionar cookies en los navegadores más relevantes:</li>
+					<ul>
+						<li>Google Chrome</li>
+						<li>Safari</li>
+						<li>Firefox</li>
+						<li>Edge</li>
+						<li>Internet Explorer</li>
+					</ul>
+					<br>
+
+					<p>Tenga en cuenta que el bloqueo de cookies puede afectar a todas o algunas de las funcionalidades de nuestra web.</p>
+					<p>Mima-T no se hace responsable del contenido y veracidad de las políticas de privacidad de los terceros incluidos en esta política de cookies.</p>
+
+				</ul>
+
+			</div>
+
+		</div>
+		
+	
+	</main>
+
+	<footer class="bg-secondary">
+		<div class="container mb-2 mt-2"> 
+			<div class="row">
+				<div class="letraFooter col-sm-12 text-center mt-1">
+					<span class="fab fa-cc-visa fa-lg ml-2"></span>
+					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
+					<span class="fab fa-cc-amex fa-lg ml-2"></span>
+					<span class="fab fa-paypal fa-lg ml-2"></span>
+					<span class="fab fa-cc-paypal fa-lg"></span>
+				</div>
+			
+				<div class="col-sm-12 text-center mt-1">
+					© 2020 MIMA-T Todos los derechos reservados
+				</div>
+
+				<div class="col-sm-6 text-right ml-3">
+					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
+					
+				</div>
+			
+				<div class="col-sm-5 text-left">
+					
+					<a class="text-white" th:href="@{/cookies}">Política de Cookies</a>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+
+		</div>
+
+	</footer>
+
+
+</body>
+</html>
