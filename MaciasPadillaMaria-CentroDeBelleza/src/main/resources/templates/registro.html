@@ -122,21 +122,22 @@
 	<main class="container-fluid">
 		<div class="row mt-5">
 			<div class="col-3"></div>
-			<form id="formulario" class="col-6 bg-light mb-5 rounded" onsubmit="return revisarFormulario();">
+			<form method="POST" action="#" th:action="${clienteForm.id != 0} ? @{/admin/edit/submit} : @{/admin/new/submit}" th:object="${clienteForm}"
+			 id="formulario" class="col-6 bg-light mb-5 rounded" onsubmit="return revisarFormulario();">
 				<fieldset class="mt-2 ml-1">
-					<legend class="mb-3">Regístrate</legend>
+					<legend class="mb-3"  th:text="${clienteForm.id != 0} ? 'Editar cliente' : 'Regístrate'">Regístrate</legend>
 					<div class="input-group mb-3 w-75 ">
 					    <div class="input-group-prepend ml-2">
 					      <label for="nombre" class="input-group-text">Nombre*</label>
 					    </div>
-					    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>				    
+					    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required th:field="*{nombre}" >				    
 					</div>				
 					<div class="mensajeError" id="errorNombre" >Nombre Incorrecto</div>
 					<div class="input-group mb-3 w-75">
 					    <div class="input-group-prepend ml-2">
 					      <label for="apellidos" class="input-group-text">Apellidos*</label>
 					    </div>
-					    <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos" required>
+					    <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos" required th:field="*{apellidos}">
 					</div>
 					<div class="mensajeError" id="errorApellidos" >Apellido Incorrecto</div>
 
@@ -144,7 +145,7 @@
 					    <div class="input-group-prepend ml-2">
 					      <label for="fnac" class="input-group-text">Fecha Nacimiento</label>
 					    </div>
-					    <input type="date" id="fnac" name="fnac" class="form-control">
+					    <input type="date" id="fnac" name="fnac" class="form-control" th:field="*{fechaNacimiento}">
 					</div>
 					<div class="mensajeError" id="errorFecha" >Debe ser mayor de edad</div>
 
@@ -152,21 +153,21 @@
 					    <div class="input-group-prepend ml-2 mb-4">
 					      <label for="telefono" class="input-group-text">Número de teléfono</label>
 					    </div>
-					    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Teléfono" required>
+					    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Teléfono" required th:field="*{telefono}" >
 					</div>
 					
 					<div class="input-group w-75">
 					    <div class="input-group-prepend ml-2">
 					      <label for="email" class="input-group-text">Correo electrónico*</label>
 					    </div>
-					    <input type="mail" id="email" name="email" class="form-control" placeholder="email@mail.com" required>
+					    <input type="mail" id="email" name="email" class="form-control" placeholder="email@mail.com" required th:field="*{email}" >
 					</div>
 					<div class="mensajeError mb-3" id="errorEmail" >Correo Electrónico Incorrecto</div>
 					<div class="input-group mb-3 w-75">
 					    <div class="input-group-prepend ml-2 mb-4">
 					      <label for="pwd1" class="input-group-text">Contraseña*</label>
 					    </div>
-					    <input type="password" id="pwd1" name="pwd1" class="form-control" required>
+					    <input type="password" id="pwd1" name="pwd1" class="form-control" required th:field="*{password}">
 					</div>
 					<div class="input-group mb-3 w-75">
 					    <div class="input-group-prepend ml-2 mb-1">

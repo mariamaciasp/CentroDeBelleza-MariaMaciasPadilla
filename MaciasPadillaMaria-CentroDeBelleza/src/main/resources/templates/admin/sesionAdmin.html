@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>Sesión Administrador</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="/css/CSS.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/JSCentroBelleza.js"></script>
+
+	<script type="text/javascript" src="js/libreriaFechas.js"></script>
+	<script type="text/javascript" src="js/JSCambioPassword.js"></script>
+
+
+
+
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+			<a class="navbar-brand" href="Inicio.html">Mima-T</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Peluquería</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Corte de pelo</a>
+			          	<a class="dropdown-item" href="#">Tinte y mechas</a>
+          				<a class="dropdown-item" href="#">Lavado y peinado</a>
+          				<a class="dropdown-item" href="#">Tratamientos capilares</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Maquillaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Maquillaje de novias</a>
+			          	<a class="dropdown-item" href="#">Maquillaje exprés en 30 minutos</a>
+          				<a class="dropdown-item" href="#">Maquillaje en 60 minutos</a>
+        				</div>
+      				</li>
+
+					<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uñas</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Manicura</a>
+			          	<a class="dropdown-item" href="#">Pedicura</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Depilación</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Depilación con cera</a>
+			          	<a class="dropdown-item" href="#">Depilación láser</a>
+          				<a class="dropdown-item" href="#">Depilación con hilo</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Masaje</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Masaje relajante</a>
+			          	<a class="dropdown-item" href="#">Masaje en pareja</a>
+          				<a class="dropdown-item" href="#">Masaje Tailandés</a>
+          				<a class="dropdown-item" href="#">Fisioterapia</a>
+        				</div>
+      				</li>
+
+      				<li class="nav-item dropdown active">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Tratamientos</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         	<a class="dropdown-item" href="#">Limpieza facial</a>
+			          	<a class="dropdown-item" href="#">Peeling químico</a>
+          				<a class="dropdown-item" href="#">Diseño y tinte de cejas</a>
+        				</div>
+      				</li>
+
+				</ul>
+
+
+				<form class="form-inline my-2 my-lg-0">
+					
+					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" id="buscar" class="btn">
+						<span class="fas fa-search fa-lg"></span>
+					</button>
+
+					<a href="./InicioSesion.html" class="btn">
+						<span class="far fa-user fa-lg"></span>
+					</a>
+
+					<a href="#" class="btn">
+						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
+					</a>
+
+    			</form>
+			</div>
+
+		</nav>
+
+
+		<nav>
+			<div class="row datos col-2 text-center">
+  				
+  				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  					<a class="nav-link btn-secondary btn-lg mt-5 ml-5 mb-4 mr-4" id="v-pills-reservas-tab" data-toggle="pill" href="#v-pills-reservas" role="tab" aria-controls="v-pills-reservas" aria-selected="true">Tratamientos</a>
+      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-dp-tab" data-toggle="pill" href="#v-pills-dp" role="tab" aria-controls="v-pills-dp" aria-selected="false">Reservas</a>
+      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-usuarios-tab" data-toggle="pill" href="#v-pills-usuarios" role="tab" aria-controls="v-pills-usuarios" aria-selected="false">Usuarios</a>
+      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-empleados-tab" data-toggle="pill" href="#v-pills-empleados" role="tab" aria-controls="v-pills-empleados" aria-selected="false">Empleados</a>
+     		 		<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-da-tab" data-toggle="pill" href="#v-pills-da" role="tab" aria-controls="v-pills-da" aria-selected="false">Datos Administrador</a>
+      				<a class="nav-link btn-link btn-lg text-body mt-2 ml-4" id="v-pills-desconectar-tab" href="./Inicio.html" role="tab" aria-controls="v-pills-desconectar" aria-selected="false">Desconectar</a>
+    			</div>
+  				
+  				
+			</div>
+
+		</nav>
+
+	</header>
+
+
+	<main>
+		<div class="row d-flex justify-content-center">
+			<div class="col-10">
+				<div class="datos mr-5 mt-5 mb-5">
+
+	    			<div class="tab-content" id="v-pills-tabContent">
+					    <div class="tab-pane fade show active" id="v-pills-reservas" role="tabpanel" aria-labelledby="v-pills-reservas-tab">
+
+					    	<div class="datosTratamientos bg-light p-4 ml-5 rounded">
+					    		<table id="tablaPeluqueria" class="table table-hover " summary="Datos Usuario">
+						   
+						            <thead class="thead-light">
+
+						            	<tr class="aumentarSize">
+						            		<th>Categoría:</th>
+						            		<th colspan="4" class="text-center"><span class="idCategoria">1</span> - <span id="nombreCategoria">Peluquería</span></th>
+						            	</tr>
+						                
+						            </thead>
+						          
+						            <tbody class="text-secondary">
+						                <tr class="aumentarSize font-weight-bolder">
+						                    <td class="text-center">ID</td>
+						                    <td>Nombre</td>
+						                    <td class="text-center w-50">Descripción</td>
+						                    <td class="text-center">Precio (€)</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">1</td>
+						                    <td>Corte de pelo</td>
+						                    <td>Melenas largas, medias melenas, corto todo vale para 2020. Disfruta de un moderno corte de pelo o continúa con ese peinado de siempre que tan bien te sienta. Todo y más en las mejores manos.</td>
+						                    <td class="text-center">15,00</td>
+						                    
+						                </tr>
+						                <tr>
+						                    <td class="text-center">2</td>
+						                    <td>Tinte y mechas</td>
+						                    <td>Expertos en tintes, mechas, decolorados y una gran variedad de tratamientos para tu cabello. Creando un efecto impactante y a la vez natural.</td>
+						                    <td class="text-center">33,00</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">3</td>
+						                    <td>Lavado y peinado</td>
+						                    <td>Consigue ese peinado ideal para cualquier evento. Recogidos, semirecogidos o sueltos, te asesoramos para estar perfecta ese día especial.</td>
+						                    <td class="text-center">25,00</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">4</td>
+						                    <td>Tratamientos capilares</td>
+						                    <td>Todo tipo de tratamientos capilares para el cuidado de tu pelo, así como un asesoramiento personalizado. Consigue un pelo sano, cuidado y con brillo con nuestros tratamientos.</td>
+						                    <td class="text-center">55,00</td>
+						                </tr>
+						                
+						            </tbody>
+						        </table>	
+
+
+
+
+						        <table id="tablaMaquillaje" class="table table-hover " summary="Datos Usuario">
+						   
+						            <thead class="thead-light">
+
+						            	<tr class="aumentarSize">
+						            		<th>Categoría:</th>
+						            		<th colspan="4" class="text-center"><span class="idCategoria">2</span> - <span id="nombreCategoria">Maquillaje</span></th>
+						            	</tr>
+						                
+						            </thead>
+						          
+						            <tbody class="text-secondary">
+						                <tr class="aumentarSize font-weight-bolder">
+						                    <td class="text-center">ID</td>
+						                    <td>Nombre</td>
+						                    <td class="text-center w-50">Descripción</td>
+						                    <td class="text-center">Precio (€)</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">5</td>
+						                    <td>Maquillaje de novias</td>
+						                    <td>Disfruta de ese día tan especial con un maquillaje personalizado, sencillo y natural o si lo prefieres prueba con algo mágico y atrevido para ese gran día.</td>
+						                    <td class="text-center">70,00</td>
+						                    
+						                </tr>
+						                <tr>
+						                    <td class="text-center">6</td>
+						                    <td>Maquillaje exprés (30 minutos)</td>
+						                    <td>Asiste a esa fiesta con un maquillaje casual y desenfadado. Sigue siendo más tú que nunca y con el mejor asesoramiento a tu disposición.</td>
+						                    <td class="text-center">25,00</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">7</td>
+						                    <td>Maquillaje en 60 minutos</td>
+						                    <td>Elige un maquillaje personalizado para ese evento tan importante al que tienes que asistir este año. Contacta con nosotros para asesorarte si lo necesitas.</td>
+						                    <td class="text-center">45,00</td>
+						                </tr>
+						                
+						            </tbody>
+						        </table>	
+
+
+
+						        <table id="tablaManicura" class="table table-hover " summary="Datos Usuario">
+						   
+						            <thead class="thead-light">
+
+						            	<tr class="aumentarSize">
+						            		<th>Categoría:</th>
+						            		<th colspan="4" class="text-center"><span class="idCategoria">3</span> - <span id="nombreCategoria">Uñas</span></th>
+						            	</tr>
+						                
+						            </thead>
+						          
+						            <tbody class="text-secondary">
+						                <tr class="aumentarSize font-weight-bolder">
+						                    <td class="text-center">ID</td>
+						                    <td>Nombre</td>
+						                    <td class="text-center w-50">Descripción</td>
+						                    <td class="text-center">Precio (€)</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">8</td>
+						                    <td>Manicura</td>
+						                    <td>Disfruta de unas uñas cuidadas con colores y diseños exclusivos. Elige entre una gran gama de colores desde los clásicos hasta las últimas tendencias de la temporada.</td>
+						                    <td class="text-center">35,00</td>
+						                    
+						                </tr>
+						                <tr>
+						                    <td class="text-center">9</td>
+						                    <td>Pedicura</td>
+						                    <td>Ten tus pies cuidados y en perfecto estado en cualquier época del año. Luce tus pies con diseños exclusivos.</td>
+						                    <td class="text-center">25,00</td>
+						                </tr>
+						            </tbody>
+						        </table>	
+
+
+						        <table id="tablaDepilacion" class="table table-hover " summary="Datos Usuario">
+						   
+						            <thead class="thead-light">
+
+						            	<tr class="aumentarSize">
+						            		<th>Categoría:</th>
+						            		<th colspan="4" class="text-center"><span class="idCategoria">4</span> - <span id="nombreCategoria">Depilación</span></th>
+						            	</tr>
+						                
+						            </thead>
+						          
+						            <tbody class="text-secondary">
+						                <tr class="aumentarSize font-weight-bolder">
+						                    <td class="text-center">ID</td>
+						                    <td>Nombre</td>
+						                    <td class="text-center w-50">Descripción</td>
+						                    <td class="text-center">Precio (€)</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">10</td>
+						                    <td>Depilación con cera</td>
+						                    <td>Si busca una depilación de piernas, axilas o ingles, la cera es la mejor técnica semipermanente relativamente indolora con un resultado garantizado de hasta cuatro semanas.</td>
+						                    <td class="text-center">18,00</td>
+						                    
+						                </tr>
+						                <tr>
+						                    <td class="text-center">11</td>
+						                    <td>Depilación láser</td>
+						                    <td>Con nuestro método único y eficaz dile adiós al pelo para siempre. Opta por esta cómoda solución para librarte permanentemente del pelo.</td>
+						                    <td class="text-center">40,00</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">12</td>
+						                    <td>Depilación con hilo</td>
+						                    <td>Esta nueva nueva técnica de depilación es la más usadas de entre las 'celebrities' y además tiene una gran cantidad de beneficios para la piel.</td>
+						                    <td class="text-center">15,00</td>
+						                </tr>
+						            </tbody>
+						        </table>
+
+						        <table id="tablaMasaje" class="table table-hover " summary="Datos Usuario">
+						   
+						            <thead class="thead-light">
+
+						            	<tr class="aumentarSize">
+						            		<th>Categoría:</th>
+						            		<th colspan="4" class="text-center"><span class="idCategoria">5</span> - <span id="nombreCategoria">Masaje</span></th>
+						            	</tr>
+						                
+						            </thead>
+						          
+						            <tbody class="text-secondary">
+						                <tr class="aumentarSize font-weight-bolder">
+						                    <td class="text-center">ID</td>
+						                    <td>Nombre</td>
+						                    <td class="text-center w-50">Descripción</td>
+						                    <td class="text-center">Precio (€)</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">13</td>
+						                    <td>Masaje relajante</td>
+						                    <td>Desde nuestro centro queremos que te sientas bien, y para ello te ofrecemos masajes para eliminar el estres de la rutina diaria y relajar esas partes del cuerpo que se encuentran mas cargadas.</td>
+						                    <td class="text-center">30,00</td>
+						                    
+						                </tr>
+						                <tr>
+						                    <td class="text-center">14</td>
+						                    <td>Masaje en pareja</td>
+						                    <td>Disfruta del mejor masaje en la mejor compañía posible. Desconectar de la rutina diaria es más fácil si lo haces en buena compañía.</td>
+						                    <td class="text-center">60,00</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">15</td>
+						                    <td>Masaje tailandés</td>
+						                    <td>El masaje tailandés forma parte de una verdadera filosofía de vida en Tailandia, y se inspira en prácticas relajantes milenarias como el yoga y la meditación.</td>
+						                    <td class="text-center">40,00</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">16</td>
+						                    <td>Fisioterapia</td>
+						                    <td>Contamos con profesionales sanitarios y técnicos especialistas en la recuperación muscular. Ofrecemos un servicio de alta calidad para una mayor y más eficaz recuperación.</td>
+						                    <td class="text-center">45,00</td>
+						                </tr>
+						            </tbody>
+						        </table>
+
+
+						        <table id="tablaTratamientos" class="table table-hover " summary="Datos Usuario">
+						   
+						            <thead class="thead-light">
+
+						            	<tr class="aumentarSize">
+						            		<th>Categoría:</th>
+						            		<th colspan="4" class="text-center"><span class="idCategoria">6</span> - <span id="nombreCategoria">Tratamiento</span></th>
+						            	</tr>
+						                
+						            </thead>
+						          
+						            <tbody class="text-secondary">
+						                <tr class="aumentarSize font-weight-bolder">
+						                    <td class="text-center">ID</td>
+						                    <td>Nombre</td>
+						                    <td class="text-center w-50">Descripción</td>
+						                    <td class="text-center">Precio (€)</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">17</td>
+						                    <td>Limpieza facial</td>
+						                    <td>Si quieres lucir una piel luminosa y uniforme, este es tu tratamiento. Líbrate de las impurezas, la contaminación y la propia grasa de la piel.</td>
+						                    <td class="text-center">30,00</td>
+						                    
+						                </tr>
+						                <tr>
+						                    <td class="text-center">18</td>
+						                    <td>Peeling químico</td>
+						                    <td>Este tratamiento no quirúrgico, cuyo efecto inmediato consiste en la eliminación de una parte del cutis, así como un efecto tardío de regeneración de la piel, renovando la matriz dérmica y dejándola sin determinados defectos estéticos como manchas, arrugas...</td>
+						                    <td class="text-center">37,00</td>
+						                </tr>
+						                <tr>
+						                    <td class="text-center">19</td>
+						                    <td>Diseño y tinte de cejas</td>
+						                    <td>Este tratamiento cosmético combina hábilmente la remodelación de la forma con la aplicación del maquillaje para un resultado hiper elegante.</td>
+						                    <td class="text-center">27,00</td>
+						                </tr>
+						            </tbody>
+						        </table>
+
+					    	</div>	
+
+
+
+					    </div>
+
+
+					    <div class="tab-pane fade" id="v-pills-dp" role="tabpanel" aria-labelledby="v-pills-dp-tab">
+
+					      	<div class="bg-light p-4 rounded">
+					      		<table id="tablaReservasUsuarios" class="table table-hover text-center" summary="Reservas Usuario">
+						        	<caption class="mb-3">Reservas Usuarios</caption>
+						            <thead class="thead-light">
+						                <tr>
+						                    <th>Número de reserva</th>
+						                    <th>Usuario</th>
+						                    <th>Empleado</th>
+						                    <th>Fecha</th>
+						                    <th>Precio</th>
+						                </tr>
+						            </thead>
+						            <tbody>
+						                <tr th:each="reserva : ${listaReservas}">
+						                    <td th:text="${reserva.numReserva}">4</td>
+						                    <td th:text="${empleado.cliente}">María</td>
+						                    <td th:text="${empleado.empleado}">Francis</td>
+						                    <td th:text="${empleado.cliente}">20/10/2019</td>
+						                    <td th:text="${empleado.precio}">40,50 €</td>
+						                </tr>
+						            </tbody>
+						        </table>
+					      		
+					      	</div>
+		    	
+					    </div>
+
+
+
+					    <div class="tab-pane fade" id="v-pills-usuarios" role="tabpanel" aria-labelledby="v-pills-usuarios-tab">
+
+					      	<div class="bg-light p-4 rounded">
+					      		<table id="tablaUsuarios" class="table table-hover text-center" summary="Datos Usuarios">
+						        	<caption class="mb-3">Usuarios</caption>
+						            <thead class="thead-light">
+						                <tr>
+						                    <th>ID</th>
+						                    <th>Nombre</th>
+						                    <th>Apellidos</th>
+						                    <th>Fecha de nacimiento</th>
+						                    <th>Email</th>
+						                    <th>Teléfono</th>
+						                    <th>Operaciones</th>
+						                </tr>
+						            </thead>
+						            <tbody>
+						                <tr th:each="cliente : ${listaClientes}">
+						                    <td th:text="${cliente.id}">1</td>
+						                    <td th:text="${cliente.nombre}">María</td>
+						                    <td th:text="${cliente.apellidos}">Macías Padilla</td>
+						                    <td th:text="${cliente.fechaNacimiento}">02/05/1994</td>
+						                    <td th:text="${cliente.email}">mariam@gmail.com</td>
+						                    <td th:text="${cliente.telefono}">617507017</td>
+						                    <td><a th:href="@{/admin/edit/{id}(id=${cliente.id})}">Editar</a></td>
+						                </tr>
+						              
+						            </tbody>
+						        </table>
+					      		
+					      	</div>
+		    	
+					    </div>
+
+
+
+					    <div class="tab-pane fade" id="v-pills-empleados" role="tabpanel" aria-labelledby="v-pills-empleados-tab">
+
+					      	<div class="bg-light p-4 rounded">
+					      		<table id="tablaEmpleados" class="table table-hover text-center" summary="Datos Empleados">
+						        	<caption class="mb-3">Empleados</caption>
+						            <thead class="thead-light">
+						                <tr>
+						                    <th>ID</th>
+						                    <th>Nombre</th>
+						                    <th>Apellidos</th>
+						                    <th>Fecha de nacimiento</th>
+						                    <th>Email</th>
+						                    <th>Teléfono</th>
+						                    <th>DNI</th>
+						                    <th>Sueldo</th>
+						                    <th>Administrador</th>
+						                </tr>
+						            </thead>
+						            <tbody>
+						                <tr th:each="empleado : ${listaEmpleados}">
+						                    <td th:text="${empleado.id}">1</td>
+						                    <td th:text="${empleado.nombre}">María</td>
+						                    <td th:text="${empleado.apellidos}">Macías Padilla</td>
+						                    <td th:text="${empleado.fechaNacimiento}">02/05/1994</td>
+						                    <td th:text="${empleado.email}">mariam@gmail.com</td>
+						                    <td th:text="${empleado.telefono}">617507017</td>
+						                    <td th:text="${empleado.dni}">44243716L</td>
+						                    <th th:text="${empleado.sueldo}">1120.50</th>
+						                    <th th:text="${empleado.esAdmin}">X</th>
+						                </tr>
+						                
+						            </tbody>
+						        </table>
+					      		
+					      	</div>
+		    	
+					    </div>
+
+
+
+					    <div class="tab-pane fade" id="v-pills-da" role="tabpanel" aria-labelledby="v-pills-da-tab">
+
+					    	<div class="bg-light p-4 ml-5 rounded">
+
+					    		<table id="tablaDatosAdministrador" class="table table-hover " summary="Datos Usuario">
+						        	<caption class="mb-3">Datos personales</caption>
+						            <thead class="thead-light">
+						                
+						            </thead>
+						          
+						            <tbody class="text-secondary">
+						                <tr>
+						                    <td class="font-weight-bolder">Nombre</td>
+						                    <td class="nombre">María</td>
+						                    <td><button class="modificarN btn btn-danger">Modificar</button> <button class="cancelarN btn btn-danger">Cancelar</button></td>
+						                </tr>
+						                <tr>
+						                    <td class="font-weight-bolder">Apellidos</td>
+						                    <td class="apellidos">Macías Padilla</td>
+						                    <td><button class="modificarA btn btn-danger">Modificar</button> <button class="cancelarA btn btn-danger">Cancelar</button></td>
+						                </tr>
+						                <tr >
+						                    <td class="font-weight-bolder">Fecha de nacimiento</td>
+						                    <td class="fechaNac">01/02/2019</td>
+						                    <td><button class="modificarFN btn btn-danger">Modificar</button> <button class="cancelarFN btn btn-danger">Cancelar</button></td>
+						                </tr>
+						                <tr>
+						                    <td class="font-weight-bolder">Teléfono</td>
+						                    <td class="telefono">617507017</td>
+						                    <td><button class="modificarT btn btn-danger">Modificar</button> <button class="cancelarT btn btn-danger">Cancelar</button></td>
+						                </tr>
+						                <tr>
+						                    <td class="font-weight-bolder">Email</td>
+						                    <td class="email">mariam@gmail.com</td>
+						                    <td><button class="modificarE btn btn-danger">Modificar</button> <button class="cancelarE btn btn-danger">Cancelar</button></td>
+						                </tr>
+
+						                <tr>
+						                    <td class="font-weight-bolder">DNI</td>
+						                    <td></td>
+						                    <td>40444254L</td>
+						                    
+						                </tr>
+
+						                <tr>
+						                    <td class="font-weight-bolder">Sueldo</td>
+						                    <td></td>
+						                    <td>1120,50</td>
+						                    
+						                </tr>
+
+						            </tbody>
+						        </table>
+					    	</div>
+					    
+					    </div>
+	    			</div>
+
+	  			</div>
+	  		</div>		
+  		</div>
+	</main>
+
+
+
+
+	<footer class="bg-secondary mt-5">
+		<div class="container mb-2 mt-2"> 
+			<div class="row">
+				<div class="letraFooter col-sm-12 text-center mt-1">
+					<span class="fab fa-cc-visa fa-lg ml-2"></span>
+					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
+					<span class="fab fa-cc-amex fa-lg ml-2"></span>
+					<span class="fab fa-paypal fa-lg ml-2"></span>
+					<span class="fab fa-cc-paypal fa-lg"></span>
+				</div>
+			
+				<div class="col-sm-12 text-center mt-1">
+					© 2020 MIMA-T Todos los derechos reservados
+				</div>
+
+				<div class="col-sm-6 text-right ml-3">
+					<a class="text-white" href="PoliticaDePrivacidad.html">Política de privacidad</a>
+					
+				</div>
+			
+				<div class="col-sm-5 text-left">
+					
+					<a class="text-white" href="PoliticaDeCookies.html">Política de Cookies</a>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+
+			
+		</div>
+
+	</footer>
+
+
+
+
+	<script type="text/javascript">
+
+		$(function() {
+
+			var valorNombreInicial = $(".nombre").text();
+			var valorApellidosInicial = $(".apellidos").text();
+			var valorFechaNacInicial = $(".fechaNac").text();
+			var valorTelefonoInicial = $(".telefono").text();
+
+			var valorEmailInicial = $(".email").text();
+
+
+			// PARA NOMBRE
+
+			$("td").on("click",".modificarN",function (even) {
+
+				$(".modificarN").toggleClass("modificarN").toggleClass("guardarN").text("Guardar");
+				$(".cancelarN").show();
+				$(".nombre").toggleClass("nombre").toggleClass("cambiarNombre").html('<input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control">');
+
+			});
+
+			$("td").on("click",".guardarN", function (event) {
+
+				$(".guardarN").toggleClass("guardarN").toggleClass("modificarN").text("Modificar");
+
+				var valorN = $("#nombre").val();
+
+				$(".cambiarNombre").toggleClass("cambiarNombre").toggleClass("nombre").text(valorN);
+				$(".cancelarN").hide();
+				valorNombreInicial = $(".nombre").text();
+
+			});
+
+			$("td").on("click",".cancelarN", function (event) {
+				$(".guardarN").toggleClass("guardarN").toggleClass("modificarN").text("Modificar");
+
+				$(".cambiarNombre").toggleClass("cambiarNombre").toggleClass("nombre").text(valorNombreInicial);
+
+				$(".cancelarN").hide();
+
+
+			});
+
+			// PARA APELLIDOS
+
+			$("td").on("click",".modificarA",function (even) {
+
+				$(".modificarA").toggleClass("modificarA").toggleClass("guardarA").text("Guardar");
+				$(".cancelarA").show();
+				$(".apellidos").toggleClass("apellidos").toggleClass("cambiarApellidos").html('<input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control">');
+
+			});
+
+			$("td").on("click",".guardarA", function (event) {
+
+				$(".guardarA").toggleClass("guardarA").toggleClass("modificarA").text("Modificar");
+
+				var valorA = $("#apellidos").val();
+
+				$(".cambiarApellidos").toggleClass("cambiarApellidos").toggleClass("apellidos").text(valorA);
+				$(".cancelarA").hide();
+				valorApellidosInicial = $(".apellidos").text();
+				
+			});
+
+			$("td").on("click",".cancelarA", function (event) {
+
+				$(".guardarA").toggleClass("guardarA").toggleClass("modificarA").text("Modificar");
+				$(".cambiarApellidos").toggleClass("cambiarApellidos").toggleClass("apellidos").text(valorApellidosInicial);
+				$(".cancelarA").hide();
+
+
+			});
+
+
+			// PARA FECHA DE NACIMIENTO
+
+
+			$("td").on("click",".modificarFN",function (even) {
+
+				$(".modificarFN").toggleClass("modificarFN").toggleClass("guardarFN").text("Guardar");
+				$(".cancelarFN").show();
+				$(".fechaNac").toggleClass("fechaNac").toggleClass("cambiarFechaNac").html('<input id="fechaNac" name="fechaNac" type="date" class="form-control">');
+
+			});
+
+			$("td").on("click",".guardarFN", function (event) {
+
+				$(".guardarFN").toggleClass("guardarFN").toggleClass("modificarFN").text("Modificar");
+				
+				var valorFN = $("#fechaNac").val();
+
+				$(".cambiarFechaNac").toggleClass("cambiarFechaNac").toggleClass("fechaNac").text(valorFN);
+				$(".cancelarFN").hide();
+				valorFechaNacInicial = $(".fechaNac").text();
+
+			});
+
+			$("td").on("click",".cancelarFN", function (event) {
+
+				$(".guardarFN").toggleClass("guardarFN").toggleClass("modificarFN").text("Modificar");
+				$(".cambiarFechaNac").toggleClass("cambiarFechaNac").toggleClass("fechaNac").text(valorFechaNacInicial);
+				$(".cancelarFN").hide();
+
+
+			});
+
+
+			// PARA TELÉFONO 
+
+
+			$("td").on("click",".modificarT",function (even) {
+
+				$(".modificarT").toggleClass("modificarT").toggleClass("guardarT").text("Guardar");
+				$(".cancelarT").show();
+				$(".telefono").toggleClass("telefono").toggleClass("cambiarTelefono").html('<input id="telefono" name="telefono" type="text" placeholder="Teléfono" class="form-control">');
+
+			});
+
+			$("td").on("click",".guardarT", function (event) {
+
+				$(".guardarT").toggleClass("guardarT").toggleClass("modificarT").text("Modificar");
+
+				var valorT = $("#telefono").val();
+
+				$(".cambiarTelefono").toggleClass("cambiarTelefono").toggleClass("telefono").text(valorT);
+				$(".cancelarT").hide();
+				valorTelefonoInicial = $(".telefono").text();
+				
+			});
+
+			$("td").on("click",".cancelarT", function (event) {
+				$(".guardarT").toggleClass("guardarT").toggleClass("modificarT").text("Modificar");
+				$(".cambiarTelefono").toggleClass("cambiarTelefono").toggleClass("telefono").text(valorTelefonoInicial);
+				$(".cancelarT").hide();
+
+
+			});
+
+
+
+
+			// PARA EMAIL
+
+			$("td").on("click",".modificarE",function (even) {
+
+				$(".modificarE").toggleClass("modificarE").toggleClass("guardarE").text("Guardar");
+				$(".cancelarE").show();
+				$(".email").toggleClass("email").toggleClass("cambiarEmail").html('<input type="mail" id="email" name="email" class="form-control" placeholder="email@mail.com" required>');
+
+			});
+
+			$("td").on("click",".guardarE", function (event) {
+
+				$(".guardarE").toggleClass("guardarE").toggleClass("modificarE").text("Modificar");
+
+				var valorE = $("#email").val();
+
+				$(".cambiarEmail").toggleClass("cambiarEmail").toggleClass("email").text(valorE);
+				$(".cancelarE").hide();
+				valorEmailInicial = $(".email").text();
+				
+			});
+
+			$("td").on("click",".cancelarE", function (event) {
+				$(".guardarE").toggleClass("guardarE").toggleClass("modificarE").text("Modificar");
+				$(".cambiarEmail").toggleClass("cambiarEmail").toggleClass("email").text(valorEmailInicial);
+				$(".cancelarE").hide();
+
+
+			});
+
+
+		});
+
+
+
+	</script>
+
+
+
+</body>
+</html>

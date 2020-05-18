@@ -8,10 +8,13 @@ import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.Base.BaseService;
 
 @Service
 public class EmpleadoServicio extends BaseService <Empleado, Long, EmpleadoRepository>{
+	
 
 	public EmpleadoServicio(EmpleadoRepository repo) {
 		super(repo);
 		
 	}
+	
+	
 
 }

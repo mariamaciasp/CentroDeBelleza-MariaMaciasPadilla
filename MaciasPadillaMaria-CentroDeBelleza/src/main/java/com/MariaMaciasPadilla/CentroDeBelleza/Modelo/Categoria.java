@@ -23,12 +23,10 @@ public class Categoria {
 	private long id;
 	
 	private String nombre;
-	private String descripcion;
 	
-	public Categoria(String nombre, String descripcion) {
+	public Categoria(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.descripcion = descripcion;
 	}
 	
 	@EqualsAndHashCode.Exclude

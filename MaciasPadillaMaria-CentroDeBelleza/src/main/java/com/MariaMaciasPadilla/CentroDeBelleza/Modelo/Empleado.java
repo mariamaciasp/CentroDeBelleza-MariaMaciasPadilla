@@ -60,7 +60,7 @@ public class Empleado extends Usuario{
 		// TODO Auto-generated method stub
 		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
 	}
-	
+
 	
 
 }

@@ -25,16 +25,16 @@ public class Tratamiento {
 	
 	private String nombre;
 	private String descripcion;
-	private boolean disponibilidad;
+	private String precio;
 
 	@ManyToOne
 	private Categoria categoria;
 	
-	public Tratamiento(String nombre, String descripcion, boolean disponibilidad) {
+	public Tratamiento(String nombre, String descripcion, String precio) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.disponibilidad = disponibilidad;
+		this.precio = precio;
 	}
 	
 	

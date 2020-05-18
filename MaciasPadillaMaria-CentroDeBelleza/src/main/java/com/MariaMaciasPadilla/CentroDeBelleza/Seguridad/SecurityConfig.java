@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http
 		.authorizeRequests()
-		.antMatchers("/css/**","/js/**", "/img/**","/files/**", "/h2-console/**", "/index", "/cookies", "/privacidad").permitAll()
+		.antMatchers("/css/**","/js/**", "/img/**","/files/**", "/h2-console/**", "/index", "/cookies", "/privacidad", "/registro").permitAll()
 			.antMatchers("/admin/**").hasAnyRole("ADMIN")
 			.antMatchers("/user/**").hasAnyRole("USER")
 			.anyRequest().authenticated()
@@ -46,6 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.formLogin()
 			.loginPage("/login")
 			.permitAll()
+			//.defaultSuccessUrl("/index")
 			.successHandler(customSuccessHandler)
 			.and()
 		.logout()

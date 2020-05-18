@@ -1,5 +1,6 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -28,6 +29,14 @@ public class Cliente extends Usuario{
 	 */
 	//private static final long serialVersionUID = 1L;
 	
+	
+	public Cliente(String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String email,
+			String password) {
+		super(nombre, apellidos, fechaNacimiento, telefono, email, password);
+	}
+	
+	
+	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@OneToMany(mappedBy="cliente")
@@ -48,6 +57,7 @@ public class Cliente extends Usuario{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
 	}
+
 
 	
 }
