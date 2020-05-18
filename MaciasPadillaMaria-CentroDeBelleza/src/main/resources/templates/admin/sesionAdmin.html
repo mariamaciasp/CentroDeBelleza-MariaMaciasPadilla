@@ -35,7 +35,7 @@
 
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-			<a class="navbar-brand" href="Inicio.html">Mima-T</a>
+			<a class="navbar-brand" th:href="@{/admin/indexAdmin}">Mima-T</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -107,7 +107,7 @@
 						<span class="fas fa-search fa-lg"></span>
 					</button>
 
-					<a href="./InicioSesion.html" class="btn">
+					<a th:href="@{../admin/sesion}" class="btn">
 						<span class="far fa-user fa-lg"></span>
 					</a>
 
@@ -130,7 +130,7 @@
       				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-usuarios-tab" data-toggle="pill" href="#v-pills-usuarios" role="tab" aria-controls="v-pills-usuarios" aria-selected="false">Usuarios</a>
       				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-empleados-tab" data-toggle="pill" href="#v-pills-empleados" role="tab" aria-controls="v-pills-empleados" aria-selected="false">Empleados</a>
      		 		<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-da-tab" data-toggle="pill" href="#v-pills-da" role="tab" aria-controls="v-pills-da" aria-selected="false">Datos Administrador</a>
-      				<a class="nav-link btn-link btn-lg text-body mt-2 ml-4" id="v-pills-desconectar-tab" href="./Inicio.html" role="tab" aria-controls="v-pills-desconectar" aria-selected="false">Desconectar</a>
+      				<a class="nav-link btn-link btn-lg text-body mt-2 ml-4" id="v-pills-desconectar-tab" th:href="@{/logout}" role="tab" aria-controls="v-pills-desconectar" aria-selected="false">Desconectar</a>
     			</div>
   				
   				
@@ -467,10 +467,18 @@
 						                    <td th:text="${cliente.fechaNacimiento}">02/05/1994</td>
 						                    <td th:text="${cliente.email}">mariam@gmail.com</td>
 						                    <td th:text="${cliente.telefono}">617507017</td>
-						                    <td><a th:href="@{/admin/edit/{id}(id=${cliente.id})}">Editar</a></td>
+						                    <td><a id="editar" class="btn btn-danger" th:href="@{/admin/edit/{id}(id=${cliente.id})}">Editar</a></td>
 						                </tr>
+						                
 						              
 						            </tbody>
+						            <tfoot>
+						            	<tr>
+						                	<td colspan="7">
+						                		<a id="agregar" th:href="@{/admin/new}" class="btn btn-danger mb-4 float-right">Agregar</a>
+						                	</td>
+						                </tr>
+						            </tfoot>
 						        </table>
 					      		
 					      	</div>

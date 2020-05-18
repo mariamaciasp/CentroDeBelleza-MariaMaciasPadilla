@@ -1,6 +1,7 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Controladores;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Cliente;
-import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Empleado;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.ClienteServicio;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.EmpleadoServicio;
 
@@ -25,12 +25,11 @@ public class AdminController {
 	//@Autowired
 	//private ReservaServicio servicioReserva;
 	
-	@GetMapping({"","/index"})
+	@GetMapping({"","/index","/indexAdmin"})
 	public String inicio () {
-		return "/admin/index";
+		return "/admin/indexAdmin";
 	}
 	
-	// INTENTO DE FORMULARIO, FALTAN COSAS EN LAS PLANTILLAS PARA PODER HACERLO
 	@GetMapping("/sesion")
 	public String listado (Model model) {
 		model.addAttribute("listaEmpleados", empleadoservicio.findAll());
@@ -43,12 +42,15 @@ public class AdminController {
 	@GetMapping("/new")
 	public String nuevoClienteForm (Model model) {
 		model.addAttribute("clienteForm", new Cliente());
-		return "/registro";
+		return "/registroCliente";
 	}
 	
 	@PostMapping("/new/submit")
 	public String nuevoClienteSubmit (@ModelAttribute("clienteForm") Cliente nuevoCliente) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		nuevoCliente.setPassword(encoder.encode(nuevoCliente.getPassword()));
 		clienteservicio.save(nuevoCliente);
+		
 		return "redirect:/admin/sesion";
 	}
 	
@@ -59,14 +61,17 @@ public class AdminController {
 		Cliente cliente = clienteservicio.findById(id);
 		if (cliente != null) {
 			model.addAttribute("clienteForm", cliente);
-			return "/registro";
+			return "/registroCliente";
 			} else {
 				return "redirect:/admin/new";
 			}
 	}
 	
 	@PostMapping("/edit/submit")
-	public String editarClienteSubmit (@ModelAttribute("clienteForm") Cliente nuevoCliente) {		
+	public String editarClienteSubmit (@ModelAttribute("clienteForm") Cliente nuevoCliente) {	
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		nuevoCliente.setPassword(encoder.encode(nuevoCliente.getPassword()));
+		
 		clienteservicio.edit(nuevoCliente);
 		return "redirect:/admin/sesion";
 	}

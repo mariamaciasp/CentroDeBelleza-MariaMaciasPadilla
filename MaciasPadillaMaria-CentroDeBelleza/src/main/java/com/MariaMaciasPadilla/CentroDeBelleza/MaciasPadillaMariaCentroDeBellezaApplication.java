@@ -10,7 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Cliente;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Empleado;
-import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Usuario;
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
+import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.ReservaServicio;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.UsuarioServicio;
 
 @SpringBootApplication
@@ -63,11 +64,16 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 			cliente.setEmail("user");
 			cliente.setPassword(passwordEncoder.encode("1234"));
 			cliente.setFechaNacimiento(LocalDate.of(1990, 1, 1));
-			servicioUsuario.save(new Cliente("Antonio", "García", LocalDate.of(2018, 10, 30) , "antonio.@mail.com","954000000",passwordEncoder.encode("1234")));
+			servicioUsuario.save(new Cliente("Antonio", "García", LocalDate.of(2018, 10, 30) , "954000000","antonio.@mail.com",passwordEncoder.encode("1234")));
 			servicioUsuario.save(new Cliente("Maria", "Macias", LocalDate.of(1994, 05, 02), "95943423", "mariamacias@gmail.com", passwordEncoder.encode("1234")));
-		
 			
 			servicioUsuario.save(cliente);
+			
+			// Reservas
+			//ReservaServicio reservaServicio = null;
+			
+			//reservaServicio.save(new Reserva(LocalDate.now(),20.0));
+			//reservaServicio.save(new Reserva(LocalDate.now(),10));
 			
 				
 			};

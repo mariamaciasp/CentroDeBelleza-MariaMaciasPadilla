@@ -16,9 +16,9 @@ public class MainController {
 		return "login";
 	}
 	
-	@GetMapping("/registro")
+	@GetMapping("/registroCliente")
 	public String registro() {
-		return "registro";
+		return "/registroCliente";
 	}
 	
 	@GetMapping("/privacidad")
