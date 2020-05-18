@@ -112,6 +112,11 @@ caption{
 
 td, th {
   width: 220px;
+  
+}
+
+td {
+	vertical-align: middle;
 }
 
 /*#tablaReservas td, #tablaReservas th{

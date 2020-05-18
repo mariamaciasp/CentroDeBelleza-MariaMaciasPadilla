@@ -26,15 +26,13 @@ public class Empleado extends Usuario{
 	
 	
 	private String dni;
-	private double sueldo;
 	private boolean esAdmin;
 	
 	
 	public Empleado(String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String email,
-			String password, String dni, double sueldo, boolean esAdmin) {
+			String password, String dni, boolean esAdmin) {
 		super(nombre, apellidos, fechaNacimiento, telefono, email, password);
 		this.dni = dni;
-		this.sueldo = sueldo;
 		this.esAdmin = esAdmin;
 	}
 	

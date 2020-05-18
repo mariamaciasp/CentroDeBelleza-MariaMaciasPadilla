@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<title>Registro Cliente</title>
+	<title>Registro Empleado</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -32,7 +32,7 @@
 
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" th:href="@{/index}">Mima-T</a>
+			<a class="navbar-brand" th:href="@{/admin/indexAdmin}">Mima-T</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -104,7 +104,7 @@
 						<span class="fas fa-search fa-lg"></span>
 					</button>
 
-					<a href="./InicioSesion.html" class="btn">
+					<a th:href="@{../admin/sesion}" class="btn">
 						<span class="far fa-user fa-lg"></span>
 					</a>
 
@@ -122,10 +122,10 @@
 	<main class="container-fluid">
 		<div class="row mt-5">
 			<div class="col-3"></div>
-			<form method="POST" action="#" th:action="${clienteForm.id != 0} ? @{/admin/editCliente/submit} : @{/admin/newCliente/submit}" th:object="${clienteForm}"
+			<form method="POST" action="#" th:action="${empleadoForm.id != 0} ? @{/admin/editEmpleado/submit} : @{/admin/newEmpleado/submit}" th:object="${empleadoForm}"
 			 id="formulario" class="col-6 bg-light mb-5 rounded" onsubmit="return revisarFormulario();">
 				<fieldset class="mt-2 ml-1">
-					<legend class="mb-3"  th:text="${clienteForm.id != 0} ? 'Editar cliente' : 'Regístrate'">Regístrate</legend>
+					<legend class="mb-3"  th:text="${empleadoForm.id != 0} ? 'Editar empleado' : 'Registrar empleado'">Regístrate</legend>
 					<input type="hidden" th:field="*{id}" id="id" name="id">
 					<div class="input-group mb-3 w-75 ">
 					    <div class="input-group-prepend ml-2">
@@ -142,6 +142,14 @@
 					</div>
 					<div class="mensajeError" id="errorApellidos" >Apellido Incorrecto</div>
 
+					
+					<div class="input-group mb-5 mt-2 w-75">
+					    <div class="input-group-prepend ml-2">
+					      <label for="dni" class="input-group-text">DNI</label>
+					    </div>
+					    <input type="text" id="dni" name="dni" class="form-control" th:field="*{dni}" placeholder="DNI">
+					</div>
+					
 					<div class="input-group mb-3 w-75">
 					    <div class="input-group-prepend ml-2">
 					      <label for="fnac" class="input-group-text">Fecha Nacimiento</label>
@@ -177,6 +185,13 @@
 					    <input type="password" id="pwd2" name="pwd2" class="form-control" required>
 					</div>
 					<div class="mensajeError mb-4" id="errorPwd" ></div>
+					
+					<div class="form-group m-3">
+						<label for="esAdmin">
+							<input type="checkbox" id="esAdmin" value="true" th:field="*{esAdmin}">
+							Administrador
+						</label>
+					</div>
 					
 					<button type="reset" class="btn btn-secondary mb-4 ">Limpiar</button>
 					<button type="submit" id="enviar" class="btn btn-danger mb-4 float-right">Enviar</button>

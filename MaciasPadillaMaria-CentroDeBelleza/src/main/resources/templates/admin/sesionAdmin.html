@@ -429,10 +429,10 @@
 						            <tbody>
 						                <tr th:each="reserva : ${listaReservas}">
 						                    <td th:text="${reserva.numReserva}">4</td>
-						                    <td th:text="${empleado.cliente}">María</td>
-						                    <td th:text="${empleado.empleado}">Francis</td>
-						                    <td th:text="${empleado.cliente}">20/10/2019</td>
-						                    <td th:text="${empleado.precio}">40,50 €</td>
+						                    <td th:text="${reserva.cliente.id}">María</td>
+						                    <td th:text="${reserva.empleado.id}">Francis</td>
+						                    <td th:text="${reserva.fechaYhora}">20/10/2019</td>
+						                    <td th:text="${reserva.precio}">40,50 €</td>
 						                </tr>
 						            </tbody>
 						        </table>
@@ -461,13 +461,14 @@
 						            </thead>
 						            <tbody>
 						                <tr th:each="cliente : ${listaClientes}">
-						                    <td th:text="${cliente.id}">1</td>
-						                    <td th:text="${cliente.nombre}">María</td>
-						                    <td th:text="${cliente.apellidos}">Macías Padilla</td>
-						                    <td th:text="${cliente.fechaNacimiento}">02/05/1994</td>
-						                    <td th:text="${cliente.email}">mariam@gmail.com</td>
-						                    <td th:text="${cliente.telefono}">617507017</td>
-						                    <td><a id="editar" class="btn btn-danger" th:href="@{/admin/edit/{id}(id=${cliente.id})}">Editar</a></td>
+						                    <td class="align-middle" th:text="${cliente.id}">1</td>
+						                    <td class="align-middle" th:text="${cliente.nombre}">María</td>
+						                    <td class="align-middle" th:text="${cliente.apellidos}">Macías Padilla</td>
+						                    <td class="align-middle" th:text="${cliente.fechaNacimiento}">02/05/1994</td>
+						                    <td class="align-middle" th:text="${cliente.email}">mariam@gmail.com</td>
+						                    <td class="align-middle" th:text="${cliente.telefono}">617507017</td>
+						                    <td><a id="editar" class="btn btn-danger" th:href="@{/admin/editCliente/{id}(id=${cliente.id})}">Editar</a>
+						                    <a id="eliminar" class="btn btn-danger mt-2" th:href="@{/admin/eliminarCliente/{id}(id=${cliente.id})}">Eliminar</a></td>
 						                </tr>
 						                
 						              
@@ -475,7 +476,7 @@
 						            <tfoot>
 						            	<tr>
 						                	<td colspan="7">
-						                		<a id="agregar" th:href="@{/admin/new}" class="btn btn-danger mb-4 float-right">Agregar</a>
+						                		<a id="agregar" th:href="@{/admin/newCliente}" class="btn btn-danger mb-4 ml-2">Agregar</a>
 						                	</td>
 						                </tr>
 						            </tfoot>
@@ -501,24 +502,36 @@
 						                    <th>Email</th>
 						                    <th>Teléfono</th>
 						                    <th>DNI</th>
-						                    <th>Sueldo</th>
 						                    <th>Administrador</th>
+						                    <th>Operaciones</th>
 						                </tr>
 						            </thead>
 						            <tbody>
 						                <tr th:each="empleado : ${listaEmpleados}">
-						                    <td th:text="${empleado.id}">1</td>
-						                    <td th:text="${empleado.nombre}">María</td>
-						                    <td th:text="${empleado.apellidos}">Macías Padilla</td>
-						                    <td th:text="${empleado.fechaNacimiento}">02/05/1994</td>
-						                    <td th:text="${empleado.email}">mariam@gmail.com</td>
-						                    <td th:text="${empleado.telefono}">617507017</td>
-						                    <td th:text="${empleado.dni}">44243716L</td>
-						                    <th th:text="${empleado.sueldo}">1120.50</th>
-						                    <th th:text="${empleado.esAdmin}">X</th>
+						                    <td class="align-middle" th:text="${empleado.id}">1</td>
+						                    <td class="align-middle" th:text="${empleado.nombre}">María</td>
+						                    <td class="align-middle" th:text="${empleado.apellidos}">Macías Padilla</td>
+						                    <td class="align-middle" th:text="${empleado.fechaNacimiento}">02/05/1994</td>
+						                    <td class="align-middle" th:text="${empleado.email}">mariam@gmail.com</td>
+						                    <td class="align-middle" th:text="${empleado.telefono}">617507017</td>
+						                    <td class="align-middle" th:text="${empleado.dni}">44243716L</td>
+						                    <td class="align-middle" th:text="${empleado.esAdmin}">X</td>
+						                    <td>
+							                    <a id="editar" class="btn btn-danger"  th:href="@{/admin/editEmpleado/{id}(id=${empleado.id})}">Editar</a>
+							                    <a id="eliminar" class="btn btn-danger mt-2" th:href="@{/admin/eliminarEmpleado/{id}(id=${empleado.id})}">Eliminar</a>
+						                    </td>
+
 						                </tr>
 						                
 						            </tbody>
+						            
+						            <tfoot>
+						            	<tr>
+						                	<td colspan="9">
+						                		<a id="agregar" th:href="@{/admin/newEmpleado}" class="btn btn-danger mb-4 ml-2">Agregar</a>
+						                	</td>
+						                </tr>
+						            </tfoot>
 						        </table>
 					      		
 					      	</div>
