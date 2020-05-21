@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -31,7 +32,7 @@ public class Categoria {
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy="categoria", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="categoria", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List <Tratamiento> tratamientos = new ArrayList <> ();
 	
 	

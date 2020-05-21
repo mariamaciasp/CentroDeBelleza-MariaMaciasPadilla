@@ -51,7 +51,7 @@
 							
         				
         				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        					<div th:each="tratamiento : ${tratamientos}">
+        					<div th:each="tratamiento : ${categoria.tratamientos}">
 			         	
 			         			<a class="dropdown-item"  th:href="@{/peluqueria/{id}(id=${tratamiento.id})}">
 			         			<div class="info">
