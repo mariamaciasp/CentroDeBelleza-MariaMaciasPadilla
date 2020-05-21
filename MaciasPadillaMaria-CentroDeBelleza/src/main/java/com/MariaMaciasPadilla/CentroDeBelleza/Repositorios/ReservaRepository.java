@@ -6,4 +6,5 @@ import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
 
 public interface ReservaRepository extends JpaRepository<Reserva, Long>{
 
+	
 }

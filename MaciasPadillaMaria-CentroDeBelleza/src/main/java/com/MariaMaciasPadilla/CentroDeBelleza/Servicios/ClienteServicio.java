@@ -13,5 +13,9 @@ public class ClienteServicio extends BaseService <Cliente, Long, ClienteReposito
 		super(repo);
 		
 	}
+	
+	public Cliente buscarPorEmail(String email) {
+		return repositorio.findFirstByEmail(email);
+	}
 
 }

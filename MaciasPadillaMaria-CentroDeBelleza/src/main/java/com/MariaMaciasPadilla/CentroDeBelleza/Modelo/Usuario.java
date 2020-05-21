@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +29,10 @@ public abstract class Usuario implements UserDetails{
 	
 	private String nombre;
 	private String apellidos;
+	
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fechaNacimiento;
+	
 	private String telefono;
 	
 	// indico el username

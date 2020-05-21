@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<title>Registro Empleado</title>
+	<title>Sesión Administrador</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -25,13 +25,16 @@
 	<script type="text/javascript" src="js/JSCentroBelleza.js"></script>
 
 	<script type="text/javascript" src="js/libreriaFechas.js"></script>
+	<script type="text/javascript" src="js/JSCambioPassword.js"></script>
 
-	
+
+
+
 </head>
 <body>
 
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
 			<a class="navbar-brand" th:href="@{/admin/indexAdmin}">Mima-T</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -114,97 +117,36 @@
 
     			</form>
 			</div>
-		</nav>
 
+		</nav>
 	</header>
 
-
-	<main class="container-fluid">
-		<div class="row mt-5">
-			<div class="col-3"></div>
-			<form method="POST" action="#" th:action="${empleadoForm.id != 0} ? @{/admin/editEmpleado/submit} : @{/admin/newEmpleado/submit}" th:object="${empleadoForm}"
-			 id="formulario" class="col-6 bg-light mb-5 rounded" onsubmit="return revisarFormulario();">
-				<fieldset class="mt-2 ml-1">
-					<legend class="mb-3"  th:text="${empleadoForm.id != 0} ? 'Editar empleado' : 'Registrar empleado'">Regístrate</legend>
-					<input type="hidden" th:field="*{id}" id="id" name="id">
-					<div class="input-group mb-3 w-75 ">
-					    <div class="input-group-prepend ml-2">
-					      <label for="nombre" class="input-group-text">Nombre*</label>
-					    </div>
-					    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required th:field="*{nombre}" >				    
-					</div>				
-					<div class="mensajeError" id="errorNombre" >Nombre Incorrecto</div>
-					<div class="input-group mb-3 w-75">
-					    <div class="input-group-prepend ml-2">
-					      <label for="apellidos" class="input-group-text">Apellidos*</label>
-					    </div>
-					    <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos" required th:field="*{apellidos}">
-					</div>
-					<div class="mensajeError" id="errorApellidos" >Apellido Incorrecto</div>
-
-					
-					<div class="input-group mb-5 mt-2 w-75">
-					    <div class="input-group-prepend ml-2">
-					      <label for="dni" class="input-group-text">DNI</label>
-					    </div>
-					    <input type="text" id="dni" name="dni" class="form-control" th:field="*{dni}" placeholder="DNI">
-					</div>
-					
-					<div class="input-group mb-3 w-75">
-					    <div class="input-group-prepend ml-2">
-					      <label for="fnac" class="input-group-text">Fecha Nacimiento</label>
-					    </div>
-					    <input type="date" id="fnac" name="fnac" class="form-control" th:field="*{fechaNacimiento}" >
-					</div>
-					<div class="mensajeError" id="errorFecha" >Debe ser mayor de edad</div>
-
-					<div class="input-group mb-3 w-75">
-					    <div class="input-group-prepend ml-2 mb-4">
-					      <label for="telefono" class="input-group-text">Número de teléfono</label>
-					    </div>
-					    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Teléfono" required th:field="*{telefono}" >
-					</div>
-					
-					<div class="input-group w-75">
-					    <div class="input-group-prepend ml-2">
-					      <label for="email" class="input-group-text">Correo electrónico*</label>
-					    </div>
-					    <input type="mail" id="email" name="email" class="form-control" placeholder="email@mail.com" required th:field="*{email}" >
-					</div>
-					<div class="mensajeError mb-3" id="errorEmail" >Correo Electrónico Incorrecto</div>
-					<div class="input-group mb-3 w-75">
-					    <div class="input-group-prepend ml-2 mb-4">
-					      <label for="pwd1" class="input-group-text">Contraseña*</label>
-					    </div>
-					    <input type="password" id="pwd1" name="pwd1" class="form-control" required th:field="*{password}">
-					</div>
-					<div class="input-group mb-3 w-75">
-					    <div class="input-group-prepend ml-2 mb-1">
-					      <label for="pwd2" class="input-group-text">Repetir Contraseña*</label>
-					    </div>
-					    <input type="password" id="pwd2" name="pwd2" class="form-control" required>
-					</div>
-					<div class="mensajeError mb-4" id="errorPwd" ></div>
-					
-					<div class="form-group m-3">
-						<label for="esAdmin">
-							<input type="checkbox" id="esAdmin" value="true" th:field="*{esAdmin}">
-							Administrador
-						</label>
-					</div>
-					
-					<button type="reset" class="btn btn-secondary mb-4 ">Limpiar</button>
-					<button type="submit" id="enviar" class="btn btn-danger mb-4 float-right">Enviar</button>
-				</fieldset>
-			</form>
-			<div class="col-3"></div>
+	<main class="container">
+		<div class="row bg-light mt-4 mb-4 rounded">
+			<h1>Listado de Tratamientos</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Precio unitario</th>
+						<th>Operaciones</th>
+				</thead>
+				<tbody>
+					<tr th:each="tratamiento : ${listaTratamientos}">
+						<td class="text-center" th:text="${tratamiento.id}">1</td>
+						<td th:text="${tratamiento.nombre}">Nombre</td>
+						<td th:text="${}"></td>
+						<td style="text-align: right;" th:text="${#numbers.formatCurrency(tratamiento.precio)}">1.23€</td>
+						<td><a th:href="@{/carrito/add/{id}(id=${tratamiento.id})}">Añadir al carrito</a></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</main>
-
-
-
-
-	<footer class="bg-secondary">
+	
+	
+	<footer class="bg-secondary mt-5">
 		<div class="container mb-2 mt-2"> 
 			<div class="row">
 				<div class="letraFooter col-sm-12 text-center mt-1">
@@ -220,13 +162,13 @@
 				</div>
 
 				<div class="col-sm-6 text-right ml-3">
-					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
+					<a class="text-white" href="PoliticaDePrivacidad.html">Política de privacidad</a>
 					
 				</div>
 			
 				<div class="col-sm-5 text-left">
 					
-					<a class="text-white"  th:href="@{/cookies}">Política de Cookies</a>
+					<a class="text-white" href="PoliticaDeCookies.html">Política de Cookies</a>
 				</div>
 				<div class="col-sm-1"></div>
 			</div>
@@ -235,8 +177,5 @@
 		</div>
 
 	</footer>
-
-
-
 </body>
 </html>

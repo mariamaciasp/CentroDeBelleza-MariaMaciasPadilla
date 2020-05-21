@@ -2,6 +2,8 @@ package com.MariaMaciasPadilla.CentroDeBelleza.Servicios;
 
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
@@ -19,7 +21,6 @@ public class ReservaServicio extends BaseService<Reserva, Long, ReservaRepositor
 		//listaReservas.add(new Reserva(LocalDate.of(2020, 8, 8), 20));	
 		
 	}
-	
 
 
 

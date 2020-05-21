@@ -24,6 +24,8 @@ import lombok.ToString;
 @Entity
 public class Empleado extends Usuario{
 	
+
+	private static final long serialVersionUID = 1L;
 	
 	private String dni;
 	private boolean esAdmin;

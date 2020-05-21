@@ -13,5 +13,6 @@ public interface ClienteRepository extends JpaRepository <Cliente, Long>{
 	// modificar esto y poner algo que me sirva y con más sentido. Sería un ejemplo, no válido en mi caso 
 	// de las consultas
 	// List <Cliente> findByFechaClienteBetween(LocalDate fechaClienteStart, LocalDate fechaClienteEnd);
+	Cliente findFirstByEmail(String email);
 
 }

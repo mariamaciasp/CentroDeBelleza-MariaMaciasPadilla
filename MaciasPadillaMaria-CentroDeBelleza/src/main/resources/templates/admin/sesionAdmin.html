@@ -154,9 +154,10 @@
 						   
 						            <thead class="thead-light">
 
-						            	<tr class="aumentarSize">
+						            	<tr class="aumentarSize" th:fiel="*{categoria}">
 						            		<th>Categoría:</th>
-						            		<th colspan="4" class="text-center"><span class="idCategoria">1</span> - <span id="nombreCategoria">Peluquería</span></th>
+						            		<th colspan="4" class="text-center"><span class="idCategoria" th:each="categoria : ${listaCategorias}"
+						            		th:value="${categoria.id}" th:text="${categoria.nombre}">1</span> - <span id="nombreCategoria" >Peluquería</span></th>
 						            	</tr>
 						                
 						            </thead>
@@ -168,242 +169,18 @@
 						                    <td class="text-center w-50">Descripción</td>
 						                    <td class="text-center">Precio (€)</td>
 						                </tr>
-						                <tr>
-						                    <td class="text-center">1</td>
-						                    <td>Corte de pelo</td>
-						                    <td>Melenas largas, medias melenas, corto todo vale para 2020. Disfruta de un moderno corte de pelo o continúa con ese peinado de siempre que tan bien te sienta. Todo y más en las mejores manos.</td>
-						                    <td class="text-center">15,00</td>
+						                <tr th:each="tratamiento : ${listaTratamientos}">
+						                    <td class="text-center" th:text="${tratamiento.id}">1</td>
+						                    <td th:text="${tratamiento.nombre}">Corte de pelo</td>
+						                    <td th:text="${tratamiento.descripcion}">Melenas largas, medias melenas, corto todo vale para 2020. Disfruta de un moderno corte de pelo o continúa con ese peinado de siempre que tan bien te sienta. Todo y más en las mejores manos.</td>
+						                    <td class="text-center" th:text="${tratamiento.precio}">15,00</td>
 						                    
 						                </tr>
-						                <tr>
-						                    <td class="text-center">2</td>
-						                    <td>Tinte y mechas</td>
-						                    <td>Expertos en tintes, mechas, decolorados y una gran variedad de tratamientos para tu cabello. Creando un efecto impactante y a la vez natural.</td>
-						                    <td class="text-center">33,00</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">3</td>
-						                    <td>Lavado y peinado</td>
-						                    <td>Consigue ese peinado ideal para cualquier evento. Recogidos, semirecogidos o sueltos, te asesoramos para estar perfecta ese día especial.</td>
-						                    <td class="text-center">25,00</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">4</td>
-						                    <td>Tratamientos capilares</td>
-						                    <td>Todo tipo de tratamientos capilares para el cuidado de tu pelo, así como un asesoramiento personalizado. Consigue un pelo sano, cuidado y con brillo con nuestros tratamientos.</td>
-						                    <td class="text-center">55,00</td>
-						                </tr>
+						              
 						                
 						            </tbody>
 						        </table>	
 
-
-
-
-						        <table id="tablaMaquillaje" class="table table-hover " summary="Datos Usuario">
-						   
-						            <thead class="thead-light">
-
-						            	<tr class="aumentarSize">
-						            		<th>Categoría:</th>
-						            		<th colspan="4" class="text-center"><span class="idCategoria">2</span> - <span id="nombreCategoria">Maquillaje</span></th>
-						            	</tr>
-						                
-						            </thead>
-						          
-						            <tbody class="text-secondary">
-						                <tr class="aumentarSize font-weight-bolder">
-						                    <td class="text-center">ID</td>
-						                    <td>Nombre</td>
-						                    <td class="text-center w-50">Descripción</td>
-						                    <td class="text-center">Precio (€)</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">5</td>
-						                    <td>Maquillaje de novias</td>
-						                    <td>Disfruta de ese día tan especial con un maquillaje personalizado, sencillo y natural o si lo prefieres prueba con algo mágico y atrevido para ese gran día.</td>
-						                    <td class="text-center">70,00</td>
-						                    
-						                </tr>
-						                <tr>
-						                    <td class="text-center">6</td>
-						                    <td>Maquillaje exprés (30 minutos)</td>
-						                    <td>Asiste a esa fiesta con un maquillaje casual y desenfadado. Sigue siendo más tú que nunca y con el mejor asesoramiento a tu disposición.</td>
-						                    <td class="text-center">25,00</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">7</td>
-						                    <td>Maquillaje en 60 minutos</td>
-						                    <td>Elige un maquillaje personalizado para ese evento tan importante al que tienes que asistir este año. Contacta con nosotros para asesorarte si lo necesitas.</td>
-						                    <td class="text-center">45,00</td>
-						                </tr>
-						                
-						            </tbody>
-						        </table>	
-
-
-
-						        <table id="tablaManicura" class="table table-hover " summary="Datos Usuario">
-						   
-						            <thead class="thead-light">
-
-						            	<tr class="aumentarSize">
-						            		<th>Categoría:</th>
-						            		<th colspan="4" class="text-center"><span class="idCategoria">3</span> - <span id="nombreCategoria">Uñas</span></th>
-						            	</tr>
-						                
-						            </thead>
-						          
-						            <tbody class="text-secondary">
-						                <tr class="aumentarSize font-weight-bolder">
-						                    <td class="text-center">ID</td>
-						                    <td>Nombre</td>
-						                    <td class="text-center w-50">Descripción</td>
-						                    <td class="text-center">Precio (€)</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">8</td>
-						                    <td>Manicura</td>
-						                    <td>Disfruta de unas uñas cuidadas con colores y diseños exclusivos. Elige entre una gran gama de colores desde los clásicos hasta las últimas tendencias de la temporada.</td>
-						                    <td class="text-center">35,00</td>
-						                    
-						                </tr>
-						                <tr>
-						                    <td class="text-center">9</td>
-						                    <td>Pedicura</td>
-						                    <td>Ten tus pies cuidados y en perfecto estado en cualquier época del año. Luce tus pies con diseños exclusivos.</td>
-						                    <td class="text-center">25,00</td>
-						                </tr>
-						            </tbody>
-						        </table>	
-
-
-						        <table id="tablaDepilacion" class="table table-hover " summary="Datos Usuario">
-						   
-						            <thead class="thead-light">
-
-						            	<tr class="aumentarSize">
-						            		<th>Categoría:</th>
-						            		<th colspan="4" class="text-center"><span class="idCategoria">4</span> - <span id="nombreCategoria">Depilación</span></th>
-						            	</tr>
-						                
-						            </thead>
-						          
-						            <tbody class="text-secondary">
-						                <tr class="aumentarSize font-weight-bolder">
-						                    <td class="text-center">ID</td>
-						                    <td>Nombre</td>
-						                    <td class="text-center w-50">Descripción</td>
-						                    <td class="text-center">Precio (€)</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">10</td>
-						                    <td>Depilación con cera</td>
-						                    <td>Si busca una depilación de piernas, axilas o ingles, la cera es la mejor técnica semipermanente relativamente indolora con un resultado garantizado de hasta cuatro semanas.</td>
-						                    <td class="text-center">18,00</td>
-						                    
-						                </tr>
-						                <tr>
-						                    <td class="text-center">11</td>
-						                    <td>Depilación láser</td>
-						                    <td>Con nuestro método único y eficaz dile adiós al pelo para siempre. Opta por esta cómoda solución para librarte permanentemente del pelo.</td>
-						                    <td class="text-center">40,00</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">12</td>
-						                    <td>Depilación con hilo</td>
-						                    <td>Esta nueva nueva técnica de depilación es la más usadas de entre las 'celebrities' y además tiene una gran cantidad de beneficios para la piel.</td>
-						                    <td class="text-center">15,00</td>
-						                </tr>
-						            </tbody>
-						        </table>
-
-						        <table id="tablaMasaje" class="table table-hover " summary="Datos Usuario">
-						   
-						            <thead class="thead-light">
-
-						            	<tr class="aumentarSize">
-						            		<th>Categoría:</th>
-						            		<th colspan="4" class="text-center"><span class="idCategoria">5</span> - <span id="nombreCategoria">Masaje</span></th>
-						            	</tr>
-						                
-						            </thead>
-						          
-						            <tbody class="text-secondary">
-						                <tr class="aumentarSize font-weight-bolder">
-						                    <td class="text-center">ID</td>
-						                    <td>Nombre</td>
-						                    <td class="text-center w-50">Descripción</td>
-						                    <td class="text-center">Precio (€)</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">13</td>
-						                    <td>Masaje relajante</td>
-						                    <td>Desde nuestro centro queremos que te sientas bien, y para ello te ofrecemos masajes para eliminar el estres de la rutina diaria y relajar esas partes del cuerpo que se encuentran mas cargadas.</td>
-						                    <td class="text-center">30,00</td>
-						                    
-						                </tr>
-						                <tr>
-						                    <td class="text-center">14</td>
-						                    <td>Masaje en pareja</td>
-						                    <td>Disfruta del mejor masaje en la mejor compañía posible. Desconectar de la rutina diaria es más fácil si lo haces en buena compañía.</td>
-						                    <td class="text-center">60,00</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">15</td>
-						                    <td>Masaje tailandés</td>
-						                    <td>El masaje tailandés forma parte de una verdadera filosofía de vida en Tailandia, y se inspira en prácticas relajantes milenarias como el yoga y la meditación.</td>
-						                    <td class="text-center">40,00</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">16</td>
-						                    <td>Fisioterapia</td>
-						                    <td>Contamos con profesionales sanitarios y técnicos especialistas en la recuperación muscular. Ofrecemos un servicio de alta calidad para una mayor y más eficaz recuperación.</td>
-						                    <td class="text-center">45,00</td>
-						                </tr>
-						            </tbody>
-						        </table>
-
-
-						        <table id="tablaTratamientos" class="table table-hover " summary="Datos Usuario">
-						   
-						            <thead class="thead-light">
-
-						            	<tr class="aumentarSize">
-						            		<th>Categoría:</th>
-						            		<th colspan="4" class="text-center"><span class="idCategoria">6</span> - <span id="nombreCategoria">Tratamiento</span></th>
-						            	</tr>
-						                
-						            </thead>
-						          
-						            <tbody class="text-secondary">
-						                <tr class="aumentarSize font-weight-bolder">
-						                    <td class="text-center">ID</td>
-						                    <td>Nombre</td>
-						                    <td class="text-center w-50">Descripción</td>
-						                    <td class="text-center">Precio (€)</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">17</td>
-						                    <td>Limpieza facial</td>
-						                    <td>Si quieres lucir una piel luminosa y uniforme, este es tu tratamiento. Líbrate de las impurezas, la contaminación y la propia grasa de la piel.</td>
-						                    <td class="text-center">30,00</td>
-						                    
-						                </tr>
-						                <tr>
-						                    <td class="text-center">18</td>
-						                    <td>Peeling químico</td>
-						                    <td>Este tratamiento no quirúrgico, cuyo efecto inmediato consiste en la eliminación de una parte del cutis, así como un efecto tardío de regeneración de la piel, renovando la matriz dérmica y dejándola sin determinados defectos estéticos como manchas, arrugas...</td>
-						                    <td class="text-center">37,00</td>
-						                </tr>
-						                <tr>
-						                    <td class="text-center">19</td>
-						                    <td>Diseño y tinte de cejas</td>
-						                    <td>Este tratamiento cosmético combina hábilmente la remodelación de la forma con la aplicación del maquillaje para un resultado hiper elegante.</td>
-						                    <td class="text-center">27,00</td>
-						                </tr>
-						            </tbody>
-						        </table>
 
 					    	</div>	
 

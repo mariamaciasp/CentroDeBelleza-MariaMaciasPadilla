@@ -24,10 +24,8 @@ import lombok.ToString;
 @Entity
 public class Cliente extends Usuario{
 	
-	/**
-	 *  ESTO PARA QUE ES??? ME HACE IMPLEMENTARLO!
-	 */
-	//private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = 1L;
 	
 	
 	public Cliente(String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String email,

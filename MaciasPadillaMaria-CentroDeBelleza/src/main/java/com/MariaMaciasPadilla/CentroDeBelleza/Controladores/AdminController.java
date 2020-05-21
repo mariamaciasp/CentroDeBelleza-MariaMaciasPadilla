@@ -29,17 +29,17 @@ public class AdminController {
 	
 	@GetMapping({"","/index","/indexAdmin"})
 	public String inicio () {
-		return "/admin/indexAdmin";
+		return "/index";
 	}
 	
-	@GetMapping("/sesion")
+/*	@GetMapping("/sesion")
 	public String listado (Model model) {
 		model.addAttribute("listaEmpleados", empleadoservicio.findAll());
 		model.addAttribute("listaReservas", servicioReserva.findAll());
 		model.addAttribute("listaClientes", clienteservicio.findAll());
 		return "/admin/sesionAdmin";
 		
-	}
+	}*/
 	
 	@GetMapping("/newCliente")
 	public String nuevoClienteForm (Model model) {
