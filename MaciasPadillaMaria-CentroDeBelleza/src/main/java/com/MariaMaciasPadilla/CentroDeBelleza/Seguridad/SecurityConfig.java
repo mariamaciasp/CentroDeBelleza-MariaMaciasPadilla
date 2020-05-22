@@ -39,7 +39,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http
 		.authorizeRequests()
-		.antMatchers("/css/**","/js/**", "/img/**","/files/**", "/h2-console/**", "/detalles","/index", "/cookies", "/privacidad", "/registroCliente").permitAll()
+		.antMatchers("/css/**","/js/**", "/img/**","/files/**", "/h2-console/**", "/registroSesion","/index").permitAll()
+			.antMatchers("/fragmentos/**", "/cookies", "/privacidad", "/registroCliente", "/carrito", "/peluqueria/**").permitAll()
 			.antMatchers("/admin/**").hasAnyRole("ADMIN")
 			.antMatchers("/user/**").hasAnyRole("USER")
 			.anyRequest().authenticated()

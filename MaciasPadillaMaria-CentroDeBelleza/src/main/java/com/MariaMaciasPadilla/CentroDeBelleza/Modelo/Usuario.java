@@ -30,7 +30,7 @@ public abstract class Usuario implements UserDetails{
 	private String nombre;
 	private String apellidos;
 	
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	
 	private String telefono;

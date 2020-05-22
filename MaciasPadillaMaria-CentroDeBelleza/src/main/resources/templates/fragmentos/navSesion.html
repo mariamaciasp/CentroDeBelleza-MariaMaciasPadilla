@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>fragmento parte de header sesión de usuarios y administradores</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navSesion">
+			<a class="navbar-brand" th:href="@{/index}">Mima-T</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown active"  th:each="categoria : ${categorias}">
+        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        				
+						th:text="${categoria.nombre}">Categoría</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			         		<div th:each="tratamiento : ${categoria.tratamientos}">
+
+			         			<a  class="dropdown-item"  th:href="@{/peluqueria/?(idCategoria=${categoria.id})}" 
+			         				th:text="${#strings.abbreviate(tratamiento.nombre,35)}">Tratamiento</a>
+			         	
+			          		</div>
+			          	</div>
+      				</li>
+
+				</ul>
+
+
+
+
+				<form class="form-inline my-2 my-lg-0">
+					
+					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" id="buscar" class="btn">
+						<span class="fas fa-search fa-lg"></span>
+					</button>
+
+					<a th:href="@{/registroSesion}" class="btn">
+						<span class="far fa-user fa-lg"></span>
+					</a>
+
+					<a th:href="@{/carrito}" class="btn">
+						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
+					</a>
+
+    			</form>
+				
+
+
+			</div>
+		</nav>
+
+
+	
+
+</body>
+</html>

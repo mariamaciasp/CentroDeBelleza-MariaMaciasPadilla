@@ -101,8 +101,8 @@ public class ReservaController {
 	public String nuevoClienteSubmit (@ModelAttribute("reservaForm") Reserva reserva, @AuthenticationPrincipal Cliente cliente) {
 		
 		reserva.setCliente(cliente);
-		servicioReserva.save(reserva);
 		cliente.addReservaC(reserva);
+		servicioReserva.save(reserva);
 		
 		return "redirect:/carrito";
 	}

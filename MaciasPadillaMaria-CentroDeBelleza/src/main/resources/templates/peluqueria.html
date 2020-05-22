@@ -22,95 +22,22 @@
 
 	<!-- Latest compiled JavaScript
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.js"></script> -->
-	<script type="text/javascript" src="js/JSCentroBelleza.js"></script>
+	<script type="text/javascript" src="/js/JSCentroBelleza.js"></script>
 
-	<script type="text/javascript" src="js/libreriaFechas.js"></script>
-	<script type="text/javascript" src="js/JSCambioPassword.js"></script>
-
-
+	<script type="text/javascript" src="/js/libreriaFechas.js"></script>
+	<script type="text/javascript" src="/js/JSCambioPassword.js"></script>
 
 
 </head>
 <body>
 
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-			<a class="navbar-brand" href="Inicio.html">Mima-T</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
- 
-			<div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
-				<!--<ul class="navbar-nav mr-auto">
-					
-					<li class="nav-item dropdown-toogle active" th:each="categoria : ${categorias}">
-        			
-	        			<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  
-						th:href="@{/peluqueria/?(idCategoria=${categoria.id})}"
-						th:text="${categoria.nombre}">Peluquería</a>
-							
-        				
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        					<div th:each="tratamiento : ${categoria.tratamientos}">
-			         	
-			         			<a class="dropdown-item"  th:href="@{/peluqueria/{id}(id=${tratamiento.id})}">
-			         			<div class="info">
-			         				<span th:text="${#strings.abbreviate(tratamiento.nombre,65)}">Corte de pelo</span>
-			         			</div>
-			         			</a>
-			         		</div>
-        				
-        				</div>
-      				</li>
-
-				</ul> -->
-
-
-				<form class="form-inline my-2 my-lg-0">
-					
-					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button type="submit" id="buscar" class="btn">
-						<span class="fas fa-search fa-lg"></span>
-					</button>
-
-					<a th:href="@{/registroSesion}" class="btn">
-						<span class="far fa-user fa-lg"></span>
-					</a>
-
-					<a href="#" class="btn">
-						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
-					</a>
-
-    			</form>
-			</div>
-
-		</nav>
-		
-		
-		
-		<nav>
-			<div class="row datos col-2 text-center mt-5">
-  				
-  				<div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical"
-  				 th:each="categoria : ${categorias}">
-  					<a class="categoria nav-link btn-light btn-lg mt-2 ml-5" role="tab"
-  					th:href="@{/peluqueria/?(idCategoria=${categoria.id})}"
-						th:text="${categoria.nombre}">Categoria</a>
-    			</div>
-  				
-			</div>
-
-		</nav>
-
-
-	</header>
-
+	<header th:replace="~{fragmentos/headerTratamiento::headerTratamiento}"></header>
 
 	<main class="container">
 	
 	<div class="row">
 		<div class="col-12"><h1 class="cabecera display-4 bg-light text-center mb-5" 
-		>Peluquería</h1></div>
+		>Tratamientos</h1></div>
   		<div class="col-10 tarjeta card mb-5" th:each="tratamiento : ${tratamientos}">
   			<div class="row no-gutters">
     			<div class="col-md-4">
@@ -147,57 +74,8 @@
 	</main>
 
 
-
-
-	<footer class="bg-secondary mt-5">
-		<div class="container mb-2 mt-2"> 
-			<div class="row">
-				<div class="letraFooter col-sm-12 text-center mt-1">
-					<span class="fab fa-cc-visa fa-lg ml-2"></span>
-					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
-					<span class="fab fa-cc-amex fa-lg ml-2"></span>
-					<span class="fab fa-paypal fa-lg ml-2"></span>
-					<span class="fab fa-cc-paypal fa-lg"></span>
-				</div>
-			
-				<div class="col-sm-12 text-center mt-1">
-					© 2020 MIMA-T Todos los derechos reservados
-				</div>
-
-				<div class="col-sm-6 text-right ml-3">
-					<a class="text-white" href="PoliticaDePrivacidad.html">Política de privacidad</a>
-					
-				</div>
-			
-				<div class="col-sm-5 text-left">
-					
-					<a class="text-white" href="PoliticaDeCookies.html">Política de Cookies</a>
-				</div>
-				<div class="col-sm-1"></div>
-			</div>
-
-			
-		</div>
-
-	</footer>
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	
-	
-	<script type="text/javascript">
-		var valorCabecera = $(".cabecera").text();
-
-		$(function() {
-			
-			$("a").on("click",".categoria",function (even) {
-				valorCategoria = $(".categoria").text;
-				$(".cabecera").text(valorCategoria);
-			});
-			
-			
-		});
-		
-	</script>
-
-
 
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>fragmento footer</title>
+</head>
+<body>
+
+	<footer class="bg-secondary footer" th:fragment="footer">
+		<div class="container mt-2 mb-2"> 
+			<div class="row">
+				<div class="letraFooter col-sm-12 text-center mt-1">
+					<span class="fab fa-cc-visa fa-lg ml-2"></span>
+					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
+					<span class="fab fa-cc-amex fa-lg ml-2"></span>
+					<span class="fab fa-paypal fa-lg ml-2"></span>
+					<span class="fab fa-cc-paypal fa-lg"></span>
+				</div>
+			
+				<div class="col-sm-12 text-center mt-1">
+					© 2020 MIMA-T Todos los derechos reservados
+				</div>
+
+				<div class="col-sm-6 text-right ml-3">
+					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
+					
+				</div>
+			
+				<div class="col-sm-5 text-left">
+					
+					<a class="text-white" th:href="@{/cookies}">Política de Cookies</a>
+				</div>
+				<div class="col-sm-1"></div>
+			</div>
+
+			
+		</div>
+
+	</footer>
+	
+
+</body>
+</html>

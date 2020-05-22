@@ -26,98 +26,7 @@
 </head>
 <body>
 
-	<header class="carrusel">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" th:href="@{index}">Mima-T</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Peluquería</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Corte de pelo</a>
-			          	<a class="dropdown-item" href="#">Tinte y mechas</a>
-          				<a class="dropdown-item" href="#">Lavado y peinado</a>
-          				<a class="dropdown-item" href="#">Tratamientos capilares</a>
-        				</div>
-      				</li>
-
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Maquillaje</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Maquillaje de novias</a>
-			          	<a class="dropdown-item" href="#">Maquillaje exprés en 30 minutos</a>
-          				<a class="dropdown-item" href="#">Maquillaje en 60 minutos</a>
-        				</div>
-      				</li>
-
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uñas</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Manicura</a>
-			          	<a class="dropdown-item" href="#">Pedicura</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Depilación</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Depilación con cera</a>
-			          	<a class="dropdown-item" href="#">Depilación láser</a>
-          				<a class="dropdown-item" href="#">Depilación con hilo</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Masaje</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Masaje relajante</a>
-			          	<a class="dropdown-item" href="#">Masaje en pareja</a>
-          				<a class="dropdown-item" href="#">Masaje Tailandés</a>
-          				<a class="dropdown-item" href="#">Fisioterapia</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Tratamientos</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Limpieza facial</a>
-			          	<a class="dropdown-item" href="#">Peeling químico</a>
-          				<a class="dropdown-item" href="#">Diseño y tinte de cejas</a>
-        				</div>
-      				</li>
-
-				</ul>
-
-
-
-
-				<form class="form-inline my-2 my-lg-0">
-					
-					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button type="submit" id="buscar" class="btn">
-						<span class="fas fa-search fa-lg"></span>
-					</button>
-
-					<a href="./InicioSesion.html" class="btn">
-						<span class="far fa-user fa-lg"></span>
-					</a>
-
-					<a href="#" class="btn">
-						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
-					</a>
-
-    			</form>
-				
-
-
-			</div>
-		</nav>
-
-	</header>
+	<header th:replace="~{fragmentos/header::header}"></header>
 
 
 	<main class="container">
@@ -171,36 +80,8 @@
 	
 	</main>
 
-	<footer class="bg-secondary">
-		<div class="container mb-2 mt-2"> 
-			<div class="row">
-				<div class="letraFooter col-sm-12 text-center mt-1">
-					<span class="fab fa-cc-visa fa-lg ml-2"></span>
-					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
-					<span class="fab fa-cc-amex fa-lg ml-2"></span>
-					<span class="fab fa-paypal fa-lg ml-2"></span>
-					<span class="fab fa-cc-paypal fa-lg"></span>
-				</div>
-			
-				<div class="col-sm-12 text-center mt-1">
-					© 2020 MIMA-T Todos los derechos reservados
-				</div>
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
-				<div class="col-sm-6 text-right ml-3">
-					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
-					
-				</div>
-			
-				<div class="col-sm-5 text-left">
-					
-					<a class="text-white" th:href="@{/cookies}">Política de Cookies</a>
-				</div>
-				<div class="col-sm-1"></div>
-			</div>
-
-		</div>
-
-	</footer>
 
 
 </body>

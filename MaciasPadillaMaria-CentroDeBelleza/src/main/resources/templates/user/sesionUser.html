@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<title>Registro</title>
+	<title>Sesión Usuario</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -22,10 +22,11 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/JSCentroBelleza.js"></script>
+	<script type="text/javascript" src="/js/JSCentroBelleza.js"></script>
 
-	<script type="text/javascript" src="js/libreriaFechas.js"></script>
-	<script type="text/javascript" src="js/JSCambioPassword.js"></script>
+	<script type="text/javascript" src="/js/libreriaFechas.js"></script>
+	<script type="text/javascript" src="/js/JSCambioPassword.js"></script>
+	<script type="text/javascript" src="/js/sesionCliente.js"></script>
 
 
 
@@ -34,92 +35,8 @@
 <body>
 
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-			<a class="navbar-brand" href="Inicio.html">Mima-T</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Peluquería</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Corte de pelo</a>
-			          	<a class="dropdown-item" href="#">Tinte y mechas</a>
-          				<a class="dropdown-item" href="#">Lavado y peinado</a>
-          				<a class="dropdown-item" href="#">Tratamientos capilares</a>
-        				</div>
-      				</li>
-
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Maquillaje</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Maquillaje de novias</a>
-			          	<a class="dropdown-item" href="#">Maquillaje exprés en 30 minutos</a>
-          				<a class="dropdown-item" href="#">Maquillaje en 60 minutos</a>
-        				</div>
-      				</li>
-
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uñas</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Manicura</a>
-			          	<a class="dropdown-item" href="#">Pedicura</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Depilación</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Depilación con cera</a>
-			          	<a class="dropdown-item" href="#">Depilación láser</a>
-          				<a class="dropdown-item" href="#">Depilación con hilo</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Masaje</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Masaje relajante</a>
-			          	<a class="dropdown-item" href="#">Masaje en pareja</a>
-          				<a class="dropdown-item" href="#">Masaje Tailandés</a>
-          				<a class="dropdown-item" href="#">Fisioterapia</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Tratamientos</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Limpieza facial</a>
-			          	<a class="dropdown-item" href="#">Peeling químico</a>
-          				<a class="dropdown-item" href="#">Diseño y tinte de cejas</a>
-        				</div>
-      				</li>
-
-				</ul>
-
-
-				<form class="form-inline my-2 my-lg-0">
-					
-					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button type="submit" id="buscar" class="btn">
-						<span class="fas fa-search fa-lg"></span>
-					</button>
-
-					<a  th:href="@{/user/sesion}" class="btn">
-						<span class="far fa-user fa-lg"></span>
-					</a>
-
-					<a href="#" class="btn">
-						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
-					</a>
-
-    			</form>
-			</div>
-
-		</nav>
-
+	
+		<nav th:replace="~{fragmentos/navSesion::navSesion}"></nav>
 
 		<nav>
 			<div class="row datos col-2 text-center">
@@ -269,225 +186,7 @@
   		</div>
 	</main>
 
-
-
-
-	<footer class="bg-secondary mt-5">
-		<div class="container mb-2 mt-2"> 
-			<div class="row">
-				<div class="letraFooter col-sm-12 text-center mt-1">
-					<span class="fab fa-cc-visa fa-lg ml-2"></span>
-					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
-					<span class="fab fa-cc-amex fa-lg ml-2"></span>
-					<span class="fab fa-paypal fa-lg ml-2"></span>
-					<span class="fab fa-cc-paypal fa-lg"></span>
-				</div>
-			
-				<div class="col-sm-12 text-center mt-1">
-					© 2020 MIMA-T Todos los derechos reservados
-				</div>
-
-				<div class="col-sm-6 text-right ml-3">
-					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
-					
-				</div>
-			
-				<div class="col-sm-5 text-left">
-					
-					<a class="text-white" th:href="@{/cookies}">Política de Cookies</a>
-				</div>
-				<div class="col-sm-1"></div>
-			</div>
-
-			
-		</div>
-
-	</footer>
-
-
-
-
-	<script type="text/javascript">
-
-		$(function() {
-
-			var valorNombreInicial = $(".nombre").text();
-			var valorApellidosInicial = $(".apellidos").text();
-			var valorFechaNacInicial = $(".fechaNac").text();
-			var valorTelefonoInicial = $(".telefono").text();
-
-			var valorEmailInicial = $(".email").text();
-
-
-			// PARA NOMBRE
-
-			$("td").on("click",".modificarN",function (even) {
-
-				$(".modificarN").toggleClass("modificarN").toggleClass("guardarN").text("Guardar");
-				$(".cancelarN").show();
-				$(".nombre").toggleClass("nombre").toggleClass("cambiarNombre").html('<input id="nombre" name="nombre" type="text" placeholder="Nombre" required class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarN", function (event) {
-
-				$(".guardarN").toggleClass("guardarN").toggleClass("modificarN").text("Modificar");
-
-				var valorN = $("#nombre").val();
-
-				$(".cambiarNombre").toggleClass("cambiarNombre").toggleClass("nombre").text(valorN);
-				$(".cancelarN").hide();
-				valorNombreInicial = $(".nombre").text();
-
-			});
-
-			$("td").on("click",".cancelarN", function (event) {
-				$(".guardarN").toggleClass("guardarN").toggleClass("modificarN").text("Modificar");
-
-				$(".cambiarNombre").toggleClass("cambiarNombre").toggleClass("nombre").text(valorNombreInicial);
-
-				$(".cancelarN").hide();
-
-
-			});
-
-			// PARA APELLIDOS
-
-			$("td").on("click",".modificarA",function (even) {
-
-				$(".modificarA").toggleClass("modificarA").toggleClass("guardarA").text("Guardar");
-				$(".cancelarA").show();
-				$(".apellidos").toggleClass("apellidos").toggleClass("cambiarApellidos").html('<input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarA", function (event) {
-
-				$(".guardarA").toggleClass("guardarA").toggleClass("modificarA").text("Modificar");
-
-				var valorA = $("#apellidos").val();
-
-				$(".cambiarApellidos").toggleClass("cambiarApellidos").toggleClass("apellidos").text(valorA);
-				$(".cancelarA").hide();
-				valorApellidosInicial = $(".apellidos").text();
-				
-			});
-
-			$("td").on("click",".cancelarA", function (event) {
-
-				$(".guardarA").toggleClass("guardarA").toggleClass("modificarA").text("Modificar");
-				$(".cambiarApellidos").toggleClass("cambiarApellidos").toggleClass("apellidos").text(valorApellidosInicial);
-				$(".cancelarA").hide();
-
-
-			});
-
-
-			// PARA FECHA DE NACIMIENTO
-
-
-			$("td").on("click",".modificarFN",function (even) {
-
-				$(".modificarFN").toggleClass("modificarFN").toggleClass("guardarFN").text("Guardar");
-				$(".cancelarFN").show();
-				$(".fechaNac").toggleClass("fechaNac").toggleClass("cambiarFechaNac").html('<input id="fechaNac" name="fechaNac" type="date" class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarFN", function (event) {
-
-				$(".guardarFN").toggleClass("guardarFN").toggleClass("modificarFN").text("Modificar");
-				
-				var valorFN = $("#fechaNac").val();
-
-				$(".cambiarFechaNac").toggleClass("cambiarFechaNac").toggleClass("fechaNac").text(valorFN);
-				$(".cancelarFN").hide();
-				valorFechaNacInicial = $(".fechaNac").text();
-
-			});
-
-			$("td").on("click",".cancelarFN", function (event) {
-
-				$(".guardarFN").toggleClass("guardarFN").toggleClass("modificarFN").text("Modificar");
-				$(".cambiarFechaNac").toggleClass("cambiarFechaNac").toggleClass("fechaNac").text(valorFechaNacInicial);
-				$(".cancelarFN").hide();
-
-
-			});
-
-
-			// PARA TELÉFONO 
-
-
-			$("td").on("click",".modificarT",function (even) {
-
-				$(".modificarT").toggleClass("modificarT").toggleClass("guardarT").text("Guardar");
-				$(".cancelarT").show();
-				$(".telefono").toggleClass("telefono").toggleClass("cambiarTelefono").html('<input id="telefono" name="telefono" type="text" placeholder="Teléfono" class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarT", function (event) {
-
-				$(".guardarT").toggleClass("guardarT").toggleClass("modificarT").text("Modificar");
-
-				var valorT = $("#telefono").val();
-
-				$(".cambiarTelefono").toggleClass("cambiarTelefono").toggleClass("telefono").text(valorT);
-				$(".cancelarT").hide();
-				valorTelefonoInicial = $(".telefono").text();
-				
-			});
-
-			$("td").on("click",".cancelarT", function (event) {
-				$(".guardarT").toggleClass("guardarT").toggleClass("modificarT").text("Modificar");
-				$(".cambiarTelefono").toggleClass("cambiarTelefono").toggleClass("telefono").text(valorTelefonoInicial);
-				$(".cancelarT").hide();
-
-
-			});
-
-
-
-
-			// PARA EMAIL
-
-			$("td").on("click",".modificarE",function (even) {
-
-				$(".modificarE").toggleClass("modificarE").toggleClass("guardarE").text("Guardar");
-				$(".cancelarE").show();
-				$(".email").toggleClass("email").toggleClass("cambiarEmail").html('<input type="mail" id="email" name="email" class="form-control" placeholder="email@mail.com" required>');
-
-			});
-
-			$("td").on("click",".guardarE", function (event) {
-
-				$(".guardarE").toggleClass("guardarE").toggleClass("modificarE").text("Modificar");
-
-				var valorE = $("#email").val();
-
-				$(".cambiarEmail").toggleClass("cambiarEmail").toggleClass("email").text(valorE);
-				$(".cancelarE").hide();
-				valorEmailInicial = $(".email").text();
-				
-			});
-
-			$("td").on("click",".cancelarE", function (event) {
-				$(".guardarE").toggleClass("guardarE").toggleClass("modificarE").text("Modificar");
-				$(".cambiarEmail").toggleClass("cambiarEmail").toggleClass("email").text(valorEmailInicial);
-				$(".cancelarE").hide();
-
-
-			});
-
-
-		});
-
-
-
-	</script>
-
-
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 </body>
 </html>

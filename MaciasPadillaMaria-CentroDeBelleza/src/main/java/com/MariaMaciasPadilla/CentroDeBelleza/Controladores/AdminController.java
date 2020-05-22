@@ -1,5 +1,7 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Controladores;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -30,10 +32,25 @@ public class AdminController {
 	@Autowired
 	private TratamientoServicio tratamientoservicio;
 	@Autowired
-	private CategoriaServicio categoriaservicio;
+	private CategoriaServicio categoriaservicio;	
+	
+	
+	@ModelAttribute("categorias")
+	public List<Categoria> listaCategorias () {	
+		return categoriaservicio.findAll();
+	}
+	
+	@ModelAttribute("tratamientos")
+	public List <Tratamiento> listaTratamientos () {
+		List <Tratamiento> tratamientos = tratamientoservicio.findAll();
+		return tratamientos;
+	}
+
 	
 	@GetMapping({"","/index","/indexAdmin"})
 	public String inicio () {
+		listaCategorias();
+		listaTratamientos();
 		return "/index";
 	}
 	
@@ -50,7 +67,9 @@ public class AdminController {
 	@GetMapping("/newCliente")
 	public String nuevoClienteForm (Model model) {
 		model.addAttribute("clienteForm", new Cliente());
-		return "/registroCliente";
+		listaCategorias();
+		listaTratamientos();
+		return "/registroSesion";
 	}
 	
 	@PostMapping("/newCliente/submit")
@@ -108,6 +127,8 @@ public class AdminController {
 	
 	@GetMapping("/newEmpleado")
 	public String nuevoEmpleadoForm (Model model) {
+		listaCategorias();
+		listaTratamientos();
 		model.addAttribute("empleadoForm", new Empleado());
 		return "/admin/registroEmpleado";
 	}
@@ -118,7 +139,7 @@ public class AdminController {
 		nuevoEmpleado.setPassword(encoder.encode(nuevoEmpleado.getPassword()));
 		empleadoservicio.save(nuevoEmpleado);
 		
-		return "redirect:/sesion";
+		return "redirect:/registroSesion";
 	}
 	
 	
@@ -161,6 +182,8 @@ public class AdminController {
 	
 	@GetMapping("/newTratamiento")
 	public String nuevoTratamientoForm (Model model) {
+		listaCategorias();
+		listaTratamientos();
 		model.addAttribute("tratamientoForm", new Tratamiento());
 		model.addAttribute("listaCategorias", categoriaservicio.findAll());
 		return "/admin/RegistroTratamiento";
@@ -195,15 +218,18 @@ public class AdminController {
 	
 	
 	@GetMapping("/eliminarTratamiento/{id}")
-	public String eliminarTratamientoForm (@PathVariable long id, Model model) {
+	public String eliminarTratamientoForm (@PathVariable long id/*, Model model*/) {
 		
-		Tratamiento tratamiento = tratamientoservicio.findById(id);
-		if (tratamiento != null) {
+		/*Tratamiento tratamiento = tratamientoservicio.findById(id);*/
+		tratamientoservicio.deleteById(id);
+		/*if (tratamiento != null) {
 			tratamientoservicio.deleteById(id);
 			return "redirect:/registroSesion";
 			} else {
+				tratamientoservicio.deleteById(id);
 				return "redirect:/registroSesion";
-			}
+			}*/
+		return "redirect:/registroSesion";
 	}
 	
 	
@@ -211,8 +237,10 @@ public class AdminController {
 	
 	@GetMapping("/newCategoria")
 	public String nuevaCategoriaForm (Model model) {
+		listaCategorias();
+		listaTratamientos();
 		model.addAttribute("categoriaForm", new Categoria());
-		model.addAttribute("listaCategorias", categoriaservicio.findAll());
+		//model.addAttribute("listaCategorias", categoriaservicio.findAll());
 		return "/admin/RegistroCategoria";
 	}
 	

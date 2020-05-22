@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>fragmento header tratamiento</title>
+</head>
+<body>	
+	
+	<header th:fragment="headerTratamiento">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+			<a class="navbar-brand" th:href="@{/index}">Mima-T</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+ 
+			<div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
+				<!--<ul class="navbar-nav mr-auto">
+					
+					<li class="nav-item dropdown-toogle active" th:each="categoria : ${categorias}">
+        			
+	        			<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  
+						th:href="@{/peluqueria/?(idCategoria=${categoria.id})}"
+						th:text="${categoria.nombre}">Peluquería</a>
+							
+        				
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        					<div th:each="tratamiento : ${categoria.tratamientos}">
+			         	
+			         			<a class="dropdown-item"  th:href="@{/peluqueria/{id}(id=${tratamiento.id})}">
+			         			<div class="info">
+			         				<span th:text="${#strings.abbreviate(tratamiento.nombre,65)}">Corte de pelo</span>
+			         			</div>
+			         			</a>
+			         		</div>
+        				
+        				</div>
+      				</li>
+
+				</ul> -->
+
+
+				<form class="form-inline my-2 my-lg-0">
+					
+					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" id="buscar" class="btn">
+						<span class="fas fa-search fa-lg"></span>
+					</button>
+
+					<a th:href="@{/registroSesion}" class="btn">
+						<span class="far fa-user fa-lg"></span>
+					</a>
+
+					<a th:href="@{/carrito}"class="btn">
+						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
+					</a>
+
+    			</form>
+			</div>
+
+		</nav>
+		
+		
+		
+		<nav>
+			<div class="row datos col-2 text-center mt-5">
+  				
+  				<div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical"
+  				 th:each="categoria : ${categorias}">
+  					<a class="categoria nav-link btn-light btn-lg mt-2 ml-5" role="tab"
+  					th:href="@{/peluqueria/?(idCategoria=${categoria.id})}"
+						th:text="${categoria.nombre}">Categoria</a>
+    			</div>
+  				
+			</div>
+
+		</nav>
+
+
+	</header>
+	
+</body>
+</html>

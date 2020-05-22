@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<title>Registro Empleado</title>
+	<title>Registro Cliente</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -23,8 +23,10 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/JSCentroBelleza.js"></script>
+	
 
 	<script type="text/javascript" src="/js/libreriaFechas.js"></script>
+	<script type="text/javascript" src="/js/sesionCliente.js"></script>
 	
 
 	
@@ -33,14 +35,13 @@
 
 	<header th:replace="~{fragmentos/header::header}"></header>
 
-
 	<main class="container-fluid">
 		<div class="row mt-5">
 			<div class="col-3"></div>
-			<form method="POST" action="#" th:action="${empleadoForm.id != 0} ? @{/admin/editEmpleado/submit} : @{/admin/newEmpleado/submit}" th:object="${empleadoForm}"
+			<form method="POST" action="#" th:action="${clienteForm.id != 0} ? @{/admin/editCliente/submit} : @{/admin/newCliente/submit}" th:object="${clienteForm}"
 			 id="formulario" class="col-6 bg-light mb-5 rounded" onsubmit="return revisarFormulario();">
 				<fieldset class="mt-2 ml-1">
-					<legend class="mb-3"  th:text="${empleadoForm.id != 0} ? 'Editar empleado' : 'Registrar empleado'">Regístrate</legend>
+					<legend class="mb-3"  th:text="${clienteForm.id != 0} ? 'Editar cliente' : 'Registrar cliente'">Registrar Cliente</legend>
 					<input type="hidden" th:field="*{id}" id="id" name="id">
 					<div class="input-group mb-3 w-75 ">
 					    <div class="input-group-prepend ml-2">
@@ -57,19 +58,11 @@
 					</div>
 					<div class="mensajeError" id="errorApellidos" >Apellido Incorrecto</div>
 
-					
-					<div class="input-group mb-5 mt-2 w-75">
-					    <div class="input-group-prepend ml-2">
-					      <label for="dni" class="input-group-text">DNI</label>
-					    </div>
-					    <input type="text" id="dni" name="dni" class="form-control" th:field="*{dni}" placeholder="DNI">
-					</div>
-					
 					<div class="input-group mb-3 w-75">
 					    <div class="input-group-prepend ml-2">
 					      <label for="fnac" class="input-group-text">Fecha Nacimiento</label>
 					    </div>
-					    <input type="date" id="fnac" name="fnac" class="form-control" th:field="*{fechaNacimiento}" >
+					    <input type="date" id="fnac" name="fnac" class="form-control" th:field="*{fechaNacimiento}">
 					</div>
 					<div class="mensajeError" id="errorFecha" >Debe ser mayor de edad</div>
 
@@ -101,13 +94,6 @@
 					</div>
 					<div class="mensajeError mb-4" id="errorPwd" ></div>
 					
-					<div class="form-group m-3">
-						<label for="esAdmin">
-							<input type="checkbox" id="esAdmin" value="true" th:field="*{esAdmin}">
-							Administrador
-						</label>
-					</div>
-					
 					<button type="reset" class="btn btn-secondary mb-4 ">Limpiar</button>
 					<button type="submit" id="enviar" class="btn btn-danger mb-4 float-right">Enviar</button>
 				</fieldset>
@@ -117,7 +103,9 @@
 	</main>
 
 
+
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+
 
 
 </body>

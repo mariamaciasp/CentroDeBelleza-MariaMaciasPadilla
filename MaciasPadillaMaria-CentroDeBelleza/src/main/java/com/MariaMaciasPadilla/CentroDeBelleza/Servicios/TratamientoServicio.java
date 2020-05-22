@@ -64,12 +64,12 @@ public class TratamientoServicio extends BaseService<Tratamiento, Long, Tratamie
 	/**
 	 * Antes de eliminar nuestra entidad, tenemos que eliminar la imagen asociada.
 	 */
-	@Override
+	/*@Override
 	public void delete(Tratamiento t) {
 		String idImagen = t.getImagen();
 		dbStorageService.delete(Long.valueOf(idImagen));
 		super.delete(t);
-	}
+	}*/
 
 	/**
 	 * Antes de eliminar nuestra entidad, tenemos que eliminar la imagen asociada.

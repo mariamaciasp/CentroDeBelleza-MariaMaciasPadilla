@@ -22,10 +22,11 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/JSCentroBelleza.js"></script>
+	<script type="text/javascript" src="/js/JSCentroBelleza.js"></script>
 
-	<script type="text/javascript" src="js/libreriaFechas.js"></script>
-	<script type="text/javascript" src="js/JSCambioPassword.js"></script>
+	<script type="text/javascript" src="/js/libreriaFechas.js"></script>
+	<script type="text/javascript" src="/js/JSCambioPassword.js"></script>
+	<script type="text/javascript" src="/js/sesionAdmin.js"></script>
 
 
 
@@ -34,104 +35,19 @@
 <body>
 
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-			<a class="navbar-brand" th:href="@{/admin/indexAdmin}">Mima-T</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Peluquería</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Corte de pelo</a>
-			          	<a class="dropdown-item" href="#">Tinte y mechas</a>
-          				<a class="dropdown-item" href="#">Lavado y peinado</a>
-          				<a class="dropdown-item" href="#">Tratamientos capilares</a>
-        				</div>
-      				</li>
-
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Maquillaje</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Maquillaje de novias</a>
-			          	<a class="dropdown-item" href="#">Maquillaje exprés en 30 minutos</a>
-          				<a class="dropdown-item" href="#">Maquillaje en 60 minutos</a>
-        				</div>
-      				</li>
-
-					<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uñas</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Manicura</a>
-			          	<a class="dropdown-item" href="#">Pedicura</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Depilación</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Depilación con cera</a>
-			          	<a class="dropdown-item" href="#">Depilación láser</a>
-          				<a class="dropdown-item" href="#">Depilación con hilo</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Masaje</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Masaje relajante</a>
-			          	<a class="dropdown-item" href="#">Masaje en pareja</a>
-          				<a class="dropdown-item" href="#">Masaje Tailandés</a>
-          				<a class="dropdown-item" href="#">Fisioterapia</a>
-        				</div>
-      				</li>
-
-      				<li class="nav-item dropdown active">
-        				<a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-trigger="hover"aria-haspopup="true" aria-expanded="false">Tratamientos</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			         	<a class="dropdown-item" href="#">Limpieza facial</a>
-			          	<a class="dropdown-item" href="#">Peeling químico</a>
-          				<a class="dropdown-item" href="#">Diseño y tinte de cejas</a>
-        				</div>
-      				</li>
-
-				</ul>
-
-
-				<form class="form-inline my-2 my-lg-0">
-					
-					<input class="buscar form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button type="submit" id="buscar" class="btn">
-						<span class="fas fa-search fa-lg"></span>
-					</button>
-
-					<a th:href="@{../admin/sesion}" class="btn">
-						<span class="far fa-user fa-lg"></span>
-					</a>
-
-
-					<a href="#" class="btn">
-						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
-					</a>
-
-    			</form>
-			</div>
-
-		</nav>
-
+		
+		<nav th:replace="~{fragmentos/navSesion::navSesion}"></nav>
 
 		<nav>
 			<div class="row datos col-2 text-center">
   				
   				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  					<a class="nav-link btn-secondary btn-lg mt-5 ml-5 mb-4 mr-4" id="v-pills-tratamientos-tab" data-toggle="pill" href="#v-pills-tratamientos" role="tab" aria-controls="v-pills-tratamientos" aria-selected="true">Tratamientos</a>
-      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-categorias-tab" data-toggle="pill" href="#v-pills-categorias" role="tab" aria-controls="v-pills-categorias" aria-selected="false">Categorias</a>
-      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-reservas-tab" data-toggle="pill" href="#v-pills-reservas" role="tab" aria-controls="v-pills-reservas" aria-selected="false">Reservas</a>
-      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-usuarios-tab" data-toggle="pill" href="#v-pills-usuarios" role="tab" aria-controls="v-pills-usuarios" aria-selected="false">Usuarios</a>
-      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-empleados-tab" data-toggle="pill" href="#v-pills-empleados" role="tab" aria-controls="v-pills-empleados" aria-selected="false">Empleados</a>
-     		 		<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-da-tab" data-toggle="pill" href="#v-pills-da" role="tab" aria-controls="v-pills-da" aria-selected="false">Datos Administrador</a>
+  					<a class="nav-link btn-secondary btn-lg mt-5 ml-5 mb-3 mr-4" id="v-pills-tratamientos-tab" data-toggle="pill" href="#v-pills-tratamientos" role="tab" aria-controls="v-pills-tratamientos" aria-selected="true">Tratamientos</a>
+      				<a class="nav-link btn-secondary btn-lg mr-4 ml-5 mb-3 mt-3" id="v-pills-categorias-tab" data-toggle="pill" href="#v-pills-categorias" role="tab" aria-controls="v-pills-categorias" aria-selected="false">Categorias</a>
+      				<a class="nav-link btn-secondary btn-lg mr-4 ml-5 mb-3 mt-3" id="v-pills-reservas-tab" data-toggle="pill" href="#v-pills-reservas" role="tab" aria-controls="v-pills-reservas" aria-selected="false">Reservas</a>
+      				<a class="nav-link btn-secondary btn-lg mr-4 ml-5 mb-3 mt-3" id="v-pills-usuarios-tab" data-toggle="pill" href="#v-pills-usuarios" role="tab" aria-controls="v-pills-usuarios" aria-selected="false">Usuarios</a>
+      				<a class="nav-link btn-secondary btn-lg mr-4 ml-5 mb-3 mt-3" id="v-pills-empleados-tab" data-toggle="pill" href="#v-pills-empleados" role="tab" aria-controls="v-pills-empleados" aria-selected="false">Empleados</a>
+     		 		<a class="nav-link btn-secondary btn-lg mr-4 ml-5 mb-3 mt-3" id="v-pills-da-tab" data-toggle="pill" href="#v-pills-da" role="tab" aria-controls="v-pills-da" aria-selected="false">Datos Administrador</a>
       				<a class="nav-link btn-link btn-lg text-body mt-2 ml-4" id="v-pills-desconectar-tab" th:href="@{/logout}" role="tab" aria-controls="v-pills-desconectar" aria-selected="false">Desconectar</a>
     			</div>
   				
@@ -278,7 +194,11 @@
 
 					      	<div class="bg-light p-4 rounded">
 					      		<table id="tablaUsuarios" class="table table-hover text-center" summary="Datos Usuarios">
-						        	<caption class="mb-3">Usuarios</caption>
+						        	<caption class="mb-3">Usuarios
+						        		<a class="btn float-right" th:href="@{/admin/newCliente}">
+											<span class="fas fa-user-plus fa-lg"></span>
+										</a>
+						        	</caption>
 						            <thead class="thead-light">
 						                <tr>
 						                    <th>ID</th>
@@ -298,19 +218,20 @@
 						                    <td class="align-middle" th:text="${cliente.fechaNacimiento}">02/05/1994</td>
 						                    <td class="align-middle" th:text="${cliente.email}">mariam@gmail.com</td>
 						                    <td class="align-middle" th:text="${cliente.telefono}">617507017</td>
-						                    <td><a id="editar" class="btn btn-danger" th:href="@{/admin/editCliente/{id}(id=${cliente.id})}">Editar</a>
-						                    <a id="eliminar" class="btn btn-danger mt-2" th:href="@{/admin/eliminarCliente/{id}(id=${cliente.id})}">Eliminar</a></td>
+						                    <td>
+						                    	<a class="btn" th:href="@{/admin/editCliente/{id}(id=${cliente.id})}">
+													<span class="far fa-edit fa-lg"></span>
+												</a>
+												<a class="btn"  th:href="@{/admin/eliminarCliente/{id}(id=${cliente.id})}">
+													<span class="fas fa-user-minus fa-lg"></span>
+												</a>
+						                    </td>
+						                    
 						                </tr>
 						                
 						              
 						            </tbody>
-						            <tfoot>
-						            	<tr>
-						                	<td colspan="7">
-						                		<a id="agregar" th:href="@{/admin/newCliente}" class="btn btn-danger mb-4 ml-2">Agregar</a>
-						                	</td>
-						                </tr>
-						            </tfoot>
+						            
 						        </table>
 					      		
 					      	</div>
@@ -323,7 +244,11 @@
 
 					      	<div class="bg-light p-4 rounded">
 					      		<table id="tablaEmpleados" class="table table-hover text-center" summary="Datos Empleados">
-						        	<caption class="mb-3">Empleados</caption>
+						        	<caption class="mb-3">Empleados
+						        		<a class="btn float-right" th:href="@{/admin/newEmpleado}">
+											<span class="fas fa-user-plus fa-lg"></span>
+										</a>
+						        	</caption>
 						            <thead class="thead-light">
 						                <tr>
 						                    <th>ID</th>
@@ -348,21 +273,18 @@
 						                    <td class="align-middle" th:text="${empleado.dni}">44243716L</td>
 						                    <td class="align-middle" th:text="${empleado.esAdmin}">X</td>
 						                    <td>
-							                    <a id="editar" class="btn btn-danger"  th:href="@{/admin/editEmpleado/{id}(id=${empleado.id})}">Editar</a>
-							                    <a id="eliminar" class="btn btn-danger mt-2" th:href="@{/admin/eliminarEmpleado/{id}(id=${empleado.id})}">Eliminar</a>
+						                    	<a class="btn" th:href="@{/admin/editEmpleado/{id}(id=${empleado.id})}">
+													<span class="far fa-edit fa-lg"></span>
+												</a>
+												<a class="btn"  th:href="@{/admin/eliminarEmpleado/{id}(id=${empleado.id})}">
+													<span class="fas fa-user-minus fa-lg"></span>
+												</a>
 						                    </td>
 
 						                </tr>
 						                
 						            </tbody>
 						            
-						            <tfoot>
-						            	<tr>
-						                	<td colspan="9">
-						                		<a id="agregar" th:href="@{/admin/newEmpleado}" class="btn btn-danger mb-4 ml-2">Agregar</a>
-						                	</td>
-						                </tr>
-						            </tfoot>
 						        </table>
 					      		
 					      	</div>
@@ -435,223 +357,7 @@
 	</main>
 
 
-
-
-	<footer class="bg-secondary mt-5">
-		<div class="container mb-2 mt-2"> 
-			<div class="row">
-				<div class="letraFooter col-sm-12 text-center mt-1">
-					<span class="fab fa-cc-visa fa-lg ml-2"></span>
-					<span class="fab fa-cc-mastercard fa-lg ml-2"></span>
-					<span class="fab fa-cc-amex fa-lg ml-2"></span>
-					<span class="fab fa-paypal fa-lg ml-2"></span>
-					<span class="fab fa-cc-paypal fa-lg"></span>
-				</div>
-			
-				<div class="col-sm-12 text-center mt-1">
-					© 2020 MIMA-T Todos los derechos reservados
-				</div>
-
-				<div class="col-sm-6 text-right ml-3">
-					<a class="text-white" href="PoliticaDePrivacidad.html">Política de privacidad</a>
-					
-				</div>
-			
-				<div class="col-sm-5 text-left">
-					
-					<a class="text-white" href="PoliticaDeCookies.html">Política de Cookies</a>
-				</div>
-				<div class="col-sm-1"></div>
-			</div>
-
-			
-		</div>
-
-	</footer>
-
-
-
-
-	<script type="text/javascript">
-
-		$(function() {
-
-			var valorNombreInicial = $(".nombre").text();
-			var valorApellidosInicial = $(".apellidos").text();
-			var valorFechaNacInicial = $(".fechaNac").text();
-			var valorTelefonoInicial = $(".telefono").text();
-
-			var valorEmailInicial = $(".email").text();
-
-
-			// PARA NOMBRE
-
-			$("td").on("click",".modificarN",function (even) {
-
-				$(".modificarN").toggleClass("modificarN").toggleClass("guardarN").text("Guardar");
-				$(".cancelarN").show();
-				$(".nombre").toggleClass("nombre").toggleClass("cambiarNombre").html('<input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarN", function (event) {
-
-				$(".guardarN").toggleClass("guardarN").toggleClass("modificarN").text("Modificar");
-
-				var valorN = $("#nombre").val();
-
-				$(".cambiarNombre").toggleClass("cambiarNombre").toggleClass("nombre").text(valorN);
-				$(".cancelarN").hide();
-				valorNombreInicial = $(".nombre").text();
-
-			});
-
-			$("td").on("click",".cancelarN", function (event) {
-				$(".guardarN").toggleClass("guardarN").toggleClass("modificarN").text("Modificar");
-
-				$(".cambiarNombre").toggleClass("cambiarNombre").toggleClass("nombre").text(valorNombreInicial);
-
-				$(".cancelarN").hide();
-
-
-			});
-
-			// PARA APELLIDOS
-
-			$("td").on("click",".modificarA",function (even) {
-
-				$(".modificarA").toggleClass("modificarA").toggleClass("guardarA").text("Guardar");
-				$(".cancelarA").show();
-				$(".apellidos").toggleClass("apellidos").toggleClass("cambiarApellidos").html('<input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarA", function (event) {
-
-				$(".guardarA").toggleClass("guardarA").toggleClass("modificarA").text("Modificar");
-
-				var valorA = $("#apellidos").val();
-
-				$(".cambiarApellidos").toggleClass("cambiarApellidos").toggleClass("apellidos").text(valorA);
-				$(".cancelarA").hide();
-				valorApellidosInicial = $(".apellidos").text();
-				
-			});
-
-			$("td").on("click",".cancelarA", function (event) {
-
-				$(".guardarA").toggleClass("guardarA").toggleClass("modificarA").text("Modificar");
-				$(".cambiarApellidos").toggleClass("cambiarApellidos").toggleClass("apellidos").text(valorApellidosInicial);
-				$(".cancelarA").hide();
-
-
-			});
-
-
-			// PARA FECHA DE NACIMIENTO
-
-
-			$("td").on("click",".modificarFN",function (even) {
-
-				$(".modificarFN").toggleClass("modificarFN").toggleClass("guardarFN").text("Guardar");
-				$(".cancelarFN").show();
-				$(".fechaNac").toggleClass("fechaNac").toggleClass("cambiarFechaNac").html('<input id="fechaNac" name="fechaNac" type="date" class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarFN", function (event) {
-
-				$(".guardarFN").toggleClass("guardarFN").toggleClass("modificarFN").text("Modificar");
-				
-				var valorFN = $("#fechaNac").val();
-
-				$(".cambiarFechaNac").toggleClass("cambiarFechaNac").toggleClass("fechaNac").text(valorFN);
-				$(".cancelarFN").hide();
-				valorFechaNacInicial = $(".fechaNac").text();
-
-			});
-
-			$("td").on("click",".cancelarFN", function (event) {
-
-				$(".guardarFN").toggleClass("guardarFN").toggleClass("modificarFN").text("Modificar");
-				$(".cambiarFechaNac").toggleClass("cambiarFechaNac").toggleClass("fechaNac").text(valorFechaNacInicial);
-				$(".cancelarFN").hide();
-
-
-			});
-
-
-			// PARA TELÉFONO 
-
-
-			$("td").on("click",".modificarT",function (even) {
-
-				$(".modificarT").toggleClass("modificarT").toggleClass("guardarT").text("Guardar");
-				$(".cancelarT").show();
-				$(".telefono").toggleClass("telefono").toggleClass("cambiarTelefono").html('<input id="telefono" name="telefono" type="text" placeholder="Teléfono" class="form-control">');
-
-			});
-
-			$("td").on("click",".guardarT", function (event) {
-
-				$(".guardarT").toggleClass("guardarT").toggleClass("modificarT").text("Modificar");
-
-				var valorT = $("#telefono").val();
-
-				$(".cambiarTelefono").toggleClass("cambiarTelefono").toggleClass("telefono").text(valorT);
-				$(".cancelarT").hide();
-				valorTelefonoInicial = $(".telefono").text();
-				
-			});
-
-			$("td").on("click",".cancelarT", function (event) {
-				$(".guardarT").toggleClass("guardarT").toggleClass("modificarT").text("Modificar");
-				$(".cambiarTelefono").toggleClass("cambiarTelefono").toggleClass("telefono").text(valorTelefonoInicial);
-				$(".cancelarT").hide();
-
-
-			});
-
-
-
-
-			// PARA EMAIL
-
-			$("td").on("click",".modificarE",function (even) {
-
-				$(".modificarE").toggleClass("modificarE").toggleClass("guardarE").text("Guardar");
-				$(".cancelarE").show();
-				$(".email").toggleClass("email").toggleClass("cambiarEmail").html('<input type="mail" id="email" name="email" class="form-control" placeholder="email@mail.com" required>');
-
-			});
-
-			$("td").on("click",".guardarE", function (event) {
-
-				$(".guardarE").toggleClass("guardarE").toggleClass("modificarE").text("Modificar");
-
-				var valorE = $("#email").val();
-
-				$(".cambiarEmail").toggleClass("cambiarEmail").toggleClass("email").text(valorE);
-				$(".cancelarE").hide();
-				valorEmailInicial = $(".email").text();
-				
-			});
-
-			$("td").on("click",".cancelarE", function (event) {
-				$(".guardarE").toggleClass("guardarE").toggleClass("modificarE").text("Modificar");
-				$(".cambiarEmail").toggleClass("cambiarEmail").toggleClass("email").text(valorEmailInicial);
-				$(".cancelarE").hide();
-
-
-			});
-
-
-		});
-
-
-
-	</script>
-
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 
 </body>

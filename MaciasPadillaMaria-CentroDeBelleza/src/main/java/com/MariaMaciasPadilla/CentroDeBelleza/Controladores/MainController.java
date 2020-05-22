@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Categoria;
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Cliente;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Tratamiento;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.CategoriaServicio;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.ClienteServicio;
@@ -37,6 +41,18 @@ public class MainController {
 	private final String BASE_IMAGE_PATH;
 	private static final int NUM_TRATAMIENTOS_ALEATORIOS = 8;
 	
+	
+	@ModelAttribute("categorias")
+	public List<Categoria> listaCategorias () {	
+		return servicioCategoria.findAll();
+	}
+	
+	@ModelAttribute("tratamientos")
+	public List <Tratamiento> listaTratamientos () {
+		List <Tratamiento> tratamientos = servicioTratamiento.findAll();
+		return tratamientos;
+	}
+
 	
 	public MainController(TratamientoServicio servicioTratamiento, @Value("${image.base-path:/files}") String path) {
 		this.servicioTratamiento = servicioTratamiento;
@@ -81,14 +97,15 @@ public class MainController {
 	
 	@GetMapping("/detalles")
 	public String detalles(Model model) {
-		
-			model.addAttribute("tratamiento", servicioTratamiento.findAll());
-			return "detalles";
+		listaCategorias();
+		listaTratamientos();
+		model.addAttribute("tratamiento", servicioTratamiento.findAll());
+		return "detalles";
 		
 		
 	}
 	
-	
+
 	
 	/*@GetMapping({"/","/index"})
 	public String inicio(SecurityContextHolderAwareRequestWrapper request) {
@@ -108,17 +125,24 @@ public class MainController {
 
 	@GetMapping({"/","/index"})
 	public String inicio() {
+		listaCategorias();
+		listaTratamientos();
 		return "index";
 	}
 
 	
 	@GetMapping("/login")
 	public String login() {
+		listaCategorias();
+		listaTratamientos();
 		return "login";
 	}
 	
 	@GetMapping("/registroSesion")
 	public String registroSesion(SecurityContextHolderAwareRequestWrapper request, Model model) {	
+		
+		listaCategorias();
+		listaTratamientos();
 		
 		//boolean a = request.isUserInRole("ROLE_ADMIN");
 		//boolean u = request.isUserInRole("ROLE_USER");
@@ -138,35 +162,50 @@ public class MainController {
 			
 		} else{
 			
-			return "/registroCiente";
+			return "/login";
 		}
 	}
 	
-	
-	/*@GetMapping("/peluqueria")
-	public String peluqueria() {
-		return "peluqueria";
-	}*/
-	
-	@GetMapping("/tratamientos")
-	public String tratamientos() {
-		return "tratamientos";
+	@GetMapping("/registroCliente")
+	public String nuevoClienteForm (Model model) {
+		listaCategorias();
+		listaTratamientos();
+		model.addAttribute("clienteForm", new Cliente());
+		return "/registroCliente";
 	}
+	
+	@PostMapping("/registroCliente/submit")
+	public String nuevoClienteSubmit (@ModelAttribute("clienteForm") Cliente nuevoCliente) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		nuevoCliente.setPassword(encoder.encode(nuevoCliente.getPassword()));
+		servicioCliente.save(nuevoCliente);
+		
+		return "redirect:/login";
+	}
+	
+	
+	
 	
 	@GetMapping("/carrito")
 	public String carrito() {
-		return "carrito";
+		listaCategorias();
+		listaTratamientos();
+		return "/carrito";
 	}
 	
 	
 	
 	@GetMapping("/privacidad")
 	public String privacidad() {
+		listaCategorias();
+		listaTratamientos();
 		return "privacidad";
 	}
 	
 	@GetMapping("/cookies")
 	public String cookies() {
+		listaCategorias();
+		listaTratamientos();
 		return "cookies";
 	}
 

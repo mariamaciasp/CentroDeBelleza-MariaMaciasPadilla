@@ -160,19 +160,28 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 			// Empleados
 			Empleado emple = new Empleado();
 			emple.setEmail("admin");
+			emple.setApellidos("Macías");
+			emple.setNombre("María");
+			emple.setDni("11223344L");
+			emple.setFechaNacimiento(LocalDate.of(2000, 02, 20));
+			emple.setTelefono("959416374");
 			emple.setPassword(passwordEncoder.encode("admin"));
 			emple.setEsAdmin(true);
 			
 			servicioUsuario.save(emple);
-			servicioUsuario.save(new Empleado("Antonio", "García", LocalDate.of(2018, 10, 30) ,"954000000", "antonio.@mail.com",passwordEncoder.encode("1234"), "298u9834", true));
+			servicioUsuario.save(new Empleado("Antonio", "García", LocalDate.of(2018, 10, 30) ,"954000000", "antonio@mail.com",passwordEncoder.encode("1234"), "298u9834", true));
 			servicioUsuario.save(new Empleado("María","López", LocalDate.of(2018, 10, 30) , "954000000", "maria@mail.com", passwordEncoder.encode("1234"), "298u9834", true));
-			servicioUsuario.save(new Empleado("Ángel","Antúnez", LocalDate.of(2018, 10, 30) , "954000000","angel@mail.com", passwordEncoder.encode("1234"), "298u9834", true));						
+			servicioUsuario.save(new Empleado("Manuel","Padilla", LocalDate.of(2018, 10, 30) , "954000000","manuel@mail.com", passwordEncoder.encode("1234"), "298u9834", true));						
 					
 			// Clientes
 			Cliente cliente = new Cliente();
 			cliente.setEmail("user");
 			cliente.setPassword(passwordEncoder.encode("1234"));
 			cliente.setFechaNacimiento(LocalDate.of(1990, 1, 1));
+			cliente.setApellidos("registrado");
+			cliente.setNombre("usuario");
+			cliente.setTelefono("959416374");
+			
 			servicioUsuario.save(new Cliente("Antonio", "García", LocalDate.of(2018, 10, 30) , "954000000","antoniogarcia@mail.com",passwordEncoder.encode("1234")));
 			servicioUsuario.save(new Cliente("Maria", "Macias", LocalDate.of(1994, 05, 02), "95943423", "mariamacias@gmail.com", passwordEncoder.encode("1234")));
 			
@@ -182,12 +191,6 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 			
 			servicioReserva.save(new Reserva(LocalDateTime.now(),20.0, emple, cliente));
 			servicioReserva.save(new Reserva(LocalDateTime.now(),10, emple, cliente));
-			
-			
-			
-			
-			
-			
 			
 					
 				
