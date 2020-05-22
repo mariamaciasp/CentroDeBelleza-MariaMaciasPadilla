@@ -1,0 +1,39 @@
+ACTORES:
+- USUARIO NORMAL
+- USUARIO REGISTRADO
+- ADMINISTRADOR
+
+CASOS DE USO:
+1. Listar categorías (UN)
+2. Ver lista de tratamientos (UN) e 2->1
+3. Ver información tratamientos (UN) e 3->2
+4. Registrarse (UN)
+5. Iniciar sesión (UR)
+6. Cerrar sesión (UR)
+7. Modificar datos (UR)
+8. Darse de baja (UR)
+9. Reservar tratamiento (UR)
+10. Ver horario tratamiento (UR)
+11. Ver disponibilidad empleado (UR)
+12. Modificar reserva (UR)
+13. Anular reserva (UR)
+--14. Incluirse lista de espera (UR)
+--15. Ver mensajes (UR)
+--16. Enviar mensaje (UR)
+--17. Recibir mensajes (UR)
+--18. Eliminar mensaje (UR)
+--19. Comentar tratamiento (UR)
+--20. Modificar comentario (UR)
+--21. Eliminar comentario (UR)
+--22. Puntuar tratamiento (UR)
+--23. Modificar puntuación (UR)
+--24. Eliminar puntuación (UR)
+25. Crear categoría (A)
+26. Eliminar categoría (A)
+27. Modificar categoría (A)
+28. Crear tratamiento (A)
+29. Modificar tratamiento (A) 
+30. Eliminar tratamiento (A)
+
+
+MARÍA MACÍAS PADILLA
