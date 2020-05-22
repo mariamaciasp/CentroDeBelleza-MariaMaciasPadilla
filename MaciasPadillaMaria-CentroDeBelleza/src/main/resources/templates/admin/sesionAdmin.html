@@ -111,6 +111,7 @@
 						<span class="far fa-user fa-lg"></span>
 					</a>
 
+
 					<a href="#" class="btn">
 						<span class="fas fa-shopping-bag mr-3 fa-lg"></span>
 					</a>
@@ -125,8 +126,9 @@
 			<div class="row datos col-2 text-center">
   				
   				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  					<a class="nav-link btn-secondary btn-lg mt-5 ml-5 mb-4 mr-4" id="v-pills-reservas-tab" data-toggle="pill" href="#v-pills-reservas" role="tab" aria-controls="v-pills-reservas" aria-selected="true">Tratamientos</a>
-      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-dp-tab" data-toggle="pill" href="#v-pills-dp" role="tab" aria-controls="v-pills-dp" aria-selected="false">Reservas</a>
+  					<a class="nav-link btn-secondary btn-lg mt-5 ml-5 mb-4 mr-4" id="v-pills-tratamientos-tab" data-toggle="pill" href="#v-pills-tratamientos" role="tab" aria-controls="v-pills-tratamientos" aria-selected="true">Tratamientos</a>
+      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-categorias-tab" data-toggle="pill" href="#v-pills-categorias" role="tab" aria-controls="v-pills-categorias" aria-selected="false">Categorias</a>
+      				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-reservas-tab" data-toggle="pill" href="#v-pills-reservas" role="tab" aria-controls="v-pills-reservas" aria-selected="false">Reservas</a>
       				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-usuarios-tab" data-toggle="pill" href="#v-pills-usuarios" role="tab" aria-controls="v-pills-usuarios" aria-selected="false">Usuarios</a>
       				<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-empleados-tab" data-toggle="pill" href="#v-pills-empleados" role="tab" aria-controls="v-pills-empleados" aria-selected="false">Empleados</a>
      		 		<a class="nav-link btn-secondary btn-lg m-4 ml-5" id="v-pills-da-tab" data-toggle="pill" href="#v-pills-da" role="tab" aria-controls="v-pills-da" aria-selected="false">Datos Administrador</a>
@@ -147,49 +149,101 @@
 				<div class="datos mr-5 mt-5 mb-5">
 
 	    			<div class="tab-content" id="v-pills-tabContent">
-					    <div class="tab-pane fade show active" id="v-pills-reservas" role="tabpanel" aria-labelledby="v-pills-reservas-tab">
+					    <div class="tab-pane fade show active" id="v-pills-tratamientos" role="tabpanel" aria-labelledby="v-pills-tratamientos-tab">
 
-					    	<div class="datosTratamientos bg-light p-4 ml-5 rounded">
-					    		<table id="tablaPeluqueria" class="table table-hover " summary="Datos Usuario">
-						   
+					    	<div class="bg-light p-4 ml-5 rounded">
+					    		<table id="tablaPeluqueria" class="table table-hover " summary="Datos Tratamientos">
+						        	<caption class="mb-3" >Tratamientos 
+						        		<a class="btn float-right" th:href="@{/admin/newTratamiento}">
+											<span class="fas fa-plus fa-lg"></span>
+										</a>
+						        	</caption>
 						            <thead class="thead-light">
-
-						            	<tr class="aumentarSize" th:fiel="*{categoria}">
+										<tr class="aumentarSize">
+											<th>Nombre</th>
+						                    <th class="text-center w-50">Descripción</th>
+						                    <th>Categoría</th>
+						                    <th class="text-center w-25">Precio (€)</th>
+						                    <th>Operaciones</th>
+										</tr>
+						            	<!--<tr class="aumentarSize" th:fiel="*{categoria}">
 						            		<th>Categoría:</th>
 						            		<th colspan="4" class="text-center"><span class="idCategoria" th:each="categoria : ${listaCategorias}"
 						            		th:value="${categoria.id}" th:text="${categoria.nombre}">1</span> - <span id="nombreCategoria" >Peluquería</span></th>
-						            	</tr>
+						            	</tr> -->
 						                
 						            </thead>
 						          
 						            <tbody class="text-secondary">
-						                <tr class="aumentarSize font-weight-bolder">
-						                    <td class="text-center">ID</td>
-						                    <td>Nombre</td>
-						                    <td class="text-center w-50">Descripción</td>
-						                    <td class="text-center">Precio (€)</td>
-						                </tr>
 						                <tr th:each="tratamiento : ${listaTratamientos}">
-						                    <td class="text-center" th:text="${tratamiento.id}">1</td>
 						                    <td th:text="${tratamiento.nombre}">Corte de pelo</td>
-						                    <td th:text="${tratamiento.descripcion}">Melenas largas, medias melenas, corto todo vale para 2020. Disfruta de un moderno corte de pelo o continúa con ese peinado de siempre que tan bien te sienta. Todo y más en las mejores manos.</td>
+						                    <td th:text="${tratamiento.descripcion}">Descripcion</td>
+						                    <td th:each="categoria : ${tratamiento.categoria}" 
+						                        th:text="${categoria.nombre}"></td>
 						                    <td class="text-center" th:text="${tratamiento.precio}">15,00</td>
+						                    <td>
+						                    	<a class="btn" th:href="@{/admin/editTratamiento/{id}(id=${tratamiento.id})}">
+													<span class="far fa-edit fa-lg"></span>
+												</a>
+												<a class="btn"  th:href="@{/admin/eliminarTratamiento/{id}(id=${tratamiento.id})}">
+													<span class="fas fa-trash-alt fa-lg"></span>
+												</a>
+						                    </td>
 						                    
-						                </tr>
-						              
-						                
+						                </tr>   
 						            </tbody>
 						        </table>	
-
-
 					    	</div>	
+					    </div>
+					    
+					    
+					    <div class="tab-pane fade ml-5" id="v-pills-categorias" role="tabpanel" aria-labelledby="v-pills-categorias-tab">
 
-
-
+					      	<div class="bg-light p-4 rounded">
+					      		<table id="tablaCategorias" class="table table-hover text-center" summary="Categorias">
+						        	<caption class="mb-3">Categorias
+						        		<a class="btn float-right" th:href="@{/admin/newCategoria}">
+											<span class="fas fa-plus fa-lg"></span>
+										</a>
+						        	</caption>
+						            <thead class="thead-light">
+						                <tr>
+						                    <th>Id</th>
+						                    <th>Nombre</th>
+						                    <th>Operaciones</th>
+						                </tr>
+						            </thead>
+						            <tbody>
+						                <tr th:each="categoria : ${listaCategorias}">
+						                    <td th:text="${categoria.id}">4</td>
+						                    <td th:text="${categoria.nombre}">María</td>
+						                    <td>
+						                    	<a class="btn" th:href="@{/admin/editCategoria/{id}(id=${categoria.id})}">
+													<span class="far fa-edit fa-lg"></span>
+												</a>
+												
+												<div class="alert alert-warning alert-dismissible" role="alert"
+												th:if="${param.error}">
+													<a class="btn close" data-dismiss="alert" th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}"
+														aria-label="Close">
+														<span class="fas fa-trash-alt fa-lg" aria-hidden="true">&times;</span>
+													</a>
+													<span>No se puede borrar una categoria que tiene tratamientos asociados</span>
+												</div>
+												<a class="btn" th:href="@{/admin/eliminarCategoria/{id}(id=${categoria.id})}">
+													<span class="fas fa-trash-alt fa-lg"></span>
+												</a>
+						                    </td>
+						                </tr>
+						            </tbody>
+						        </table>
+					      		
+					      	</div>
+		    	
 					    </div>
 
 
-					    <div class="tab-pane fade" id="v-pills-dp" role="tabpanel" aria-labelledby="v-pills-dp-tab">
+					    <div class="tab-pane fade" id="v-pills-reservas" role="tabpanel" aria-labelledby="v-pills-reservas-tab">
 
 					      	<div class="bg-light p-4 rounded">
 					      		<table id="tablaReservasUsuarios" class="table table-hover text-center" summary="Reservas Usuario">

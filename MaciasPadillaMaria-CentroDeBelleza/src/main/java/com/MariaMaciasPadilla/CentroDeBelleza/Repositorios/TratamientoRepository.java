@@ -18,5 +18,10 @@ public interface TratamientoRepository extends JpaRepository <Tratamiento, Long>
 	@Query("select t.id from Tratamiento t")
 	public List<Long> obtenerIds();
 	
+	@Query("select count(t) from Tratamiento t where t.categoria = ?1")
+	public int findNumTratamientosByCategoria(Categoria categoria);
+	
+	
+	
 
 }

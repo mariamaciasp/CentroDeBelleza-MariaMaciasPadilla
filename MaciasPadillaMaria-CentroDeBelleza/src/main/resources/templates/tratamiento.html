@@ -136,7 +136,7 @@
 					<tr th:each="tratamiento : ${listaTratamientos}">
 						<td class="text-center" th:text="${tratamiento.id}">1</td>
 						<td th:text="${tratamiento.nombre}">Nombre</td>
-						<td th:text="${}"></td>
+						
 						<td style="text-align: right;" th:text="${#numbers.formatCurrency(tratamiento.precio)}">1.23€</td>
 						<td><a th:href="@{/carrito/add/{id}(id=${tratamiento.id})}">Añadir al carrito</a></td>
 					</tr>

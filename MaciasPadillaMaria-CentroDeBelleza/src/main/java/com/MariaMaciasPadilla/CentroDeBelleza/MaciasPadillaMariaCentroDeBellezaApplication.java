@@ -1,6 +1,7 @@
 package com.MariaMaciasPadilla.CentroDeBelleza;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 						
 						// Tratamientos
 						// peluquería
-						Tratamiento t1 = new Tratamiento ("/img/corte.png","Corte de pelo","Melenas largas, medias melenas, corto todo vale para 2020. Disfruta de ucon ese peinado de siempre que tan bien te sienta. Todo y más en las mejores manos.", 15.00);
+						Tratamiento t1 = new Tratamiento ("//www.soy-de.com/images/thumbs/La-Alianza-de-Empresarios-de-Peluqueria-de-Espa%C3%B1a--0042936.jpeg","Corte de pelo","Melenas largas, medias melenas, corto todo vale para 2020. Disfruta de ucon ese peinado de siempre que tan bien te sienta. Todo y más en las mejores manos.", 15.00);
 						Tratamiento t2 = new Tratamiento ("/img/tinte2.jpg","Tinte y mechas","Expertos en tintes, mechas, decolorados y una gran variedad de tratamientos para tu cabello. Creando un efecto impactante y a la vez natural.", 33.00);
 						Tratamiento t3 = new Tratamiento ("/img/peinado.png","Lavado y peinado","Consigue ese peinado ideal para cualquier evento. Recogidos, semirecogidos o sueltos, te asesoramos para estar perfecta ese día especial.", 25.00);
 						Tratamiento t4 = new Tratamiento ("/img/tratamientoCapilar.jpg","Tratamientos capilares","Todo tipo de tratamientos capilares para el cuidado de tu pelo, así como un asesoramiento personalizado. Consigue un pelo sano, cuidado y con brillo con nuestros tratamientos.", 55.00);
@@ -140,7 +141,7 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 						// tratamientos
 						Tratamiento t17 = new Tratamiento ("/img/limpiezaFacial.jpg","Limpieza facial","Si quieres lucir una piel luminosa y uniforme, este es tu tratamiento. Líbrate de las impurezas, la contaminación y la propia grasa de la piel.", 30.00);
 						Tratamiento t18 = new Tratamiento ("/img/peeling.jpg","Peeling químico","Este tratamiento no quirúrgico, cuyo efecto inmediato consiste en la eliminación de una parte del cutis, así como un efecto tardío de regeneración de la piel, renovando la matriz dérmica y dejándola sin determinados defectos estéticos como manchas, arrugas...", 37.00);
-						Tratamiento t19 = new Tratamiento ("/img/diseñoCejas.jpg","Diseño y tinte de cejas","ste tratamiento cosmético combina hábilmente la remodelación de la forma con la aplicación del maquillaje para un resultado hiper elegante.", 27.00);
+						Tratamiento t19 = new Tratamiento ("/img/diseñoCejas.jpg","Diseño y tinte de cejas","Este tratamiento cosmético combina hábilmente la remodelación de la forma con la aplicación del maquillaje para un resultado hiper elegante.", 27.00);
 						
 						List <Tratamiento> listaTratamientos = Arrays.asList(t17, t18, t19);
 						
@@ -179,8 +180,8 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 			
 			// Reservas
 			
-			servicioReserva.save(new Reserva(LocalDate.now(),20.0, emple, cliente));
-			servicioReserva.save(new Reserva(LocalDate.now(),10, emple, cliente));
+			servicioReserva.save(new Reserva(LocalDateTime.now(),20.0, emple, cliente));
+			servicioReserva.save(new Reserva(LocalDateTime.now(),10, emple, cliente));
 			
 			
 			

@@ -92,5 +92,9 @@ public class TratamientoServicio extends BaseService<Tratamiento, Long, Tratamie
 		return repositorio.findAllById(listaIds);
 
 	}
+	
+	public int numeroTratamientosCategoria(Categoria categoria) {
+		return repositorio.findNumTratamientosByCategoria(categoria);
+	}
 
 }

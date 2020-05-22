@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<title>Sesión Administrador</title>
+	<title>Registro Categoría</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -25,13 +25,13 @@
 	<script type="text/javascript" src="js/JSCentroBelleza.js"></script>
 
 	<script type="text/javascript" src="js/libreriaFechas.js"></script>
-	<script type="text/javascript" src="js/JSCambioPassword.js"></script>
 
+	
 </head>
 <body>
 
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" th:href="@{/admin/indexAdmin}">Mima-T</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -114,83 +114,42 @@
 
     			</form>
 			</div>
-
 		</nav>
 
 	</header>
 
-	
-	<main class="container">
-		<div class="row bg-light mt-4 mb-4 rounded">
+
+	<main class="container-fluid">
+		<div class="row mt-5">
+			<div class="col-3"></div>
+			<form method="POST" action="#" th:action="${categoriaForm.id != 0} ? @{/admin/editCategoria/submit} : @{/admin/newCategoria/submit}" th:object="${categoriaForm}"
+			 id="formulario" class="col-6 bg-light mb-5 rounded">
+			 
+			 	<fieldset class="mt-2 ml-1">
+					<legend class="mb-3 text-center"  th:text="${categoriaForm.id != 0} ? 'Editar categoria' : 'Agregar categoria'">Categoria</legend>
+					<input type="hidden" th:field="*{id}" id="id" name="id">
+					
+					<div class="input-group mt-3 mb-4 w-75 ">
+					    <div class="input-group-prepend ml-2">
+					      <label for="nombre" class="input-group-text">Nombre</label>
+					    </div>
+					    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required th:field="*{nombre}">				    
+					</div>
+					
+					<button type="reset" class="btn btn-secondary mb-4 ">Limpiar</button>
+					<button type="submit" id="enviar" class="btn btn-danger mb-4 float-right">Enviar</button>	
+				</fieldset>
 			
-			<table class="table table-hover text-center" >
-				<caption class="mb-3">Productos en carrito</caption>
-				<thead class="thead-light">
-					<tr>
-						<th>Tratamiento</th>
-						<th>Precio unitario</th>
-						
-						<th>Unidades</th>
-						
-						
-						<th>Subtotal</th>
-						<th>Operaciones</th>
-				</thead>
-				<tbody>
-					<tr th:each="entry : ${carrito}">
-						<td th:text="${entry.key.nombre}">Nombre</td>
-						<td th:text="${#numbers.formatCurrency(entry.key.precio)}">1.23€</td>
-						<td th:text="${entry.value}">1</td>
-						
-						
-						<!--  <td th:text="${entry.key.fechaYhora}"></td>-->
-						<td th:text=${#numbers.formatCurrency(entry.key.precio*entry.value)}></td>
-						<td><a th:href="@{/carrito/remove/{id}(id=${entry.key.id})}">Eliminar del carrito</a></td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<th colspan="5">
-					</tr>
-					<tr>
-						<td>Número de tratamientos <span></span></td>
-						<td></td>
-						<td th:text="${numProductosDiferentes}"></td>
-						<td colspan="2"></td>
-					</tr>
-					<tr>
-						<td>Número total </td>
-						<td></td>
-						<td th:text="${numUnidades}"></td>
-						<td colspan="2"></td>
-					</tr>
-					<tr>
-					    <td>Importe total</td>
-					    <td colspan="3"></td>
-						<td th:text="${#numbers.formatCurrency(importeTotal)}"></td>
-						
-					</tr>
-					<tr>
-						<td>
-							<a th:href="@{/peluqueria}">Seguir comprando</a> 
-						</td>
-						<td>
-							<a th:href="@{/carrito/clear}">Vaciar carrito</a>
-						</td>
-						<td colspan="2"></td>
-						<td>
-							<a th:href="@{/carrito/process}">FINALIZAR COMPRA</a>
-						</td>
-					</tr>
-				</tfoot>
-				
-			</table>
+			</form>
+			
+			<div class="col-3"></div>
 		</div>
-	
 	</main>
 
 
-	<footer class="bg-secondary mt-5">
+
+
+	<footer class="bg-secondary">
 		<div class="container mb-2 mt-2"> 
 			<div class="row">
 				<div class="letraFooter col-sm-12 text-center mt-1">
@@ -206,13 +165,13 @@
 				</div>
 
 				<div class="col-sm-6 text-right ml-3">
-					<a class="text-white" href="PoliticaDePrivacidad.html">Política de privacidad</a>
+					<a class="text-white" th:href="@{/privacidad}">Política de privacidad</a>
 					
 				</div>
 			
 				<div class="col-sm-5 text-left">
 					
-					<a class="text-white" href="PoliticaDeCookies.html">Política de Cookies</a>
+					<a class="text-white"  th:href="@{/cookies}">Política de Cookies</a>
 				</div>
 				<div class="col-sm-1"></div>
 			</div>
@@ -221,5 +180,8 @@
 		</div>
 
 	</footer>
+
+
+
 </body>
-</html>
+</html>		

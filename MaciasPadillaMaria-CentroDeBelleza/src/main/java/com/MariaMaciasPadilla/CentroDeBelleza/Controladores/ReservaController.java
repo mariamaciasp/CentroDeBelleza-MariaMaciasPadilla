@@ -2,7 +2,8 @@ package com.MariaMaciasPadilla.CentroDeBelleza.Controladores;
 
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import com.MariaMaciasPadilla.CentroDeBelleza.Carrito.Carrito;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Cliente;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Tratamiento;
+import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.ReservaServicio;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.TratamientoServicio;
 
 import lombok.RequiredArgsConstructor;
@@ -25,7 +27,8 @@ public class ReservaController {
 	
 	private final TratamientoServicio servicioTratamiento;
 	private final Carrito carrito;
-	
+	@Autowired
+	private ReservaServicio servicioReserva;
 	
 	@ModelAttribute("tratamientos")
 	public List<Tratamiento> todosLosTratamientos() {
@@ -95,13 +98,14 @@ public class ReservaController {
 	}
 	
 	@PostMapping("/newReserva/submit")
-	public String nuevoClienteSubmit (@ModelAttribute("reservaForm") Tratamiento nuevoTratamiento) {
+	public String nuevoClienteSubmit (@ModelAttribute("reservaForm") Reserva reserva, @AuthenticationPrincipal Cliente cliente) {
 		
-		servicioTratamiento.save(nuevoTratamiento);
+		reserva.setCliente(cliente);
+		servicioReserva.save(reserva);
+		cliente.addReservaC(reserva);
 		
 		return "redirect:/carrito";
 	}
 	
 	
-
 }

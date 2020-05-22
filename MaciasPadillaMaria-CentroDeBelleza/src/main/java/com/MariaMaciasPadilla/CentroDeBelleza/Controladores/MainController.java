@@ -132,6 +132,8 @@ public class MainController {
 			return "/admin/sesionAdmin";
 			
 		} else if (request.isUserInRole("ROLE_USER")) {
+			model.addAttribute("listaReservas", servicioCliente.findAll());
+			
 			return "/user/sesionUser";
 			
 		} else{

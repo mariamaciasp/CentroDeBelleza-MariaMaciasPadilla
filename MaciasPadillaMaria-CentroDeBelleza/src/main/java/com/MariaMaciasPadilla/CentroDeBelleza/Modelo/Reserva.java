@@ -1,6 +1,6 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Modelo;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +26,8 @@ public class Reserva {
 	@Id @GeneratedValue
 	private long numReserva;
 	
-	private LocalDate fechaYhora;
+	@DateTimeFormat(pattern = "yyyy/MM/dd'T'HH:mm")
+	private LocalDateTime fechaYhora;
 	private double precio;
 	
 	
@@ -35,13 +38,13 @@ public class Reserva {
 	private Cliente cliente;
 	
 	
-	public Reserva(LocalDate fechaYhora, double precio) {
+	public Reserva(LocalDateTime fechaYhora, double precio) {
 		super();
 		this.fechaYhora = fechaYhora;
 		this.precio = precio;
 	}
 
-	public Reserva(LocalDate fechaYhora, double precio, Empleado empleado, Cliente cliente) {
+	public Reserva(LocalDateTime fechaYhora, double precio, Empleado empleado, Cliente cliente) {
 		super();
 		this.fechaYhora = fechaYhora;
 		this.precio = precio;
@@ -50,16 +53,16 @@ public class Reserva {
 	}
 	
 		
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToOne/*(fetch = FetchType.EAGER)
 	@JoinTable(
 			joinColumns = @JoinColumn(name="reserva_id"),
 			inverseJoinColumns = @JoinColumn(name="tratamiento_id")
-			)
-	private List <Tratamiento> tratamientos = new ArrayList <> ();
+			)*/
+	private Tratamiento tratamiento;
 	
 	
 	/** MÉTODOS HELPERS - asociación muchos a muchos entre reserva y tratamiento**/
-	
+	/* No me sirven al cambiar la asociación a ManyToOne
 	public void addTratamiento(Tratamiento t) {
 		tratamientos.add(t);
 		t.getReservas().add(this);
@@ -68,7 +71,7 @@ public class Reserva {
 	public void removeTratamiento(Tratamiento t) {
 		tratamientos.remove(t);
 		t.getReservas().remove(this);
-	}
+	}*/
 	
 	
 
