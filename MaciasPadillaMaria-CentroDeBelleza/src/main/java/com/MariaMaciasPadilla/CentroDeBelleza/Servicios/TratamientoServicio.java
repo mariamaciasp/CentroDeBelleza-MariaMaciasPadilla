@@ -96,5 +96,9 @@ public class TratamientoServicio extends BaseService<Tratamiento, Long, Tratamie
 	public int numeroTratamientosCategoria(Categoria categoria) {
 		return repositorio.findNumTratamientosByCategoria(categoria);
 	}
+	
+	public List<Tratamiento> variosPorId(List<Long> ids) {
+		return repositorio.findAllById(ids);
+	}
 
 }

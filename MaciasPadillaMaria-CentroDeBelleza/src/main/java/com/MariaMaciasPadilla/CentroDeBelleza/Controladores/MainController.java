@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
@@ -139,7 +140,7 @@ public class MainController {
 	}
 	
 	@GetMapping("/registroSesion")
-	public String registroSesion(SecurityContextHolderAwareRequestWrapper request, Model model) {	
+	public String registroSesion(@AuthenticationPrincipal Cliente cliente, SecurityContextHolderAwareRequestWrapper request, Model model) {	
 		
 		listaCategorias();
 		listaTratamientos();
@@ -156,8 +157,15 @@ public class MainController {
 			return "/admin/sesionAdmin";
 			
 		} else if (request.isUserInRole("ROLE_USER")) {
-			model.addAttribute("listaReservas", servicioCliente.findAll());
+			model.addAttribute("listaReservas", servicioReserva.findAll());
+			model.addAttribute("nombre", cliente.getNombre());
+			model.addAttribute("apellidos", cliente.getApellidos());
+			model.addAttribute("fechaNacimiento", cliente.getFechaNacimiento());
+			model.addAttribute("telefono", cliente.getTelefono());
+			model.addAttribute("email", cliente.getEmail());
 			
+			
+			//model.addAttribute("clienteNombreForm", cliente.getNombre());
 			return "/user/sesionUser";
 			
 		} else{

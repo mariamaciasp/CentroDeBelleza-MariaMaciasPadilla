@@ -2,6 +2,8 @@ package com.MariaMaciasPadilla.CentroDeBelleza.Controladores;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,10 @@ public class ReservaController {
 	@Autowired
 	private ReservaServicio servicioReserva;
 	
+	@Autowired
+	HttpSession session;
+
+	
 	@ModelAttribute("tratamientos")
 	public List<Tratamiento> todosLosTratamientos() {
 		return servicioTratamiento.findAll();
@@ -48,6 +54,7 @@ public class ReservaController {
 	/**
 	 * Métodos asociados al carrito
 	 */
+	
 	@GetMapping("/carrito/add/{id}")
 	public String addToCart(@PathVariable("id") Long id) {
 		carrito.addToCarrito(id);	
@@ -76,9 +83,29 @@ public class ReservaController {
 	}
 	
 	
+	@ModelAttribute("carrito")
+	public List<Tratamiento> reservasCarrito() {
+		List<Long> contenido = (List<Long>) session.getAttribute("carrito");
+		return (contenido == null) ? null : servicioTratamiento.variosPorId(contenido);
+	}
+	
+	
 	@GetMapping("/carrito/process")
-	public String procesarCarrito() {
+	public String procesarCarrito(@AuthenticationPrincipal Cliente cliente, Model model) {
 		
+		List <Long> contenido = (List<Long>) session.getAttribute("carrito");
+		
+		if (contenido == null)
+			return "redirect:/";
+		
+		List<Tratamiento> tratamientos = reservasCarrito();
+		
+		Reserva r = servicioReserva.insertar(new Reserva(), cliente);
+		
+		tratamientos.forEach(t -> servicioReserva.addTratamientoReserva(t, r));
+		session.removeAttribute("carrito");
+		
+		//model.addAttribute("cliente", cliente.getNombre());
 		// En este método habría que conectar con otro servicio
 		// para transformar los datos del carrito en una compra de
 		// verdad. 
@@ -86,6 +113,7 @@ public class ReservaController {
 		// TODO Procesamiento de productos
 		
 		// Posteriormente, habría que vaciarlo y redirigir al usuario donde corresponda
+		
 		carrito.clear();
 		return "redirect:/";
 		

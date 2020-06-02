@@ -1,27 +1,9 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragmentos/head::head}">
 	<meta charset="utf-8">
 	<title>Sesión Usuario</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" type="text/css" href="/css/CSS.css">
-
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-	<!-- Popper JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/JSCentroBelleza.js"></script>
 
 	<script type="text/javascript" src="/js/libreriaFechas.js"></script>
@@ -69,6 +51,7 @@
 						            <thead class="thead-light">
 						                <tr>
 						                    <th>Número de reserva</th>
+						                    <th>Cliente</th>
 						                    <th>Fecha</th>
 						                    <th>Precio</th>
 						                </tr>
@@ -77,7 +60,7 @@
 						                <tr th:each="reserva : ${listaReservas}">
 						                    <td th:text="${reserva.numReserva}">4</td>
 						                    <td th:text="${reserva.cliente.nombre}">María</td>
-						                    <td th:text="${reserva.fechaYhora}">20/10/2019</td>
+						                    <td th:text="${#temporals.format(reserva.fechaYhora,'dd/MMM/yyyy HH:mm')}">20/10/2019</td>
 						                    <td th:text="${reserva.precio}">40,50 €</td>
 						                </tr>
 						            </tbody>
@@ -96,26 +79,25 @@
 						            <thead class="thead-light">
 						                
 						            </thead>
-						          
-						            <tbody class="text-secondary">
+						            <tbody class="text-secondary" >
 						                <tr>
 						                    <td class="font-weight-bolder">Nombre</td>
-						                    <td class="nombre">María</td>
+						                    <td class="nombre" th:text="${nombre}">María</td>
 						                    <td><button class="modificarN btn btn-danger">Modificar</button> <button class="cancelarN btn btn-danger">Cancelar</button></td>
 						                </tr>
 						                <tr>
 						                    <td class="font-weight-bolder">Apellidos</td>
-						                    <td class="apellidos">Macías Padilla</td>
+						                    <td class="apellidos"  th:text="${apellidos}">Macías Padilla</td>
 						                    <td><button class="modificarA btn btn-danger">Modificar</button> <button class="cancelarA btn btn-danger">Cancelar</button></td>
 						                </tr>
 						                <tr >
 						                    <td class="font-weight-bolder">Fecha de nacimiento</td>
-						                    <td class="fechaNac">01/02/2019</td>
+						                    <td class="fechaNac" th:text="${fechaNacimiento}">01/02/2019</td>
 						                    <td><button class="modificarFN btn btn-danger">Modificar</button> <button class="cancelarFN btn btn-danger">Cancelar</button></td>
 						                </tr>
 						                <tr>
 						                    <td class="font-weight-bolder">Teléfono</td>
-						                    <td class="telefono">617507017</td>
+						                    <td class="telefono"  th:text="${telefono}">617507017</td>
 						                    <td><button class="modificarT btn btn-danger">Modificar</button> <button class="cancelarT btn btn-danger">Cancelar</button></td>
 						             
 						                </tr>
@@ -145,7 +127,7 @@
 						            <tbody class="text-secondary">
 						                <tr>
 						                    <td class="font-weight-bolder">Email</td>
-						                    <td class="email">mariam@gmail.com</td>
+						                    <td class="email"  th:text="${email}">mariam@gmail.com</td>
 						                    <td><button class="modificarE btn btn-danger">Modificar</button> <button class="cancelarE btn btn-danger">Cancelar</button></td>
 						                </tr>
 						            </tbody>

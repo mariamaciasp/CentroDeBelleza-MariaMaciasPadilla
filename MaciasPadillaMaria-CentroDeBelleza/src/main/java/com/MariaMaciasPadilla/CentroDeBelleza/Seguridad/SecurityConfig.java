@@ -55,58 +55,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.logoutUrl("/logout")
 			.permitAll()
 			.and()
+		.rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400)
+			.and()
 		.exceptionHandling()
 			.accessDeniedPage("/acceso-denegado");
-			//.and()
-			//.rememberMe().tokenRepository(persistentTokenRepository())
-			//.tokenValiditySeconds(1209600);
-		//.rememberMe()
-			//.tokenValiditySeconds(3600)
-		//	.key("admin") intento de recordar contraseña
-	
+			
+
 		// Añadimos esto para poder seguir accediendo a la consola de H2
 		// con Spring Security habilitado.
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
-		
-		// @formatter:on
-		
-		/* Intento de recordar contraseña
-		 String internalSecretKey = "internalSecretKey";
-		 http.rememberMe().rememberMeServices(rememberMeServices(internalSecretKey)).key(internalSecretKey);*/
+
 		
 	}
     
-	/*OTRO INTENTO DE RECORDAR LA CONTRASEÑA
-	 * @Autowired
-	DataSource dataSource;
-
-	@Bean
-	public PersistentTokenRepository persistentTokenRepository() {
-		JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-		db.setDataSource(dataSource);
-		return db;
-	}
-	
-	@Bean
-	public SavedRequestAwareAuthenticationSuccessHandler
-	            savedRequestAwareAuthenticationSuccessHandler() {
-	
-	           SavedRequestAwareAuthenticationSuccessHandler auth
-	                = new SavedRequestAwareAuthenticationSuccessHandler();
-		auth.setTargetUrlParameter("targetUrl");
-		return auth;
-	}*/
-	
-	/*
-	 * Intento de recordar mi contraseña en el ordenador
-	@Bean
-	 public RememberMeServices rememberMeServices(String internalSecretKey) {
-	    TokenBasedRememberMeServices rememberMeServices = new TokenBasedRememberMeServices("password", userDetailsService());
-	    rememberMeServices.setCookieName("cookieName");
-	    rememberMeServices.setParameter("rememberMe");
-
-	    return rememberMeServices;
-	 }*/
-
 }

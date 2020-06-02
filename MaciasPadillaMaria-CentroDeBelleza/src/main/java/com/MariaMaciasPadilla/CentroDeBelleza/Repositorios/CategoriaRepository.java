@@ -9,7 +9,7 @@ import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Categoria;
 
 public interface CategoriaRepository extends JpaRepository <Categoria, Long>{
 	
-	@Query("select distinct c from Categoria c join fetch c.tratamientos")
+	@Query("select distinct c from Categoria c left join fetch c.tratamientos")
 	List <Categoria> findAllJoin();
 
 }
