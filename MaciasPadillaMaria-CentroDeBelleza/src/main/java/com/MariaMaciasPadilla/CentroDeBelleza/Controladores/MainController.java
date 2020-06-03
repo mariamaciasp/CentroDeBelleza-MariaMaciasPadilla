@@ -157,7 +157,8 @@ public class MainController {
 			return "/admin/sesionAdmin";
 			
 		} else if (request.isUserInRole("ROLE_USER")) {
-			model.addAttribute("listaReservas", servicioReserva.findAll());
+			//model.addAttribute("listaReservas", servicioReserva.findAll()); con esto las imprime todas
+			model.addAttribute("listaReservas", servicioReserva.porCliente(cliente));
 			model.addAttribute("nombre", cliente.getNombre());
 			model.addAttribute("apellidos", cliente.getApellidos());
 			model.addAttribute("fechaNacimiento", cliente.getFechaNacimiento());

@@ -185,12 +185,33 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 			servicioUsuario.save(new Cliente("Antonio", "García", LocalDate.of(2018, 10, 30) , "954000000","antoniogarcia@mail.com",passwordEncoder.encode("1234")));
 			servicioUsuario.save(new Cliente("Maria", "Macias", LocalDate.of(1994, 05, 02), "95943423", "mariamacias@gmail.com", passwordEncoder.encode("1234")));
 			
-			servicioUsuario.save(cliente);
 			
+			Cliente cliente2 = new Cliente();
+			cliente2.setEmail("user2");
+			cliente2.setPassword(passwordEncoder.encode("1234"));
+			cliente2.setFechaNacimiento(LocalDate.of(1990, 1, 1));
+			cliente2.setApellidos("usuario2");
+			cliente2.setNombre("usuario2");
+			cliente2.setTelefono("95941sds74");
+			
+			
+
 			// Reservas
 			
+			Reserva r1 = new Reserva(LocalDateTime.now(),20.0, emple, cliente);
+			Reserva r2 = new Reserva(LocalDateTime.now(),10.0, emple, cliente);
+			Reserva r3 = new Reserva(LocalDateTime.now(),100.0, emple, cliente2);
+			
+			cliente.addReservaC(r1);
+			cliente.addReservaC(r2);
+			cliente2.addReservaC(r3);
+			servicioUsuario.save(cliente2);
+			servicioUsuario.save(cliente);
+
 			servicioReserva.save(new Reserva(LocalDateTime.now(),20.0, emple, cliente));
 			servicioReserva.save(new Reserva(LocalDateTime.now(),10, emple, cliente));
+			servicioReserva.save(new Reserva(LocalDateTime.now(),100, emple, cliente2));
+
 			
 					
 				
