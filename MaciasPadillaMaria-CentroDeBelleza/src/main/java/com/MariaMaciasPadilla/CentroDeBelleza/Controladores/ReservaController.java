@@ -93,11 +93,11 @@ public class ReservaController {
 	@GetMapping("/carrito/process")
 	public String procesarCarrito(@AuthenticationPrincipal Cliente cliente, Model model) {
 		
-		List <Long> contenido = (List<Long>) session.getAttribute("carrito");
+		/*List <Long> contenido = (List<Long>) session.getAttribute("carrito");
 		
 		if (contenido == null)
 			return "redirect:/";
-		
+		*/
 		List<Tratamiento> tratamientos = reservasCarrito();
 		
 		Reserva r = servicioReserva.insertar(new Reserva(), cliente);
