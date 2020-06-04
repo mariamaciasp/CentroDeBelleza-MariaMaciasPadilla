@@ -60,5 +60,7 @@ public interface Carrito {
 	 * @return
 	 */
 	float importeTotal();
+	
+	int cantidadDeUnTratamiento(Tratamiento t);
 
 }

@@ -98,6 +98,15 @@ public class CarritoImpl implements Carrito{
 		return acumulador;
 	}
 	
+	@Override
+	public int cantidadDeUnTratamiento(Tratamiento t) {
+		int cant = 0;
+		
+		cant += tratamientosEnCarrito.get(t);
+		
+		return cant;
+	}
+	
 	/**
 	 * Importe total de lo que se incluye en el carrito.
 	 * 

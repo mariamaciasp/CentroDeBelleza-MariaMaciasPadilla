@@ -198,9 +198,9 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 
 			// Reservas
 			
-			Reserva r1 = new Reserva(LocalDateTime.now(),20.0, emple, cliente);
-			Reserva r2 = new Reserva(LocalDateTime.now(),10.0, emple, cliente);
-			Reserva r3 = new Reserva(LocalDateTime.now(),100.0, emple, cliente2);
+			Reserva r1 = new Reserva(LocalDateTime.now(),20.0, emple, cliente, t1);
+			Reserva r2 = new Reserva(LocalDateTime.now(),10.0, emple, cliente, t2);
+			Reserva r3 = new Reserva(LocalDateTime.now(),100.0, emple, cliente2, t3);
 			
 			cliente.addReservaC(r1);
 			cliente.addReservaC(r2);
@@ -208,9 +208,9 @@ public class MaciasPadillaMariaCentroDeBellezaApplication {
 			servicioUsuario.save(cliente2);
 			servicioUsuario.save(cliente);
 
-			servicioReserva.save(new Reserva(LocalDateTime.now(),20.0, emple, cliente));
-			servicioReserva.save(new Reserva(LocalDateTime.now(),10, emple, cliente));
-			servicioReserva.save(new Reserva(LocalDateTime.now(),100, emple, cliente2));
+			servicioReserva.save(r1);
+			servicioReserva.save(r2);
+			servicioReserva.save(r3);
 
 			
 					

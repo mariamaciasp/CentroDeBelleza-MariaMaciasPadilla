@@ -31,9 +31,6 @@ public class ReservaController {
 	private final Carrito carrito;
 	@Autowired
 	private ReservaServicio servicioReserva;
-	
-	@Autowired
-	HttpSession session;
 
 	
 	@ModelAttribute("tratamientos")
@@ -83,27 +80,40 @@ public class ReservaController {
 	}
 	
 	
-	@ModelAttribute("carrito")
+	/*@ModelAttribute("carrito")
 	public List<Tratamiento> reservasCarrito() {
 		List<Long> contenido = (List<Long>) session.getAttribute("carrito");
 		return (contenido == null) ? null : servicioTratamiento.variosPorId(contenido);
-	}
+	}*/
 	
 	
 	@GetMapping("/carrito/process")
 	public String procesarCarrito(@AuthenticationPrincipal Cliente cliente, Model model) {
+		//, @PathVariable("id") Long id
+		//Tratamiento tratamiento = servicioTratamiento.findById(id);
+
 		
+	
+		for (Tratamiento t : carrito.getCarrito().keySet()) {
+		//	model.addAttribute("carrito", carrito.numeroTotalDeUnidades())
+			Reserva reserva = new Reserva ();
+			t.addReserva(reserva);
+			reserva.setCliente(cliente);
+			reserva.setPrecio(t.getPrecio()*carrito.cantidadDeUnTratamiento(t));
+			//servicioReserva.edit(reserva);
+			servicioReserva.insertarR(reserva);
+			
+		}
 		/*List <Long> contenido = (List<Long>) session.getAttribute("carrito");
 		
 		if (contenido == null)
 			return "redirect:/";
 		*/
-		List<Tratamiento> tratamientos = reservasCarrito();
 		
-		Reserva r = servicioReserva.insertar(new Reserva(), cliente);
+	//	Reserva r = servicioReserva.insertarRCT(new Reserva(), cliente, tratamientos);
 		
-		tratamientos.forEach(t -> servicioReserva.addTratamientoReserva(t, r));
-		session.removeAttribute("carrito");
+		//tratamientos.forEach(t -> servicioReserva.addTratamientoReserva(t, r));
+		//session.removeAttribute("carrito");
 		
 		//model.addAttribute("cliente", cliente.getNombre());
 		// En este método habría que conectar con otro servicio

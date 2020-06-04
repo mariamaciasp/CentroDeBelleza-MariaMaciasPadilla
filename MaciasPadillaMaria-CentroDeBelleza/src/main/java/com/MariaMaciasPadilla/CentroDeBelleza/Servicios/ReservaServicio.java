@@ -17,8 +17,7 @@ public class ReservaServicio extends BaseService<Reserva, Long, ReservaRepositor
 	//private List <Reserva> listaReservas = new ArrayList <Reserva>(); 
 
 	public ReservaServicio(ReservaRepository repo) {
-		super(repo);
-		
+		super(repo);		
 	}
 	
 	@Autowired
@@ -28,12 +27,18 @@ public class ReservaServicio extends BaseService<Reserva, Long, ReservaRepositor
 	TratamientoServicio tratamientoServicio;
 	
 	
-	public Reserva insertar(Reserva r, Cliente c) {
+	public Reserva insertarRC(Reserva r, Cliente c) {
 		r.setCliente(c);
 		return reservaRepository.save(r);
 	}
 	
-	public Reserva insertar(Reserva r) {
+	public Reserva insertarRCT(Reserva r, Cliente c, Tratamiento t) {
+		r.setTratamiento(t);
+		r.setCliente(c);
+		return reservaRepository.save(r);
+	}
+	
+	public Reserva insertarR(Reserva r) {
 		return reservaRepository.save(r);
 	}
 	
@@ -54,12 +59,6 @@ public class ReservaServicio extends BaseService<Reserva, Long, ReservaRepositor
 		return reservaRepository.findByCliente(c);
 	}
 
-	public Object addTratamientoReserva(Tratamiento t, Reserva r) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	
+
 
 }

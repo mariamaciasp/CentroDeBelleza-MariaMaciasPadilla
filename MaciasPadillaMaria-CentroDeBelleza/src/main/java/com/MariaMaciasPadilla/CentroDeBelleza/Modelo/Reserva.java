@@ -52,6 +52,18 @@ public class Reserva {
 			inverseJoinColumns = @JoinColumn(name="tratamiento_id")
 			)*/
 	private Tratamiento tratamiento;
+
+
+	public Reserva(LocalDateTime fechaYhora, double precio, Empleado empleado, Cliente cliente,
+			Tratamiento tratamiento) {
+		super();
+		this.fechaYhora = fechaYhora;
+		this.precio = precio;
+		this.empleado = empleado;
+		this.cliente = cliente;
+		this.tratamiento = tratamiento;
+	}
+	
 	
 	
 	/** MÉTODOS HELPERS - asociación muchos a muchos entre reserva y tratamiento**/
