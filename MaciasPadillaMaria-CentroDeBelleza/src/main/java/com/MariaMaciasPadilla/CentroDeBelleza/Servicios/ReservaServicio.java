@@ -1,5 +1,6 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Servicios;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,11 @@ public class ReservaServicio extends BaseService<Reserva, Long, ReservaRepositor
 	public List<Reserva> porCliente(Cliente c) {
 		return reservaRepository.findByCliente(c);
 	}
-
+	private Reserva reserva;
+	public LocalDateTime obtenerFechaYhora () {
+		reserva.setFechaYhora(LocalDateTime.now());
+		return reserva.getFechaYhora();
+	}
 
 
 }

@@ -1,5 +1,6 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Carrito;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -7,6 +8,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Tratamiento;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.TratamientoServicio;
 
@@ -20,7 +22,7 @@ public class CarritoImpl implements Carrito{
 	private Map<Tratamiento, Integer> tratamientosEnCarrito = new LinkedHashMap<>();
 	private final TratamientoServicio tratamientoServicio;
 	
-		
+	
 	/**
 	 * Añade un producto al carrito. 
 	 * Si el producto ya estaba, incrementa en una unidad el nº de elementos
@@ -126,6 +128,12 @@ public class CarritoImpl implements Carrito{
 	public void clear() {
 		tratamientosEnCarrito.clear();
 		
+	}
+	
+	public LocalDateTime obtenerFechaYhora (LocalDateTime fechaYhora) {
+		Reserva r = new Reserva();
+		r.setFechaYhora(fechaYhora);
+		return r.getFechaYhora();
 	}
 	
 

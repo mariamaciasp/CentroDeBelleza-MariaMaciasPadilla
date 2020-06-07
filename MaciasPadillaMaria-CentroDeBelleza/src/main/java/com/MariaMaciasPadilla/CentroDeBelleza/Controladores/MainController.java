@@ -1,9 +1,9 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Controladores;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.MariaMaciasPadilla.CentroDeBelleza.Carrito.Carrito;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Categoria;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Cliente;
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Tratamiento;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.CategoriaServicio;
 import com.MariaMaciasPadilla.CentroDeBelleza.Servicios.ClienteServicio;
@@ -39,7 +41,7 @@ public class MainController {
 	@Autowired
 	private CategoriaServicio servicioCategoria;
 	
-	private final String BASE_IMAGE_PATH;
+	//private final String BASE_IMAGE_PATH;
 	private static final int NUM_TRATAMIENTOS_ALEATORIOS = 8;
 	
 	
@@ -54,20 +56,24 @@ public class MainController {
 		return tratamientos;
 	}
 
-	
+	/*
 	public MainController(TratamientoServicio servicioTratamiento, @Value("${image.base-path:/files}") String path) {
+	
 		this.servicioTratamiento = servicioTratamiento;
 		this.BASE_IMAGE_PATH = path;
-	}
+	}*/
 	
-	@ModelAttribute("base_image_path")
+	/*@ModelAttribute("base_image_path")
 	public String baseImagePath() {
 		return this.BASE_IMAGE_PATH;
 	}
+	*/
 
 	
 	@GetMapping("/peluqueria")
-	public String indexTratamiento(@RequestParam(name="idCategoria", required=false) Long idCategoria, Model model) {		
+	public String indexTratamiento(@RequestParam(name="idCategoria", required=false) Long idCategoria, Model model
+			/*,
+			@RequestParam(name="fechaYhora", required=false) LocalDateTime fechaYhora*/) {		
 		
 		model.addAttribute("categorias", servicioCategoria.findAll());
 		
@@ -80,6 +86,7 @@ public class MainController {
 		}
 		
 		model.addAttribute("tratamientos", tratamientos);
+		//model.addAttribute("fechaYhora", fechaYhora);
 		
 		return "peluqueria";
 	}
@@ -196,7 +203,8 @@ public class MainController {
 	
 	
 	@GetMapping("/carrito")
-	public String carrito() {
+	public String carrito(/*@ModelAttribute("fecha") LocalDateTime fecha, Model model*/) {
+		//model.addAttribute("fecha", fecha);
 		listaCategorias();
 		listaTratamientos();
 		return "/carrito";
@@ -217,5 +225,147 @@ public class MainController {
 		listaTratamientos();
 		return "cookies";
 	}
+	
+	
+	
+	
+	
+//	
+//	@Autowired
+//	private  Carrito carrito;
+//	
+//	
+//	@ModelAttribute("tratamientos")
+//	public List<Tratamiento> todosLosTratamientos() {
+//		return servicioTratamiento.findAll();
+//	}
+//	
+//	
+//	@GetMapping("/tratamientoC") 
+//	public String carrito(Model model) { 
+//
+//		model.addAttribute("listaTratamientos", servicioTratamiento.findAll());
+//		
+//		return "tratamiento"; }
+//	 
+//	
+//	
+//	/**
+//	 * Métodos asociados al carrito
+//	 */
+//	
+//	@GetMapping("/carrito/add/{id}")
+//	public String addToCart(@PathVariable("id") Long id) {
+//		carrito.addToCarrito(id);	
+//		return "redirect:/carrito";
+//	}
+//
+//	@PostMapping("/carrito/submit")
+//	public String carritoSubmit(@ModelAttribute("reservaForm") Reserva reserva, @AuthenticationPrincipal Cliente cliente,
+//			@ModelAttribute("fechaYhora") LocalDateTime fechaYhora, Model model) {
+//		LocalDateTime fecha = fechaYhora;
+//		model.addAttribute("fecha", fecha);
+//		//reserva.setFechaYhora(fechaYhora);
+//		//reserva.setCliente(cliente);
+//		//cliente.addReservaC(reserva);
+//		//servicioReserva.save(reserva);
+//		
+//		return "redirect:/carrito";
+//	}
+//	
+//	@GetMapping("/carrito/mostrar")
+//	public String showCart(Model model,	@ModelAttribute("fechaYhora") LocalDateTime fechaYhora) {
+//		model.addAttribute("carrito", carrito.getCarrito());
+//		model.addAttribute("numTratamientossDiferentes", carrito.numeroTotalTratamientosDiferentes());
+//		model.addAttribute("importeTotal", carrito.importeTotal());
+//		model.addAttribute("numUnidades", carrito.numeroTotalDeUnidades());
+//		model.addAttribute("fechaYhora", fechaYhora/*carrito*//*.obtenerFechaYhora(fechaYhora)*/);
+//		return "carrito";
+//	}
+//	
+//	@GetMapping("/carrito/remove/{id}")
+//	public String removeFromCart(@PathVariable("id") Long id) {
+//		carrito.removeFromCarrito(id);
+//		return "redirect:/carrito/mostrar";
+//	}
+//	
+//	@GetMapping("/carrito/clear")
+//	public String clearCart() {
+//		carrito.clear();
+//		return "redirect:/";
+//	}
+//	
+//	
+//	/*@ModelAttribute("carrito")
+//	public List<Tratamiento> reservasCarrito() {
+//		List<Long> contenido = (List<Long>) session.getAttribute("carrito");
+//		return (contenido == null) ? null : servicioTratamiento.variosPorId(contenido);
+//	}*/
+//	
+//	
+//	@GetMapping("/carrito/process")
+//	public String procesarCarrito(@AuthenticationPrincipal Cliente cliente, Model model) {
+//		//, @PathVariable("id") Long id
+//		//Tratamiento tratamiento = servicioTratamiento.findById(id);
+//
+//		
+//	
+//		for (Tratamiento t : carrito.getCarrito().keySet()) {
+//		//	model.addAttribute("carrito", carrito.numeroTotalDeUnidades())
+//			Reserva reserva = new Reserva ();
+//			t.addReserva(reserva);
+//			reserva.setCliente(cliente);
+//			reserva.setPrecio(t.getPrecio()*carrito.cantidadDeUnTratamiento(t));
+//			//servicioReserva.edit(reserva);
+//			servicioReserva.insertarR(reserva);
+//			
+//		}
+//		/*List <Long> contenido = (List<Long>) session.getAttribute("carrito");
+//		
+//		if (contenido == null)
+//			return "redirect:/";
+//		*/
+//		
+//	//	Reserva r = servicioReserva.insertarRCT(new Reserva(), cliente, tratamientos);
+//		
+//		//tratamientos.forEach(t -> servicioReserva.addTratamientoReserva(t, r));
+//		//session.removeAttribute("carrito");
+//		
+//		//model.addAttribute("cliente", cliente.getNombre());
+//		// En este método habría que conectar con otro servicio
+//		// para transformar los datos del carrito en una compra de
+//		// verdad. 
+//		
+//		// TODO Procesamiento de productos
+//		
+//		// Posteriormente, habría que vaciarlo y redirigir al usuario donde corresponda
+//		
+//		carrito.clear();
+//		return "redirect:/";
+//		
+//	}
+//	
+//	@GetMapping("/newReserva")
+//	public String nuevoClienteFormu (Model model) {
+//		model.addAttribute("reservaForm", new Reserva());
+//		return "/peluqueria";
+//	}
+//	
+//	@PostMapping("/newReserva/submit")
+//	public String nuevoClienteSubmit (@ModelAttribute("reservaForm") Reserva reserva, @AuthenticationPrincipal Cliente cliente,
+//			@ModelAttribute("fechaYhora") LocalDateTime fechaYhora) {
+//		
+//		reserva.setFechaYhora(fechaYhora);
+//		reserva.setCliente(cliente);
+//		cliente.addReservaC(reserva);
+//		servicioReserva.save(reserva);
+//		
+//		return "redirect:/carrito";
+//	}
+//	
+	
+	
+	
+	
 
 }

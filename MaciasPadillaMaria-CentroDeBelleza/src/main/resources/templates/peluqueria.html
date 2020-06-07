@@ -17,6 +17,7 @@
 	<div class="row">
 		<div class="col-12"><h1 class="cabecera display-4 bg-light text-center mb-5" 
 		>Tratamientos</h1></div>
+		<!--<form method="POST" action="#" th:action="@{/newReserva/submit}" th:object="${reservaForm}">  -->
   		<div class="col-10 tarjeta card mb-5" th:each="tratamiento : ${tratamientos}">
   			<div class="row no-gutters">
     			<div class="col-md-4">
@@ -32,12 +33,16 @@
 					      	<table id="tablaHacerReservas" class="table table-borderless text-center table-sm" summary="Reservar">
 						       	<caption class="menorLetra mb-1">Selecciona tu cita</caption>
 							        <tbody>
-							            <tr >
+							        	 <tr>
+							        	<!--  <form method="POST" action="#" th:action="@{/carrito/add/{id}(id=${tratamiento.id})}" th:object="${reservaForm}">
+							            -->
 							                <td>
-							                	<input type="datetime-local" class="form-control" id="fecha" name="fecha" min="2020/05/21T09:30" max="2021/05/21T20:00" step="1800">
+							                	<input type="datetime-local" class="form-control" id="fecha" name="fecha" min="2020/05/21T09:30" max="2021/05/21T20:00" step="1800"
+							                	><!-- th:text="${fechaYhora}"  th:field="*{fechaYhora}"-->
 							                	<!--  th:text="${tratamiento.fechaYhora}"--></td>
 							           		<td><a type="submit" id="reservar" class="btn btn-dark float-right"
-							           		 th:href="@{/carrito/add/{id}(id=${tratamiento.id})}">Reservar</a></td> 
+							           		 >Reservar</a></td>
+							           		 <!--  </form> -->
 							           	</tr>   
 							        </tbody>
 							    </table>

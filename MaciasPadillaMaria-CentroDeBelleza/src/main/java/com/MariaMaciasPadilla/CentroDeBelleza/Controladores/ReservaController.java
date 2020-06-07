@@ -2,8 +2,6 @@ package com.MariaMaciasPadilla.CentroDeBelleza.Controladores;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -55,15 +53,17 @@ public class ReservaController {
 	@GetMapping("/carrito/add/{id}")
 	public String addToCart(@PathVariable("id") Long id) {
 		carrito.addToCarrito(id);	
+		
 		return "redirect:/carrito/mostrar";
 	}
 
 	@GetMapping("/carrito/mostrar")
-	public String showCart(Model model) {
+	public String showCart(Model model/*,	@ModelAttribute("fechaYhora") LocalDateTime fechaYhora*/) {
 		model.addAttribute("carrito", carrito.getCarrito());
 		model.addAttribute("numTratamientossDiferentes", carrito.numeroTotalTratamientosDiferentes());
 		model.addAttribute("importeTotal", carrito.importeTotal());
 		model.addAttribute("numUnidades", carrito.numeroTotalDeUnidades());
+		//model.addAttribute("fechaYhora", fechaYhora/*carrito*//*.obtenerFechaYhora(fechaYhora)*/);
 		return "carrito";
 	}
 	
@@ -136,14 +136,19 @@ public class ReservaController {
 	}
 	
 	@PostMapping("/newReserva/submit")
-	public String nuevoClienteSubmit (@ModelAttribute("reservaForm") Reserva reserva, @AuthenticationPrincipal Cliente cliente) {
+	public String nuevoClienteSubmit (@ModelAttribute("reservaForm") Reserva reserva, @AuthenticationPrincipal Cliente cliente
+			/*@ModelAttribute("fechaYhora") LocalDateTime fechaYhora*/) {
 		
+		//reserva.setFechaYhora(fechaYhora);
 		reserva.setCliente(cliente);
 		cliente.addReservaC(reserva);
 		servicioReserva.save(reserva);
 		
 		return "redirect:/carrito";
 	}
+	
+	
+	
 	
 	
 }

@@ -1,7 +1,9 @@
 package com.MariaMaciasPadilla.CentroDeBelleza.Carrito;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
+import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Reserva;
 import com.MariaMaciasPadilla.CentroDeBelleza.Modelo.Tratamiento;
 
 public interface Carrito {
@@ -62,5 +64,7 @@ public interface Carrito {
 	float importeTotal();
 	
 	int cantidadDeUnTratamiento(Tratamiento t);
+	
+	LocalDateTime obtenerFechaYhora (LocalDateTime fechaYhora);
 
 }
